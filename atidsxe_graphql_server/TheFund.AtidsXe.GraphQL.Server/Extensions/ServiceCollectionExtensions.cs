@@ -9,4 +9,5 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
     {
 
     }
+
 }

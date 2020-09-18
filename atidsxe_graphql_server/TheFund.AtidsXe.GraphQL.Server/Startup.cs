@@ -3,17 +3,29 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.IO;
 
 namespace TheFund.AtidsXe.GraphQL.Server
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+        #region Fields
 
-        public IConfiguration Configuration { get; }
+        private readonly IWebHostEnvironment _hostingEnvironment;
+        private readonly IConfiguration _configuration;
+
+        #endregion
+
+        public Startup(IWebHostEnvironment environment)
+        {
+            _hostingEnvironment = environment;
+
+            var configBuilder = new ConfigurationBuilder()
+                               .SetBasePath(Directory.GetCurrentDirectory())
+                               .AddJsonFile($"appsettings.{environment.EnvironmentName}.json", false);
+
+            _configuration = configBuilder.Build();
+        }
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -26,16 +38,8 @@ namespace TheFund.AtidsXe.GraphQL.Server
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
-
             app.UseRouting();
 
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
         }
     }
 }
