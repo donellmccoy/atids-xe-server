@@ -20,5 +20,9 @@
     <PackageReference Include="HotChocolate.Types.Sorting" Version="10.5.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TheFund.AtidsXe.Data\TheFund.AtidsXe.Data.csproj" />
+  </ItemGroup>
+
 
 </Project>
