@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheFund.AtidsXe.Data", "TheFund.AtidsXe.Data\TheFund.AtidsXe.Data.csproj", "{A4B35335-EB5F-4719-9AE7-95E082CA57B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheFund.AtidsXe.GraphQL.Server", "TheFund.AtidsXe.GraphQL.Server\TheFund.AtidsXe.GraphQL.Server.csproj", "{3CD2B86D-A087-46C7-BBD0-E93328A18EDD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A4B35335-EB5F-4719-9AE7-95E082CA57B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4B35335-EB5F-4719-9AE7-95E082CA57B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4B35335-EB5F-4719-9AE7-95E082CA57B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CD2B86D-A087-46C7-BBD0-E93328A18EDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CD2B86D-A087-46C7-BBD0-E93328A18EDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CD2B86D-A087-46C7-BBD0-E93328A18EDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CD2B86D-A087-46C7-BBD0-E93328A18EDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
