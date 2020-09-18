@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.IO;
+using TheFund.AtidsXe.GraphQL.Server.Extensions;
 
 namespace TheFund.AtidsXe.GraphQL.Server
 {
@@ -29,6 +30,7 @@ namespace TheFund.AtidsXe.GraphQL.Server
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContextServices(_hostingEnvironment, _configuration);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
