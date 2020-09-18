@@ -1,0 +1,45 @@
+﻿{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:61178",
+      "sslPort": 44386
+    }
+  },
+  "profiles": {
+    "Using Development Database": {
+      "commandName": "Project",
+      "launchUrl": "api/graphql",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:5002"
+    },
+    "Using Local Database": {
+      "commandName": "Project",
+      "launchUrl": "api/graphql",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Local"
+      },
+      "applicationUrl": "http://localhost:5002"
+    },
+    "Using Personal Database": {
+      "commandName": "Project",
+      "launchUrl": "api/graphql",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Personal"
+      },
+      "applicationUrl": "http://localhost:5002"
+    },
+    "Using Production": {
+      "commandName": "Project",
+      "launchUrl": "api/graphql",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      },
+      "applicationUrl": "http://localhost:5002"
+    }
+  }
+}
