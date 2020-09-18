@@ -8,6 +8,7 @@
     <Folder Include="Configuration\" />
     <Folder Include="Context\" />
     <Folder Include="Entities\Partial\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
 
   <ItemGroup>
