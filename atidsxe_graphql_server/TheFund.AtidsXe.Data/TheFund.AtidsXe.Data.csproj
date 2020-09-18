@@ -7,7 +7,7 @@
   <ItemGroup>
     <Folder Include="Configuration\" />
     <Folder Include="Context\" />
-    <Folder Include="Entities\" />
+    <Folder Include="Entities\Partial\" />
   </ItemGroup>
 
   <ItemGroup>
