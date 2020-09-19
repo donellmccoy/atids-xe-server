@@ -11,5 +11,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Options
         public int MaxRetryDelay { get; set; }
         public TimeSpan MaxRetryDelayTimeSpan => new TimeSpan(MaxRetryDelay);
         public bool EnablePooling { get; set; }
+        public bool UseInMemoryDatabase { get; set; }
+        public string InMemoryDatabaseName { get; set; }
     }
 }
