@@ -23,14 +23,17 @@ namespace TheFund.AtidsXe.GraphQL.Server
 
             var configBuilder = new ConfigurationBuilder()
                                .SetBasePath(Directory.GetCurrentDirectory())
-                               .AddJsonFile($"appsettings.{environment.EnvironmentName}.json", false);
+                               .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                               .AddJsonFile($"appsettings.{environment.EnvironmentName}.json", false)
+                               .AddEnvironmentVariables();
 
             _configuration = configBuilder.Build();
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContextServices(_hostingEnvironment, _configuration);
+            services.ConfigureOptions(_configuration)
+                    .AddDbContextServices(_hostingEnvironment, _configuration);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

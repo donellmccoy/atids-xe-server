@@ -6,14 +6,21 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
 {
     public static class ConfigurationExtensions
     {
-        public static T GetSection<T>([NotNull] this IConfiguration configuration)
+        public static IConfigurationSection GetSection<T>([NotNull] this IConfiguration configuration) where T : class
+        {
+            configuration.EnsureNotNull();
+
+            return configuration.GetSection(typeof(T).Name);
+        }
+
+        public static T GetOption<T>([NotNull] this IConfiguration configuration) where T: class
         {
             configuration.EnsureNotNull();
 
             return configuration.GetSection(typeof(T).Name).Get<T>();
         }
 
-        public static T GetSection<T>([NotNull] this IConfiguration configuration, [NotNull] string key)
+        public static T GetOption<T>([NotNull] this IConfiguration configuration, [NotNull] string key)
         {
             configuration.EnsureNotNull();
             key.EnsureNotNullOrWhitespace();
