@@ -27,37 +27,43 @@ namespace TheFund.AtidsXe.GraphQL.Server.Data
                 {
                     BranchLocationId = 1,
                     AccountNumber = "1",
-                    Description = "Branch 1"
+                    Description = "Branch 1",
+                    IsInternal = 1
                 },
                 new BranchLocation
                 {
                     BranchLocationId = 2,
                     AccountNumber = "2",
-                    Description = "Branch 2"
+                    Description = "Branch 2",
+                    IsInternal = 1
                 },
                 new BranchLocation
                 {
                     BranchLocationId = 3,
                     AccountNumber = "3",
-                    Description = "Branch 3"
+                    Description = "Branch 3",
+                    IsInternal = 1
                 },
                 new BranchLocation
                 {
                     BranchLocationId = 4,
                     AccountNumber = "4",
-                    Description = "Branch 4"
+                    Description = "Branch 4",
+                    IsInternal = 1
                 },
                 new BranchLocation
                 {
                     BranchLocationId = 5,
                     AccountNumber = "5",
-                    Description = "Branch 5"
+                    Description = "Branch 5",
+                    IsInternal = 1
                 },
                 new BranchLocation
                 {
                     BranchLocationId = 6,
                     AccountNumber = "6",
-                    Description = "Branch 6"
+                    Description = "Branch 6",
+                    IsInternal = 1
                 }
             );
         }
