@@ -36,7 +36,12 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
 
             if(options.UseInMemoryDatabase)
             {
-                services.AddDbContext<ATIDSXEContext>(_=> _.UseInMemoryDatabase(options.InMemoryDatabaseName));
+                services.AddDbContext<ATIDSXEContext>(_ =>
+                {
+                    _.EnableDetailedErrors(options.EnableDetailedErrors);
+                    _.UseInMemoryDatabase(options.InMemoryDatabaseName);
+                });
+
                 DataGenerator.Initialize(services);
             }
             else
