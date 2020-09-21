@@ -16,6 +16,7 @@ namespace TheFund.AtidsXe.Data.Context
         }
 
         public virtual DbSet<BranchLocation> BranchLocation { get; set; }
+        public virtual DbSet<FileStatus> FileStatus { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

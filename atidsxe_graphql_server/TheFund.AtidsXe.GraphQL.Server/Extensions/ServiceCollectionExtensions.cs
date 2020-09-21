@@ -1,4 +1,7 @@
 ﻿using Ensure;
+using HotChocolate;
+using HotChocolate.Execution.Configuration;
+using HotChocolate.Types;
 using JetBrains.Annotations;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -7,11 +10,30 @@ using Microsoft.Extensions.DependencyInjection;
 using TheFund.AtidsXe.Data.Context;
 using TheFund.AtidsXe.GraphQL.Server.Data;
 using TheFund.AtidsXe.GraphQL.Server.Options;
+using TheFund.AtidsXe.GraphQL.Server.Queries;
 
 namespace TheFund.AtidsXe.GraphQL.Server.Extensions
 {
     public static class ServiceCollectionExtensions
     {
+        public static IServiceCollection ConfigureGraphQL([NotNull] this IServiceCollection services, [NotNull] IConfiguration configuration)
+        {
+            services.EnsureNotNull();
+
+            var options = configuration.GetOption<QueryExecutionOptions>();
+
+            services.AddDataLoaderRegistry()
+                    .AddGraphQL(sp => SchemaBuilder.New()
+                                                   .AddServices(sp)
+                                                   .AddQueryType(d => d.Name("Query"))
+                                                   .AddType<BranchLocationQueries>()
+                                                   .AddType<FileStatusQueries>()
+                                                   .BindClrType<string, StringType>()
+                                                   .Create(), options);
+
+            return services;
+        }
+
         public static IServiceCollection ConfigureOptions([NotNull] this IServiceCollection services, [NotNull] IConfiguration configuration)
         {
             services.EnsureNotNull();
@@ -26,7 +48,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
             return services;
         }
 
-        public static IServiceCollection AddDbContextServices([NotNull] this IServiceCollection services, [NotNull] IWebHostEnvironment environment, [NotNull] IConfiguration configuration)
+        public static IServiceCollection ConfigureDbContext([NotNull] this IServiceCollection services, [NotNull] IWebHostEnvironment environment, [NotNull] IConfiguration configuration)
         {
             services.EnsureNotNull();
             environment.EnsureNotNull();
