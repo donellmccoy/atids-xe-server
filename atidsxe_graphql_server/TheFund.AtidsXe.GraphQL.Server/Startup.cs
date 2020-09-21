@@ -1,7 +1,4 @@
-using HotChocolate;
 using HotChocolate.AspNetCore;
-using HotChocolate.Execution.Configuration;
-using HotChocolate.Types;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -9,7 +6,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.IO;
 using TheFund.AtidsXe.GraphQL.Server.Extensions;
-using TheFund.AtidsXe.GraphQL.Server.Queries;
 
 namespace TheFund.AtidsXe.GraphQL.Server
 {
@@ -38,15 +34,8 @@ namespace TheFund.AtidsXe.GraphQL.Server
         public void ConfigureServices(IServiceCollection services)
         {
             services.ConfigureOptions(_configuration)
-                    .AddDbContextServices(_hostingEnvironment, _configuration)
-                    .AddDataLoaderRegistry()
-                    .AddGraphQL(sp => SchemaBuilder.New()
-                                                   .AddServices(sp)
-                                                   .AddQueryType(d => d.Name("Query"))
-                                                   .AddType<BranchLocationQueries>()
-                                                   .BindClrType<string, StringType>()
-                                                   .Create(),
-                    new QueryExecutionOptions { ForceSerialExecution = true });
+                    .ConfigureDbContext(_hostingEnvironment, _configuration)
+                    .ConfigureGraphQL(_configuration);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -12,11 +12,11 @@ namespace TheFund.AtidsXe.GraphQL.Server.Data
         {
             services.EnsureNotNull();
 
-            using (var context = new ATIDSXEContext(services.BuildServiceProvider().GetRequiredService<DbContextOptions<ATIDSXEContext>>()))
-            {
-                LoadBranchLocations(context);
-                context.SaveChanges();
-            }
+            using var context = new ATIDSXEContext(services.BuildServiceProvider().GetRequiredService<DbContextOptions<ATIDSXEContext>>());
+            LoadBranchLocations(context);
+            LoadFileStatuses(context);
+
+            context.SaveChanges();
         }
 
         private static void LoadBranchLocations(ATIDSXEContext context)
@@ -64,6 +64,33 @@ namespace TheFund.AtidsXe.GraphQL.Server.Data
                     AccountNumber = "6",
                     Description = "Branch 6",
                     IsInternal = 1
+                }
+            );
+        }
+
+        private static void LoadFileStatuses(ATIDSXEContext context)
+        {
+            context.FileStatus.AddRange
+            (
+                new FileStatus 
+                {
+                    FileStatusId = 1,
+                    Description = "Description 1"
+                },
+                new FileStatus
+                {
+                    FileStatusId = 2,
+                    Description = "Description 2"
+                },
+                new FileStatus
+                {
+                    FileStatusId = 3,
+                    Description = "Description 3"
+                },
+                new FileStatus
+                {
+                    FileStatusId = 4,
+                    Description = "Description 4"
                 }
             );
         }
