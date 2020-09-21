@@ -26,8 +26,8 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
                     .AddGraphQL(sp => SchemaBuilder.New()
                                                    .AddServices(sp)
                                                    .AddQueryType(d => d.Name("Query"))
-                                                   .AddType<BranchLocationQueries>()
-                                                   .AddType<FileStatusQueries>()
+                                                       .AddType<BranchLocationQueries>()
+                                                       .AddType<FileStatusQueries>()
                                                    .BindClrType<string, StringType>()
                                                    .Create(), options);
 
