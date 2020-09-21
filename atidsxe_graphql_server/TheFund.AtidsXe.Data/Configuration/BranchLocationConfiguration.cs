@@ -8,13 +8,12 @@ namespace TheFund.AtidsXe.Data.Configuration
     {
         public void Configure(EntityTypeBuilder<BranchLocation> builder)
         {
-            builder.Property(e => e.BranchLocationId).ValueGeneratedOnAdd();
-
-            builder.Property(e => e.AccountNumber).HasMaxLength(5).IsUnicode(false).IsRequired();
+            builder.ToTable("BRANCH_LOCATION");
             builder.HasIndex(e => e.AccountNumber).HasName("IX_BRANCH_LOCATION_ACCOUNT").IsUnique();
-
-            builder.Property(e => e.Description).IsUnicode(false);
-            builder.Property(e => e.Description).HasMaxLength(50).IsRequired();
+            builder.Property(e => e.BranchLocationId).HasColumnName("BRANCH_LOCATION_ID").ValueGeneratedOnAdd();
+            builder.Property(e => e.AccountNumber).HasColumnName("ACCOUNT_NUMBER").HasMaxLength(5).IsUnicode(false).IsRequired();
+            builder.Property(e => e.Description).HasColumnName("DESCRIPTION").IsUnicode(false).HasMaxLength(50).IsRequired();
+            builder.Property(e => e.IsInternal).HasColumnName("IS_INTERNAL");
         }
     }
 }
