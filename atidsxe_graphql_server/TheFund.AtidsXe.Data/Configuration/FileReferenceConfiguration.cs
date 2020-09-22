@@ -8,7 +8,7 @@ namespace TheFund.AtidsXe.Data.Configuration
     {
         public void Configure(EntityTypeBuilder<FileReference> builder)
         {
-            builder.ToTable("FILE_STATUS");
+            builder.ToTable("FILE_REFERENCE");
 
             builder.HasIndex(e => e.BranchLocationId)
                    .HasName("I_FK_BRANCH_LOCATION");
