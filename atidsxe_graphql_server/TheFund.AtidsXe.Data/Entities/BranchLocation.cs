@@ -1,9 +1,13 @@
-﻿namespace TheFund.AtidsXe.Data.Entities
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace TheFund.AtidsXe.Data.Entities
 {
     public partial class BranchLocation
     {
         public BranchLocation()
         {
+            FileReference = new HashSet<FileReference>();
         }
 
         public int BranchLocationId { get; set; }
@@ -14,7 +18,7 @@
 
         public byte? IsInternal { get; set; }
 
-        //[InverseProperty("BranchLocation")]
-        //public virtual ICollection<FileReference> FileReference { get; set; }
+        [InverseProperty("BranchLocation")]
+        public virtual ICollection<FileReference> FileReference { get; set; }
     }
 }

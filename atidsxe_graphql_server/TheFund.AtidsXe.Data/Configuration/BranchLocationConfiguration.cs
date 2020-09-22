@@ -9,11 +9,34 @@ namespace TheFund.AtidsXe.Data.Configuration
         public void Configure(EntityTypeBuilder<BranchLocation> builder)
         {
             builder.ToTable("BRANCH_LOCATION");
-            builder.HasIndex(e => e.AccountNumber).HasName("IX_BRANCH_LOCATION_ACCOUNT").IsUnique();
-            builder.Property(e => e.BranchLocationId).HasColumnName("BRANCH_LOCATION_ID").ValueGeneratedOnAdd();
-            builder.Property(e => e.AccountNumber).HasColumnName("ACCOUNT_NUMBER").HasMaxLength(5).IsUnicode(false).IsRequired();
-            builder.Property(e => e.Description).HasColumnName("DESCRIPTION").IsUnicode(false).HasMaxLength(50).IsRequired();
-            builder.Property(e => e.IsInternal).HasColumnName("IS_INTERNAL");
+
+            builder.HasIndex(e => e.AccountNumber)
+                   .HasName("IX_BRANCH_LOCATION_ACCOUNT")
+                   .IsUnique();
+
+            builder.Property(e => e.BranchLocationId)
+                   .HasColumnName("BRANCH_LOCATION_ID")
+                   .ValueGeneratedOnAdd();
+
+            builder.Property(e => e.AccountNumber)
+                   .HasColumnName("ACCOUNT_NUMBER")
+                   .HasMaxLength(5)
+                   .IsUnicode(false)
+                   .IsRequired();
+
+            builder.Property(e => e.Description)
+                   .HasColumnName("DESCRIPTION")
+                   .IsUnicode(false)
+                   .HasMaxLength(50)
+                   .IsRequired();
+
+            builder.Property(e => e.IsInternal)
+                   .HasColumnName("IS_INTERNAL")
+                   .IsRequired(false);
+
+            builder.HasMany(p => p.FileReference)
+                   .WithOne(p => p.BranchLocation)
+                   .HasForeignKey(p => p.BranchLocationId);
         }
     }
 }
