@@ -1,7 +1,6 @@
 ﻿using HotChocolate;
 using HotChocolate.Types;
 using HotChocolate.Types.Relay;
-using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using TheFund.AtidsXe.Data.Context;
 using TheFund.AtidsXe.Data.Entities;
@@ -24,7 +23,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Queries
         [UseSelection]
         public IQueryable<FileReference> GetBranchLocationByName(string fileReferenceName, [Service] ATIDSXEContext context)
         {
-            return context.FileReference.Where(p => p.FileReference1 == fileReferenceName);
+            return context.FileReference.Where(p => p.Name == fileReferenceName);
         }
 
         [UseFirstOrDefault]

@@ -6,10 +6,6 @@ namespace TheFund.AtidsXe.Data.Context
 {
     public partial class ATIDSXEContext : DbContext
     {
-        public ATIDSXEContext()
-        {
-        }
-
         public ATIDSXEContext(DbContextOptions<ATIDSXEContext> options)
             : base(options)
         {

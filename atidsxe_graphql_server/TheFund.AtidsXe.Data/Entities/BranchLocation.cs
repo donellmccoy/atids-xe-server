@@ -18,7 +18,6 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public byte? IsInternal { get; set; }
 
-        [InverseProperty("BranchLocation")]
         public virtual ICollection<FileReference> FileReference { get; set; }
     }
 }

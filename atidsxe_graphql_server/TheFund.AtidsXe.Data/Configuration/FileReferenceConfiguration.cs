@@ -19,7 +19,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.HasIndex(e => e.FileStatusId)
                    .HasName("I_FK_STATUS");
 
-            builder.HasIndex(e => new { e.FileReference1, e.BranchLocationId })
+            builder.HasIndex(e => new { e.Name, e.BranchLocationId })
                    .HasName("I_FILE_REFERENCE")
                    .IsUnique();
 
@@ -29,7 +29,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.Property(e => e.BranchLocationId)
                    .HasColumnName("BRANCH_LOCATION_ID");
 
-            builder.Property(e => e.FileReference1)
+            builder.Property(e => e.Name)
                    .HasColumnName("FILE_REFERENCE")
                    .IsUnicode(false)
                    .HasMaxLength(50)

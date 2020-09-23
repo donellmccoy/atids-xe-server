@@ -7,10 +7,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Builder;
 using TheFund.AtidsXe.Data.Context;
 using TheFund.AtidsXe.GraphQL.Server.Data;
 using TheFund.AtidsXe.GraphQL.Server.Options;
 using TheFund.AtidsXe.GraphQL.Server.Queries;
+using HotChocolate.Execution;
+using StackExchange.Redis;
 
 namespace TheFund.AtidsXe.GraphQL.Server.Extensions
 {
@@ -31,6 +34,9 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
                                                        .AddType<FileStatusQueries>()
                                                    .BindClrType<string, StringType>()
                                                    .Create(), options);
+
+
+            //services.AddReadOnlyRedisQueryStorage(s => s.GetRequiredService<ConnectionMultiplexer>().GetDatabase());
 
             return services;
         }
@@ -72,7 +78,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
                 void CreateOptionsAction(DbContextOptionsBuilder builder)
                 {
                     builder.EnableDetailedErrors(options.EnableDetailedErrors);
-                    builder.UseQueryTrackingBehavior(QueryTrackingBehavior.TrackAll);
+                    builder.UseQueryTrackingBehavior(options.QueryTrackingBehavior);
                     builder.UseSqlServer
                     (
                         options.ConnectionString,

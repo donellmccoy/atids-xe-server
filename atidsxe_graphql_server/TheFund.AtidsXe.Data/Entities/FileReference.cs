@@ -12,7 +12,7 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public int BranchLocationId { get; set; }
 
-        public string FileReference1 { get; set; }
+        public string Name { get; set; }
 
         public int FileStatusId { get; set; }
 

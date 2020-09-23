@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 
 namespace TheFund.AtidsXe.GraphQL.Server.Options
@@ -16,5 +17,6 @@ namespace TheFund.AtidsXe.GraphQL.Server.Options
         ServiceLifetime ContextLifetime { get; set; }
         ServiceLifetime OptionsLifetime { get; set; }
         bool EnableDetailedErrors { get; set; }
+        QueryTrackingBehavior QueryTrackingBehavior { get; set; }
     }
 }
