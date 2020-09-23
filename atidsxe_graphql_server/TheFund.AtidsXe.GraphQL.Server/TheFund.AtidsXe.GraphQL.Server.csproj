@@ -5,9 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Mutations\" />
     <Folder Include="Inputs\" />
-    <Folder Include="DataLoaders\" />
     <Folder Include="Payloads\" />
     <Folder Include="Subscriptions\" />
   </ItemGroup>

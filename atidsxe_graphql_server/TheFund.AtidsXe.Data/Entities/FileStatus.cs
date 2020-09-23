@@ -14,6 +14,6 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public string Description { get; set; }
 
-        public virtual ICollection<FileReference> FileReference { get; set; }
+        public ICollection<FileReference> FileReference { get; set; }
     }
 }

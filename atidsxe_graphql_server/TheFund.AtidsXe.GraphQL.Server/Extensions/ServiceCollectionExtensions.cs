@@ -14,6 +14,8 @@ using TheFund.AtidsXe.GraphQL.Server.Options;
 using TheFund.AtidsXe.GraphQL.Server.Queries;
 using HotChocolate.Execution;
 using StackExchange.Redis;
+using TheFund.AtidsXe.GraphQL.Server.DataLoaders;
+using TheFund.AtidsXe.GraphQL.Server.Mutations;
 
 namespace TheFund.AtidsXe.GraphQL.Server.Extensions
 {
@@ -25,13 +27,17 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
 
             var options = configuration.GetOption<QueryExecutionOptions>();
 
-            services.AddDataLoaderRegistry()
-                    .AddGraphQL(sp => SchemaBuilder.New()
+            services.AddDataLoaderRegistry();
+            services.AddDataLoader<FileReferenceByIdDataLoader>();
+
+            services.AddGraphQL(sp => SchemaBuilder.New()
                                                    .AddServices(sp)
                                                    .AddQueryType(d => d.Name("Query"))
                                                        .AddType<FileReferenceQueries>()
                                                        .AddType<BranchLocationQueries>()
                                                        .AddType<FileStatusQueries>()
+                                                    .AddMutationType(d => d.Name("Mutation"))
+                                                        .AddType<FileReferenceMutations>()
                                                    .BindClrType<string, StringType>()
                                                    .Create(), options);
 

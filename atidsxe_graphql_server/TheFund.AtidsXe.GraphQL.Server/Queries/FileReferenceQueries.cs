@@ -1,9 +1,13 @@
 ﻿using HotChocolate;
 using HotChocolate.Types;
 using HotChocolate.Types.Relay;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using TheFund.AtidsXe.Data.Context;
 using TheFund.AtidsXe.Data.Entities;
+using TheFund.AtidsXe.GraphQL.Server.DataLoaders;
 
 namespace TheFund.AtidsXe.GraphQL.Server.Queries
 {
@@ -19,18 +23,20 @@ namespace TheFund.AtidsXe.GraphQL.Server.Queries
             return context.FileReference;
         }
 
-        [UseFirstOrDefault]
-        [UseSelection]
-        public IQueryable<FileReference> GetBranchLocationByName(string fileReferenceName, [Service] ATIDSXEContext context)
+        public async Task<FileReference> GetFileReferenceByIdAsync(
+            int id,
+            FileReferenceByIdDataLoader loader,
+            CancellationToken cancellationToken)
         {
-            return context.FileReference.Where(p => p.Name == fileReferenceName);
+            return await loader.LoadAsync(id, cancellationToken);
         }
 
-        [UseFirstOrDefault]
-        [UseSelection]
-        public IQueryable<FileReference> GetBranchLocationById(int fileReferenceId, [Service] ATIDSXEContext context)
+        public async Task<IEnumerable<FileReference>> GetFileReferencesByIdAsync(
+            int[] ids,
+            FileReferenceByIdDataLoader loader,
+            CancellationToken cancellationToken)
         {
-            return context.FileReference.Where(p => p.FileReferenceId == fileReferenceId);
+            return await loader.LoadAsync(ids, cancellationToken);
         }
     }
 }

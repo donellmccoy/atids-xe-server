@@ -26,10 +26,10 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public byte? IsTemporaryFile { get; set; }
 
-        public virtual BranchLocation BranchLocation { get; set; }
+        public BranchLocation BranchLocation { get; set; }
 
-        public virtual GeographicLocale DefaultGeographicLocale { get; set; }
+        public GeographicLocale DefaultGeographicLocale { get; set; }
 
-        public virtual FileStatus FileStatus { get; set; }
+        public FileStatus FileStatus { get; set; }
     }
 }
