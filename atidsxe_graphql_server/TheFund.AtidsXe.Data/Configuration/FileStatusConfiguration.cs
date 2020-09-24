@@ -25,5 +25,4 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .IsRequired();
         }
     }
-
 }

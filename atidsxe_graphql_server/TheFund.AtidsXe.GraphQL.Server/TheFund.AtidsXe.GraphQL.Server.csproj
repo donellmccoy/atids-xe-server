@@ -7,7 +7,6 @@
   <ItemGroup>
     <Folder Include="Inputs\" />
     <Folder Include="Payloads\" />
-    <Folder Include="Subscriptions\" />
   </ItemGroup>
 
   <ItemGroup>

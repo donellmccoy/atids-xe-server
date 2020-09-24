@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TheFund.AtidsXe.Data.Entities
 {
@@ -31,5 +32,15 @@ namespace TheFund.AtidsXe.Data.Entities
         public GeographicLocale DefaultGeographicLocale { get; set; }
 
         public FileStatus FileStatus { get; set; }
+
+        //public TitleSearchOrigination TitleSearchOrigination { get; set; }
+
+        public Worksheet Worksheet { get; set; }
+        
+        public ICollection<FileReferenceNotes> FileReferenceNotes { get; set; }
+
+        //public ICollection<ChainOfTitle> ChainOfTitle { get; set; }
+
+        //public ICollection<Search> Search { get; set; }
     }
 }

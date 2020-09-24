@@ -24,6 +24,8 @@ namespace TheFund.AtidsXe.GraphQL.Server.DataLoaders
             CancellationToken cancellationToken)
         {
             return await _context.FileReference.Where(s => keys.Contains(s.FileReferenceId))
+                                               .Include(p => p.Worksheet)
+                                               .ThenInclude(p => p.WorksheetItem)
                                                .Include(p => p.BranchLocation)
                                                .Include(p => p.FileStatus)
                                                .Include(p => p.DefaultGeographicLocale)

@@ -22,8 +22,6 @@ namespace TheFund.AtidsXe.Data.Entities
         [StringLength(1024)]
         public string Message { get; set; }
 
-        [ForeignKey("FileReferenceId")]
-        [InverseProperty("FileReferenceNotes")]
-        public virtual FileReference FileReference { get; set; }
+        public FileReference FileReference { get; set; }
     }
 }

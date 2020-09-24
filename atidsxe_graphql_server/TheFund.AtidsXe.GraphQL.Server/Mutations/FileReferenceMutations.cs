@@ -12,7 +12,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Mutations
     [ExtendObjectType(Name = "Mutation")]
     public class FileReferenceMutations
     {
-        public async Task<UpdateTemporaryFileStatusPayload> UpdateTemporaryStatusAsync(
+        public async Task<UpdateTemporaryFileStatusPayload> UpdateTemporaryFileStatusAsync(
             UpdateTemporaryFileStatusInput input,
             [Service] ATIDSXEContext context,
             CancellationToken cancellationToken)

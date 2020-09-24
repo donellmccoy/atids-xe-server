@@ -15,6 +15,8 @@ namespace TheFund.AtidsXe.Data.Context
         public virtual DbSet<FileStatus> FileStatus { get; set; }
         public virtual DbSet<FileReference> FileReference { get; set; }
         public virtual DbSet<GeographicLocale> GeographicLocale { get; set; }
+        public virtual DbSet<Worksheet> Worksheet { get; set; }
+        public virtual DbSet<WorksheetItem> WorksheetItem { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
