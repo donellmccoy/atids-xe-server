@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TheFund.AtidsXe.Data.Entities
 {
@@ -18,7 +17,6 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public byte? IsInternal { get; set; }
 
-        [InverseProperty("BranchLocation")]
-        public virtual ICollection<FileReference> FileReference { get; set; }
+        public ICollection<FileReference> FileReference { get; set; }
     }
 }

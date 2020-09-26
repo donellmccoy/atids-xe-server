@@ -19,6 +19,6 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public int? ParentGeographicLocaleId { get; set; }
 
-        public virtual ICollection<FileReference> FileReference { get; set; }
+        public ICollection<FileReference> FileReference { get; set; }
     }
 }

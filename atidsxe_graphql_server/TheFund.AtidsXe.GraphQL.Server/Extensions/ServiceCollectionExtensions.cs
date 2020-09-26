@@ -7,10 +7,15 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Builder;
 using TheFund.AtidsXe.Data.Context;
 using TheFund.AtidsXe.GraphQL.Server.Data;
 using TheFund.AtidsXe.GraphQL.Server.Options;
 using TheFund.AtidsXe.GraphQL.Server.Queries;
+using HotChocolate.Execution;
+using StackExchange.Redis;
+using TheFund.AtidsXe.GraphQL.Server.DataLoaders;
+using TheFund.AtidsXe.GraphQL.Server.Mutations;
 
 namespace TheFund.AtidsXe.GraphQL.Server.Extensions
 {
@@ -22,15 +27,23 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
 
             var options = configuration.GetOption<QueryExecutionOptions>();
 
-            services.AddDataLoaderRegistry()
-                    .AddGraphQL(sp => SchemaBuilder.New()
+            services.AddDataLoaderRegistry();
+            services.AddDataLoader<FileReferenceByIdDataLoader>();
+
+            services.AddGraphQL(sp => SchemaBuilder.New()
                                                    .AddServices(sp)
                                                    .AddQueryType(d => d.Name("Query"))
                                                        .AddType<FileReferenceQueries>()
                                                        .AddType<BranchLocationQueries>()
                                                        .AddType<FileStatusQueries>()
+                                                    .AddMutationType(d => d.Name("Mutation"))
+                                                        .AddType<FileReferenceMutations>()
                                                    .BindClrType<string, StringType>()
-                                                   .Create(), options);
+                                                   .Create(), b => b.UsePersistedQueryPipeline().AddSha256DocumentHashProvider());
+
+
+            services.AddReadOnlyFileSystemQueryStorage("/usr/temp/queries");
+            //services.AddReadOnlyRedisQueryStorage(s => s.GetRequiredService<ConnectionMultiplexer>().GetDatabase());
 
             return services;
         }
@@ -72,7 +85,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
                 void CreateOptionsAction(DbContextOptionsBuilder builder)
                 {
                     builder.EnableDetailedErrors(options.EnableDetailedErrors);
-                    builder.UseQueryTrackingBehavior(QueryTrackingBehavior.TrackAll);
+                    builder.UseQueryTrackingBehavior(options.QueryTrackingBehavior);
                     builder.UseSqlServer
                     (
                         options.ConnectionString,

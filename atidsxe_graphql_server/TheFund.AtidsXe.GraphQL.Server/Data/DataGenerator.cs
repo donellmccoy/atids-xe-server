@@ -61,7 +61,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Data
                 new FileReference
                 {
                     FileReferenceId = 1,
-                    FileReference1 = "fileReference 1",
+                    Name = "fileReference 1",
                     WorkerId = "worker 1",
                     CreateDate = DateTime.Now,
                     UpdateDate = DateTime.Now,
@@ -74,7 +74,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Data
                 new FileReference
                 {
                     FileReferenceId = 2,
-                    FileReference1 = "fileReference 2",
+                    Name = "fileReference 2",
                     WorkerId = "worker 2",
                     CreateDate = DateTime.Now,
                     UpdateDate = DateTime.Now,
@@ -87,7 +87,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Data
                 new FileReference
                 {
                     FileReferenceId = 3,
-                    FileReference1 = "fileReference 3",
+                    Name = "fileReference 3",
                     WorkerId = "worker 3",
                     CreateDate = DateTime.Now,
                     UpdateDate = DateTime.Now,
@@ -100,7 +100,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Data
                 new FileReference
                 {
                     FileReferenceId = 4,
-                    FileReference1 = "fileReference 4",
+                    Name = "fileReference 4",
                     WorkerId = "worker 4",
                     CreateDate = DateTime.Now,
                     UpdateDate = DateTime.Now,
@@ -113,7 +113,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Data
                 new FileReference
                 {
                     FileReferenceId = 5,
-                    FileReference1 = "fileReference 5",
+                    Name = "fileReference 5",
                     WorkerId = "worker 5",
                     CreateDate = DateTime.Now,
                     UpdateDate = DateTime.Now,
@@ -126,7 +126,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Data
                 new FileReference
                 {
                     FileReferenceId = 6,
-                    FileReference1 = "fileReference 6",
+                    Name = "fileReference 6",
                     WorkerId = "worker 6",
                     CreateDate = DateTime.Now,
                     UpdateDate = DateTime.Now,

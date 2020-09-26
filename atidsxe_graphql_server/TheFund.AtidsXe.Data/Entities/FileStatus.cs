@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TheFund.AtidsXe.Data.Entities
 {
@@ -14,6 +13,6 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public string Description { get; set; }
 
-        public virtual ICollection<FileReference> FileReference { get; set; }
+        public ICollection<FileReference> FileReference { get; set; }
     }
 }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using HotChocolate.Types;
+using HotChocolate.Types.Relay;
+using System;
+using System.Collections.Generic;
 
 namespace TheFund.AtidsXe.Data.Entities
 {
@@ -12,7 +15,7 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public int BranchLocationId { get; set; }
 
-        public string FileReference1 { get; set; }
+        public string Name { get; set; }
 
         public int FileStatusId { get; set; }
 
@@ -26,10 +29,28 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public byte? IsTemporaryFile { get; set; }
 
-        public virtual BranchLocation BranchLocation { get; set; }
+        public BranchLocation BranchLocation { get; set; }
 
-        public virtual GeographicLocale DefaultGeographicLocale { get; set; }
+        public GeographicLocale DefaultGeographicLocale { get; set; }
 
-        public virtual FileStatus FileStatus { get; set; }
+        public FileStatus FileStatus { get; set; }
+
+        public TitleSearchOrigination TitleSearchOrigination { get; set; }
+
+        public Worksheet Worksheet { get; set; }
+
+        [UsePaging]
+        [UseSelection]
+        [UseFiltering]
+        [UseSorting]
+        public ICollection<FileReferenceNotes> FileReferenceNotes { get; set; }
+
+        [UsePaging]
+        [UseSelection]
+        [UseFiltering]
+        [UseSorting]
+        public ICollection<ChainOfTitle> ChainOfTitles { get; set; }
+
+        //public ICollection<Search> Search { get; set; }
     }
 }

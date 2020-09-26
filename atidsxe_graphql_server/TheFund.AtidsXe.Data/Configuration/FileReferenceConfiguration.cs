@@ -8,7 +8,7 @@ namespace TheFund.AtidsXe.Data.Configuration
     {
         public void Configure(EntityTypeBuilder<FileReference> builder)
         {
-            builder.ToTable("FILE_STATUS");
+            builder.ToTable("FILE_REFERENCE");
 
             builder.HasIndex(e => e.BranchLocationId)
                    .HasName("I_FK_BRANCH_LOCATION");
@@ -19,7 +19,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.HasIndex(e => e.FileStatusId)
                    .HasName("I_FK_STATUS");
 
-            builder.HasIndex(e => new { e.FileReference1, e.BranchLocationId })
+            builder.HasIndex(e => new { e.Name, e.BranchLocationId })
                    .HasName("I_FILE_REFERENCE")
                    .IsUnique();
 
@@ -29,7 +29,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.Property(e => e.BranchLocationId)
                    .HasColumnName("BRANCH_LOCATION_ID");
 
-            builder.Property(e => e.FileReference1)
+            builder.Property(e => e.Name)
                    .HasColumnName("FILE_REFERENCE")
                    .IsUnicode(false)
                    .HasMaxLength(50)
@@ -74,6 +74,14 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasForeignKey(d => d.FileStatusId)
                    .OnDelete(DeleteBehavior.ClientSetNull)
                    .HasConstraintName("FK_FILE_STATUS_FILE_REFERENCE");
+
+            builder.HasOne(d => d.TitleSearchOrigination)
+                   .WithOne(p => p.FileReference)
+                   .HasForeignKey<TitleSearchOrigination>(d => d.FileReferenceId);
+
+            builder.HasOne(d => d.Worksheet)
+                   .WithOne(p => p.FileReference)
+                   .HasForeignKey<Worksheet>(d => d.FileReferenceId);
         }
     }
 }
