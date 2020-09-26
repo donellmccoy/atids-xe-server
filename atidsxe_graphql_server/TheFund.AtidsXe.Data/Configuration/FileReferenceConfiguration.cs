@@ -74,6 +74,14 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasForeignKey(d => d.FileStatusId)
                    .OnDelete(DeleteBehavior.ClientSetNull)
                    .HasConstraintName("FK_FILE_STATUS_FILE_REFERENCE");
+
+            builder.HasOne(d => d.TitleSearchOrigination)
+                   .WithOne(p => p.FileReference)
+                   .HasForeignKey<TitleSearchOrigination>(d => d.FileReferenceId);
+
+            builder.HasOne(d => d.Worksheet)
+                   .WithOne(p => p.FileReference)
+                   .HasForeignKey<Worksheet>(d => d.FileReferenceId);
         }
     }
 }

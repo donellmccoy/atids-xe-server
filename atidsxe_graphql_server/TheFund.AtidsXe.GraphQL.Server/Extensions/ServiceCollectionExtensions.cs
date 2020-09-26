@@ -39,9 +39,10 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
                                                     .AddMutationType(d => d.Name("Mutation"))
                                                         .AddType<FileReferenceMutations>()
                                                    .BindClrType<string, StringType>()
-                                                   .Create(), options);
+                                                   .Create(), b => b.UsePersistedQueryPipeline().AddSha256DocumentHashProvider());
 
 
+            services.AddReadOnlyFileSystemQueryStorage("/usr/temp/queries");
             //services.AddReadOnlyRedisQueryStorage(s => s.GetRequiredService<ConnectionMultiplexer>().GetDatabase());
 
             return services;

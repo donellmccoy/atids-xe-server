@@ -25,7 +25,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasForeignKey<Worksheet>(d => d.FileReferenceId)
                    .HasConstraintName("FK_FILE_REFERENCE_WKSHEET");
 
-            builder.HasMany(p => p.WorksheetItem)
+            builder.HasMany(p => p.WorksheetItems)
                    .WithOne(p => p.Worksheet)
                    .HasForeignKey(p => new { p.TitleEventId, p.WorksheetId });
         }

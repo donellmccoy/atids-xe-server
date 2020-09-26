@@ -24,17 +24,16 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.Property(p => p.Sequence)
                    .HasColumnName("SEQUENCE");
 
-            //builder.HasOne(d => d.TitleEvent)
-            //       .WithMany(p => p.WorksheetItem)
-            //       .HasForeignKey(d => d.TitleEventId)
-            //       .HasConstraintName("FK_TITLE_EVENT_WORKSHEET_ITEM");
+            builder.HasOne(d => d.TitleEvent)
+                   .WithMany(p => p.WorksheetItem)
+                   .HasForeignKey(d => d.TitleEventId)
+                   .HasConstraintName("FK_TITLE_EVENT_WORKSHEET_ITEM");
 
             builder.HasOne(d => d.Worksheet)
-                   .WithMany(p => p.WorksheetItem)
+                   .WithMany(p => p.WorksheetItems)
                    .HasForeignKey(d => d.WorksheetId)
                    .OnDelete(DeleteBehavior.ClientSetNull)
                    .HasConstraintName("FK_WORKSHEET_WORKSHEET_ITEM");
         }
     }
-
 }

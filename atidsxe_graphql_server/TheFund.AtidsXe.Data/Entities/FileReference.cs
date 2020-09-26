@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HotChocolate.Types;
+using HotChocolate.Types.Relay;
+using System;
 using System.Collections.Generic;
 
 namespace TheFund.AtidsXe.Data.Entities
@@ -33,13 +35,21 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public FileStatus FileStatus { get; set; }
 
-        //public TitleSearchOrigination TitleSearchOrigination { get; set; }
+        public TitleSearchOrigination TitleSearchOrigination { get; set; }
 
         public Worksheet Worksheet { get; set; }
-        
+
+        [UsePaging]
+        [UseSelection]
+        [UseFiltering]
+        [UseSorting]
         public ICollection<FileReferenceNotes> FileReferenceNotes { get; set; }
 
-        //public ICollection<ChainOfTitle> ChainOfTitle { get; set; }
+        [UsePaging]
+        [UseSelection]
+        [UseFiltering]
+        [UseSorting]
+        public ICollection<ChainOfTitle> ChainOfTitles { get; set; }
 
         //public ICollection<Search> Search { get; set; }
     }

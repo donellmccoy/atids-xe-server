@@ -25,7 +25,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.DataLoaders
         {
             return await _context.FileReference.Where(s => keys.Contains(s.FileReferenceId))
                                                .Include(p => p.Worksheet)
-                                               .ThenInclude(p => p.WorksheetItem)
+                                               .ThenInclude(p => p.WorksheetItems)
                                                .Include(p => p.BranchLocation)
                                                .Include(p => p.FileStatus)
                                                .Include(p => p.DefaultGeographicLocale)

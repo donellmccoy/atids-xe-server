@@ -8,7 +8,7 @@
 
         public int Sequence { get; set; }
 
-        //public TitleEvent TitleEvent { get; set; }
+        public TitleEvent TitleEvent { get; set; }
 
         public Worksheet Worksheet { get; set; }
     }

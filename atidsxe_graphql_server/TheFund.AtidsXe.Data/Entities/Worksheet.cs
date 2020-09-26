@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using HotChocolate.Types;
+using HotChocolate.Types.Relay;
+using System.Collections.Generic;
 
 namespace TheFund.AtidsXe.Data.Entities
 {
@@ -6,7 +8,7 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public Worksheet()
         {
-            WorksheetItem = new HashSet<WorksheetItem>();
+            WorksheetItems = new HashSet<WorksheetItem>();
         }
 
         public int WorksheetId { get; set; }
@@ -15,6 +17,10 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public FileReference FileReference { get; set; }
 
-        public ICollection<WorksheetItem> WorksheetItem { get; set; }
+        [UsePaging]
+        [UseSelection]
+        [UseFiltering]
+        [UseSorting]
+        public ICollection<WorksheetItem> WorksheetItems { get; set; }
     }
 }
