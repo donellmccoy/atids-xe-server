@@ -47,37 +47,42 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public ExaminationStatusType OriginalExamStatusType { get; set; }
 
-        //public TitleEventStatusAssignor TitleEventStatusAssignor { get; set; }
+        public TitleEventStatusAssignor TitleEventStatusAssignor { get; set; }
+
         //public TitleEventType TitleEventType { get; set; }
+
         //public MortgageTitleEvent MortgageTitleEvent { get; set; }
+
         //public TitleEventDocument TitleEventDocument { get; set; }
 
-        [UsePaging]
-        [UseSelection]
         [UseFiltering]
         [UseSorting]
         public ICollection<ChainOfTitleItem> ChainOfTitleItem { get; set; }
 
-        [UsePaging]
-        [UseSelection]
         [UseFiltering]
         [UseSorting]
         public ICollection<TitleSearchOrigination> TitleSearchOrigination { get; set; }
 
-        [UsePaging]
-        [UseSelection]
         [UseFiltering]
         [UseSorting]
         public ICollection<WorksheetItem> WorksheetItem { get; set; }
 
         //public ICollection<NameSearchListItem> NameSearchListItem { get; set; }
+
         //public ICollection<TitleEventGovtLotLegalMql> TitleEventGovtLotLegalMql { get; set; }
+
         //public ICollection<TitleEventLegalEntityMql> TitleEventLegalEntityMql { get; set; }
+
         //public ICollection<TitleEventNotes> TitleEventNotes { get; set; }
+
         //public ICollection<TitleEventOrderTracking> TitleEventOrderTracking { get; set; }
+
         //public ICollection<TitleEventParty> TitleEventParty { get; set; }
+
         //public ICollection<TitleEventPlattedLegalMql> TitleEventPlattedLegalMql { get; set; }
+
         //public ICollection<TitleEventSearch> TitleEventSearch { get; set; }
+
         //public ICollection<TitleEventSectionLegalMql> TitleEventSectionLegalMql { get; set; }
     }
 }

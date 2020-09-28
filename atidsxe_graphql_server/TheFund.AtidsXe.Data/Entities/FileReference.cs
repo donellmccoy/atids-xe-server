@@ -1,5 +1,4 @@
 ﻿using HotChocolate.Types;
-using HotChocolate.Types.Relay;
 using System;
 using System.Collections.Generic;
 
@@ -9,6 +8,9 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public FileReference()
         {
+            ChainOfTitles = new HashSet<ChainOfTitle>();
+            FileReferenceNotes = new HashSet<FileReferenceNotes>();
+            Searches = new HashSet<Search>();
         }
 
         public int FileReferenceId { get; set; }
@@ -29,28 +31,26 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public byte? IsTemporaryFile { get; set; }
 
-        public BranchLocation BranchLocation { get; set; }
+        public virtual BranchLocation BranchLocation { get; set; }
 
-        public GeographicLocale DefaultGeographicLocale { get; set; }
+        public virtual GeographicLocale DefaultGeographicLocale { get; set; }
 
-        public FileStatus FileStatus { get; set; }
+        public virtual FileStatus FileStatus { get; set; }
 
-        public TitleSearchOrigination TitleSearchOrigination { get; set; }
+        public virtual TitleSearchOrigination TitleSearchOrigination { get; set; }
 
-        public Worksheet Worksheet { get; set; }
+        public virtual Worksheet Worksheet { get; set; }
 
-        [UsePaging]
-        [UseSelection]
         [UseFiltering]
         [UseSorting]
-        public ICollection<FileReferenceNotes> FileReferenceNotes { get; set; }
+        public virtual ICollection<FileReferenceNotes> FileReferenceNotes { get; set; }
 
-        [UsePaging]
-        [UseSelection]
         [UseFiltering]
         [UseSorting]
-        public ICollection<ChainOfTitle> ChainOfTitles { get; set; }
+        public virtual ICollection<ChainOfTitle> ChainOfTitles { get; set; }
 
-        //public ICollection<Search> Search { get; set; }
+        [UseFiltering]
+        [UseSorting]
+        public virtual ICollection<Search> Searches { get; set; }
     }
 }

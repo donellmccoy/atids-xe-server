@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using HotChocolate.Types;
-using HotChocolate.Types.Relay;
+﻿using HotChocolate.Types;
+using System.Collections.Generic;
 
 namespace TheFund.AtidsXe.Data.Entities
 {
@@ -9,23 +8,26 @@ namespace TheFund.AtidsXe.Data.Entities
         public ChainOfTitle()
         {
             ChainOfTitleItems = new HashSet<ChainOfTitleItem>();
-            //ChainOfTitleNotes = new HashSet<ChainOfTitleNotes>();
-            //ChainOfTitleSearch = new HashSet<ChainOfTitleSearch>();
+            ChainOfTitleNotes = new HashSet<ChainOfTitleNotes>();
+            ChainOfTitleSearches = new HashSet<ChainOfTitleSearch>();
         }
 
         public int ChainOfTitleId { get; set; }
 
         public int FileReferenceId { get; set; }
 
-        public FileReference FileReference { get; set; }
+        public virtual FileReference FileReference { get; set; }
 
-        [UsePaging]
-        [UseSelection]
         [UseFiltering]
         [UseSorting]
-        public ICollection<ChainOfTitleItem> ChainOfTitleItems { get; set; }
+        public virtual ICollection<ChainOfTitleItem> ChainOfTitleItems { get; set; }
 
-        //public virtual ICollection<ChainOfTitleNotes> ChainOfTitleNotes { get; set; }
-        //public virtual ICollection<ChainOfTitleSearch> ChainOfTitleSearch { get; set; }
+        [UseFiltering]
+        [UseSorting]
+        public virtual ICollection<ChainOfTitleNotes> ChainOfTitleNotes { get; set; }
+
+        [UseFiltering]
+        [UseSorting]
+        public virtual ICollection<ChainOfTitleSearch> ChainOfTitleSearches { get; set; }
     }
 }

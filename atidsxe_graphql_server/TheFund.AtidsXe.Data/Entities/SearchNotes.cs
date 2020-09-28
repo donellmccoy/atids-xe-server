@@ -2,11 +2,11 @@
 
 namespace TheFund.AtidsXe.Data.Entities
 {
-    public partial class FileReferenceNotes
+    public partial class SearchNotes
     {
-        public int FileReferenceNotesId { get; set; }
+        public int SearchNotesId { get; set; }
 
-        public int FileReferenceId { get; set; }
+        public int SearchId { get; set; }
 
         public string UserId { get; set; }
 
@@ -14,6 +14,6 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public string Message { get; set; }
 
-        public FileReference FileReference { get; set; }
+        public virtual Search Search { get; set; }
     }
 }

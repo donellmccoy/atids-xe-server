@@ -8,22 +8,22 @@ using TheFund.AtidsXe.Data.Entities;
 namespace TheFund.AtidsXe.GraphQL.Server.Queries
 {
     [ExtendObjectType(Name = "Query")]
-    public class FileReferenceQueries
+    public class SearchQueries
     {
         [UsePaging]
         [UseSelection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<FileReference> GetFileReferences([Service] ATIDSXEContext context)
+        public IQueryable<Search> GetSearches([Service] ATIDSXEContext context)
         {
-            return context.FileReference;
+            return context.Search;
         }
 
         [UseSingleOrDefault]
         [UseSelection]
-        public IQueryable<FileReference> GetFileReferenceById([Service] ATIDSXEContext context, int fileReferenceId)
+        public IQueryable<Search> GetSearchById([Service] ATIDSXEContext context, int searchId)
         {
-            return context.FileReference.Where(p => p.FileReferenceId == fileReferenceId);
+            return context.Search.Where(p => p.SearchId == searchId);
         }
     }
 }

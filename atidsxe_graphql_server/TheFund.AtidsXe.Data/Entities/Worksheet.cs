@@ -17,8 +17,6 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public FileReference FileReference { get; set; }
 
-        [UsePaging]
-        [UseSelection]
         [UseFiltering]
         [UseSorting]
         public ICollection<WorksheetItem> WorksheetItems { get; set; }
