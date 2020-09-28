@@ -2,11 +2,11 @@
 
 namespace TheFund.AtidsXe.Data.Entities
 {
-    public partial class FileReferenceNotes
+    public partial class ChainOfTitleNotes
     {
-        public int FileReferenceNotesId { get; set; }
+        public int ChainOfTitleNotesId { get; set; }
 
-        public int FileReferenceId { get; set; }
+        public int ChainOfTitleId { get; set; }
 
         public string UserId { get; set; }
 
@@ -14,6 +14,6 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public string Message { get; set; }
 
-        public FileReference FileReference { get; set; }
+        public ChainOfTitle ChainOfTitle { get; set; }
     }
 }

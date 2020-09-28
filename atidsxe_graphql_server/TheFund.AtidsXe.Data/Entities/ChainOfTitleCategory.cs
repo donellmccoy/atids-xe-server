@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using HotChocolate.Types;
+using System.Collections.Generic;
 
 namespace TheFund.AtidsXe.Data.Entities
 {
@@ -13,6 +14,8 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public string Description { get; set; }
 
+        [UseFiltering]
+        [UseSorting]
         public virtual ICollection<ChainOfTitleItem> ChainOfTitleItem { get; set; }
     }
 }

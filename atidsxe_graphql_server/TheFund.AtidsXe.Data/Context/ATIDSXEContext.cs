@@ -11,6 +11,14 @@ namespace TheFund.AtidsXe.Data.Context
         {
         }
 
+        public virtual DbSet<TitleEventStatusAssignor> TitleEventStatusAssignor { get; set; }
+        public virtual DbSet<SearchNotes> SearchNotes { get; set; }
+        public virtual DbSet<SearchStatus> SearchStatus { get; set; }
+        public virtual DbSet<SearchType> SearchType { get; set; }
+        public virtual DbSet<CertificationRange> CertificationRange { get; set; }
+        public virtual DbSet<Search> Search { get; set; }
+        public virtual DbSet<ChainOfTitleSearch> ChainOfTitleSearch { get; set; }
+        public virtual DbSet<ChainOfTitleNotes> ChainOfTitleNotes { get; set; }
         public virtual DbSet<BranchLocation> BranchLocation { get; set; }
         public virtual DbSet<ChainOfTitle> ChainOfTitle { get; set; }
         public virtual DbSet<ChainOfTitleItem> ChainOfTitleItem { get; set; }
