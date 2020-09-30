@@ -16,14 +16,14 @@ namespace TheFund.AtidsXe.GraphQL.Server.Queries
         [UseSorting]
         public IQueryable<FileReference> GetFileReferences([Service] ATIDSXEContext context)
         {
-            return context.FileReference;
+            return context.FileReference.AsQueryable();
         }
 
         [UseSingleOrDefault]
         [UseSelection]
         public IQueryable<FileReference> GetFileReferenceById([Service] ATIDSXEContext context, int fileReferenceId)
         {
-            return context.FileReference.Where(p => p.FileReferenceId == fileReferenceId);
+            return context.FileReference.Where(p => p.FileReferenceId == fileReferenceId).AsQueryable();
         }
     }
 }

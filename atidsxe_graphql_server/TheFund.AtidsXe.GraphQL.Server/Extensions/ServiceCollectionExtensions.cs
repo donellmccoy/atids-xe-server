@@ -33,17 +33,26 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
             services.AddGraphQL(sp => SchemaBuilder.New()
                                                    .AddServices(sp)
                                                    .AddQueryType(d => d.Name("Query"))
-                                                       .AddType<FileReferenceQueries>()
-                                                       .AddType<BranchLocationQueries>()
-                                                       .AddType<FileStatusQueries>()
-                                                    .AddMutationType(d => d.Name("Mutation"))
-                                                        .AddType<FileReferenceMutations>()
+                                                   .AddType<FileReferenceQueries>()
+                                                   .AddType<BranchLocationQueries>()
+                                                   .AddType<FileStatusQueries>()
+                                                   .AddMutationType(d => d.Name("Mutation"))
+                                                   .AddType<FileReferenceMutations>()
                                                    .BindClrType<string, StringType>()
-                                                   .Create(), b => b.UsePersistedQueryPipeline().AddSha256DocumentHashProvider());
+                                                   .Create(), b =>
+                                                   {
+                                                       b.AddOptions(options);
+                                                       b.UseActivePersistedQueryPipeline().AddSha256DocumentHashProvider();
+                                                   });
 
+            services.AddFileSystemQueryStorage("./graphQL/queries");
 
-            services.AddReadOnlyFileSystemQueryStorage("/usr/temp/queries");
-            //services.AddReadOnlyRedisQueryStorage(s => s.GetRequiredService<ConnectionMultiplexer>().GetDatabase());
+            //services.AddReadOnlyRedisQueryStorage(s =>
+            //{
+            //    var service = s.GetService<ConnectionMultiplexer>();
+
+            //    return s.GetService<ConnectionMultiplexer>().GetDatabase();
+            //});
 
             return services;
         }

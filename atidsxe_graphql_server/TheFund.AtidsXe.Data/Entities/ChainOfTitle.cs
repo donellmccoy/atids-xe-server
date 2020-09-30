@@ -1,4 +1,5 @@
 ﻿using HotChocolate.Types;
+using HotChocolate.Types.Relay;
 using System.Collections.Generic;
 
 namespace TheFund.AtidsXe.Data.Entities
@@ -18,14 +19,17 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public virtual FileReference FileReference { get; set; }
 
+        [UsePaging]
         [UseFiltering]
         [UseSorting]
         public virtual ICollection<ChainOfTitleItem> ChainOfTitleItems { get; set; }
 
+        [UsePaging]
         [UseFiltering]
         [UseSorting]
         public virtual ICollection<ChainOfTitleNotes> ChainOfTitleNotes { get; set; }
 
+        [UsePaging]
         [UseFiltering]
         [UseSorting]
         public virtual ICollection<ChainOfTitleSearch> ChainOfTitleSearches { get; set; }
