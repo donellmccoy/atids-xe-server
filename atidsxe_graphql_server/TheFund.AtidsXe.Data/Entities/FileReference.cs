@@ -1,4 +1,5 @@
 ﻿using HotChocolate.Types;
+using HotChocolate.Types.Relay;
 using System;
 using System.Collections.Generic;
 
@@ -41,14 +42,17 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public virtual Worksheet Worksheet { get; set; }
 
+        [UsePaging]
         [UseFiltering]
         [UseSorting]
         public virtual ICollection<FileReferenceNotes> FileReferenceNotes { get; set; }
 
+        [UsePaging]
         [UseFiltering]
         [UseSorting]
         public virtual ICollection<ChainOfTitle> ChainOfTitles { get; set; }
 
+        [UsePaging]
         [UseFiltering]
         [UseSorting]
         public virtual ICollection<Search> Searches { get; set; }

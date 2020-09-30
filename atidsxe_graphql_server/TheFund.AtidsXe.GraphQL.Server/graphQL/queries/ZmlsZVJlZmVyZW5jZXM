@@ -1,0 +1,213 @@
+query FileReferences {
+  fileReferences(first: 50, where: {name_contains: "dap"}) {
+    totalCount
+    pageInfo {
+      startCursor
+      endCursor
+      hasPreviousPage
+      hasNextPage
+    }
+    nodes {
+      name
+      fileReferenceId
+      defaultGeographicLocaleId
+      branchLocationId
+      fileStatusId
+      createDate
+      updateDate
+      workerId
+      isTemporaryFile
+      searches {
+        totalCount
+        pageInfo {
+          startCursor
+          endCursor
+          hasPreviousPage
+          hasNextPage
+        }
+        nodes {
+          searchId
+          fileReferenceId
+          searchTypeId
+          searchThruDate
+          searchFromDate
+          searchStatusId
+          geographicLocaleId
+          geographicCertRangeId
+          geographicLocaleId
+          parentSearchId
+          instrumentFilters
+          lrsSearch
+          inclMortgageeShortForm
+          hidden
+          geographicLocale {
+            geographicLocaleId
+            geographicLocaleTypeId
+            localeName
+            localeAbbreviation
+            parentGeographicLocaleId
+          }
+          geographicCertRange {
+            certificationRangeId
+            fromDate
+            fromOrDocumentId
+            toDate
+            toOrDocumentId
+          }
+          giCertRange {
+            certificationRangeId
+            fromDate
+            fromOrDocumentId
+            toDate
+            toOrDocumentId
+          }
+          grantorCertRange {
+            certificationRangeId
+            fromDate
+            fromOrDocumentId
+            toDate
+            toOrDocumentId
+          }
+          parentSearch {
+            searchId
+            fileReferenceId
+          }
+          inverseParentSearch {
+            searchId
+          }
+          chainOfTitleSearches(first: 25) {
+            totalCount
+            pageInfo {
+              startCursor
+              endCursor
+              hasPreviousPage
+              hasNextPage
+            }
+            nodes {
+              chainOfTitleId
+              searchId
+            }
+          }
+          searchNotes(first: 25) {
+            totalCount
+            pageInfo {
+              startCursor
+              endCursor
+              hasPreviousPage
+              hasNextPage
+            }
+            nodes {
+              searchNotesId
+              searchId
+              userId
+              message
+              timeStamp
+            }
+          }
+        }
+      }
+      chainOfTitles(first: 25) {
+        totalCount
+        pageInfo {
+          startCursor
+          endCursor
+          hasPreviousPage
+          hasNextPage
+        }
+        nodes {
+          chainOfTitleId
+          fileReferenceId
+          chainOfTitleItems(first: 10) {
+            totalCount
+            pageInfo {
+              startCursor
+              endCursor
+              hasPreviousPage
+              hasNextPage
+            }
+            nodes {
+              chainOfTitleItemId
+              chainOfTitleId
+              chainOfTitleCategoryId
+              orderIndex
+              parentTitleEventId
+              startingTitleEvent
+              titleEventId
+              userModified
+            }
+          }
+          chainOfTitleSearches(first: 10) {
+            totalCount
+            pageInfo {
+              startCursor
+              endCursor
+              hasPreviousPage
+              hasNextPage
+            }
+            nodes {
+              chainOfTitleId
+              searchId
+            }
+          }
+          chainOfTitleNotes(first: 10) {
+            totalCount
+            pageInfo {
+              startCursor
+              endCursor
+              hasPreviousPage
+              hasNextPage
+            }
+            nodes {
+              chainOfTitleNotesId
+              chainOfTitleNotesId
+              userId
+              message
+              timeStamp
+            }
+          }
+        }
+      }
+      fileReferenceNotes(first: 10) {
+        totalCount
+        pageInfo {
+          startCursor
+          endCursor
+          hasPreviousPage
+          hasNextPage
+        }
+        nodes {
+          fileReferenceId
+          fileReferenceNotesId
+          message
+          userId
+          timeStamp
+        }
+      }
+      worksheet {
+        worksheetId
+        fileReferenceId
+        worksheetItems(first: 10) {
+          totalCount
+          pageInfo {
+            startCursor
+            endCursor
+            hasPreviousPage
+            hasNextPage
+          }
+          nodes {
+            titleEventId
+            worksheetId
+            sequence
+          }
+        }
+      }
+      titleSearchOrigination {
+        titleEventId
+        titleSearchOriginationId
+        orderDate
+        orderReference
+        fileReferenceId
+      }
+    }
+  }
+}

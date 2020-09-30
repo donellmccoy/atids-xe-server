@@ -1,4 +1,5 @@
 ﻿using HotChocolate.Types;
+using HotChocolate.Types.Relay;
 using System;
 using System.Collections.Generic;
 
@@ -73,6 +74,7 @@ namespace TheFund.AtidsXe.Data.Entities
 
         //public PolicyTitleStatusReport PolicyTitleStatusReport { get; set; }
 
+        [UsePaging]
         [UseFiltering]
         [UseSorting]
         public virtual ICollection<ChainOfTitleSearch> ChainOfTitleSearches { get; set; }
@@ -81,6 +83,7 @@ namespace TheFund.AtidsXe.Data.Entities
         [UseSorting]
         public virtual ICollection<Search> InverseParentSearch { get; set; }
 
+        [UsePaging]
         [UseFiltering]
         [UseSorting]
         public virtual ICollection<SearchNotes> SearchNotes { get; set; }

@@ -12,12 +12,12 @@
 
   <ItemGroup>
     <PackageReference Include="afnpires.Ensure" Version="2.0.0" />
-    <PackageReference Include="HotChocolate.AspNetCore" Version="10.5.2" />
-    <PackageReference Include="HotChocolate.PersistedQueries.FileSystem" Version="10.5.2" />
-    <PackageReference Include="HotChocolate.PersistedQueries.Redis" Version="10.5.2" />
-    <PackageReference Include="HotChocolate.Types.Filters" Version="10.5.2" />
-    <PackageReference Include="HotChocolate.Types.Selections" Version="10.5.2" />
-    <PackageReference Include="HotChocolate.Types.Sorting" Version="10.5.2" />
+    <PackageReference Include="HotChocolate.AspNetCore" Version="10.5.3" />
+    <PackageReference Include="HotChocolate.PersistedQueries.FileSystem" Version="10.5.3" />
+    <PackageReference Include="HotChocolate.PersistedQueries.Redis" Version="10.5.3" />
+    <PackageReference Include="HotChocolate.Types.Filters" Version="10.5.3" />
+    <PackageReference Include="HotChocolate.Types.Selections" Version="10.5.3" />
+    <PackageReference Include="HotChocolate.Types.Sorting" Version="10.5.3" />
     <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
   </ItemGroup>
