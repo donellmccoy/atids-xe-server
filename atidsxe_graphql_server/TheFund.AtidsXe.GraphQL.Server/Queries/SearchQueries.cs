@@ -19,6 +19,15 @@ namespace TheFund.AtidsXe.GraphQL.Server.Queries
             return context.Search;
         }
 
+        [UsePaging]
+        [UseSelection]
+        [UseFiltering]
+        [UseSorting]
+        public IQueryable<Search> GetSearches([Service] ATIDSXEContext context, int[] fileReferences)
+        {
+            return context.Search.Where(p => fileReferences.Contains(p.FileReferenceId));
+        }
+
         [UseSingleOrDefault]
         [UseSelection]
         public IQueryable<Search> GetSearchById([Service] ATIDSXEContext context, int searchId)

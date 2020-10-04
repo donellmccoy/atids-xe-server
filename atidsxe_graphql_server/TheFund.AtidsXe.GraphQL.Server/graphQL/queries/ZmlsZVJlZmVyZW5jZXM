@@ -1,6 +1,6 @@
 query FileReferences {
   fileReferences(first: 50, where: {name_contains: "dap"}) {
-    totalCount
+    totalCount 
     pageInfo {
       startCursor
       endCursor
