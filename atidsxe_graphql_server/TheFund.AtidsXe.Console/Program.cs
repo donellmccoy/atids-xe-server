@@ -1,10 +1,6 @@
-﻿using System;
-using System.Text.Json;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Threading.Tasks;
-using GraphQL;
-using GraphQL.Client;
-using GraphQL.Client.Http;
-using GraphQL.Client.Serializer.Newtonsoft;
 
 namespace TheFund.AtidsXe.Console
 {
@@ -12,12 +8,7 @@ namespace TheFund.AtidsXe.Console
     {
         static async Task Main(string[] args)
         {
-            var client = new GraphQLHttpClient("http://localhost:5002/graphql", new NewtonsoftJsonSerializer());
-            var request = new GraphQLRequest();
-
-            request.TryAdd("id", "ZmlsZVJlZmVyZW5jZXM");
             
-            var response = await client.SendQueryAsync<object>(request);
         }
     }
 }

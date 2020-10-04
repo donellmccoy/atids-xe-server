@@ -16,8 +16,9 @@ namespace TheFund.AtidsXe.GraphQL.Server.Queries
         [UseSorting]
         public IQueryable<FileReference> GetFileReferences([Service] ATIDSXEContext context)
         {
-            return context.FileReference.AsQueryable();
+            return context.FileReference;
         }
+
 
         [UseSingleOrDefault]
         [UseSelection]

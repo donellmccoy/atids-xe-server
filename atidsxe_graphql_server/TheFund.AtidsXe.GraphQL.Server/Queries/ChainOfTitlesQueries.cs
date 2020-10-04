@@ -8,22 +8,22 @@ using TheFund.AtidsXe.Data.Entities;
 namespace TheFund.AtidsXe.GraphQL.Server.Queries
 {
     [ExtendObjectType(Name = "Query")]
-    public class FileStatusQueries
+    public class ChainOfTitlesQueries
     {
         [UsePaging]
         [UseSelection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<FileStatus> GetFileStatuses([Service] ATIDSXEContext context)
+        public IQueryable<ChainOfTitle> GetChainOfTitles([Service] ATIDSXEContext context)
         {
-            return context.FileStatus;
+            return context.ChainOfTitle;
         }
 
         [UseSingleOrDefault]
         [UseSelection]
-        public IQueryable<FileStatus> GetFileStatusById(int fileStatusId, [Service] ATIDSXEContext context)
+        public IQueryable<ChainOfTitle> GetChainOfTitleById(int chainOfTitleId, [Service] ATIDSXEContext context)
         {
-            return context.FileStatus.Where(p => p.FileStatusId == fileStatusId);
+            return context.ChainOfTitle.Where(p => p.ChainOfTitleId == chainOfTitleId);
         }
     }
 }
