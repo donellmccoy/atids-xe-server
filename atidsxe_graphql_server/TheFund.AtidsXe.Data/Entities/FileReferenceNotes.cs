@@ -1,4 +1,5 @@
 ﻿using System;
+using TheFund.AtidsXe.Common.Middleware;
 
 namespace TheFund.AtidsXe.Data.Entities
 {
@@ -8,10 +9,12 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public int FileReferenceId { get; set; }
 
+        [Trim]
         public string UserId { get; set; }
 
         public DateTime TimeStamp { get; set; }
 
+        [Trim]
         public string Message { get; set; }
 
         public FileReference FileReference { get; set; }

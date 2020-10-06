@@ -2,6 +2,7 @@
 using HotChocolate.Types.Relay;
 using System;
 using System.Collections.Generic;
+using TheFund.AtidsXe.Common.Middleware;
 
 namespace TheFund.AtidsXe.Data.Entities
 {
@@ -12,18 +13,19 @@ namespace TheFund.AtidsXe.Data.Entities
             ChainOfTitleSearches = new HashSet<ChainOfTitleSearch>();
             InverseParentSearch = new HashSet<Search>();
             SearchNotes = new HashSet<SearchNotes>();
-            //AcreageGovtLotLegal = new HashSet<AcreageGovtLotLegal>();
-            //AcreageSectionLegal = new HashSet<AcreageSectionLegal>();
-            //PolicySearch = new HashSet<PolicySearch>();
-            //SearchWarning = new HashSet<SearchWarning>();
-            //SubdivisionPlattedLegal = new HashSet<SubdivisionPlattedLegal>();
-            //TitleEventSearch = new HashSet<TitleEventSearch>();
+            AcreageGovtLotLegal = new HashSet<AcreageGovtLotLegal>();
+            AcreageSectionLegal = new HashSet<AcreageSectionLegal>();
+            PolicySearch = new HashSet<PolicySearch>();
+            SearchWarning = new HashSet<SearchWarning>();
+            SubdivisionPlattedLegal = new HashSet<SubdivisionPlattedLegal>();
+            TitleEventSearch = new HashSet<TitleEventSearch>();
         }
 
         public int SearchId { get; set; }
 
         public int FileReferenceId { get; set; }
 
+        [Trim]
         public string SearchReference { get; set; }
 
         public DateTime DateOfSearch { get; set; }
@@ -46,6 +48,7 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public int? SearchStatusId { get; set; }
 
+        [Trim]
         public string InstrumentFilters { get; set; }
 
         public byte? LrsSearch { get; set; }
@@ -70,9 +73,9 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public SearchType SearchType { get; set; }
 
-        //public NameSearchParameters NameSearchParameters { get; set; }
+        public NameSearchParameters NameSearchParameters { get; set; }
 
-        //public PolicyTitleStatusReport PolicyTitleStatusReport { get; set; }
+        public PolicyTitleStatusReport PolicyTitleStatusReport { get; set; }
 
         [UsePaging]
         [UseFiltering]
@@ -88,16 +91,16 @@ namespace TheFund.AtidsXe.Data.Entities
         [UseSorting]
         public virtual ICollection<SearchNotes> SearchNotes { get; set; }
 
-        //public virtual ICollection<AcreageGovtLotLegal> AcreageGovtLotLegal { get; set; }
+        public virtual ICollection<AcreageGovtLotLegal> AcreageGovtLotLegal { get; set; }
 
-        //public virtual ICollection<AcreageSectionLegal> AcreageSectionLegal { get; set; }
+        public virtual ICollection<AcreageSectionLegal> AcreageSectionLegal { get; set; }
 
-        //public virtual ICollection<PolicySearch> PolicySearch { get; set; }
+        public virtual ICollection<PolicySearch> PolicySearch { get; set; }
 
-        //public virtual ICollection<SearchWarning> SearchWarning { get; set; }
+        public virtual ICollection<SearchWarning> SearchWarning { get; set; }
 
-        //public virtual ICollection<SubdivisionPlattedLegal> SubdivisionPlattedLegal { get; set; }
+        public virtual ICollection<SubdivisionPlattedLegal> SubdivisionPlattedLegal { get; set; }
 
-        //public virtual ICollection<TitleEventSearch> TitleEventSearch { get; set; }
+        public virtual ICollection<TitleEventSearch> TitleEventSearch { get; set; }
     }
 }

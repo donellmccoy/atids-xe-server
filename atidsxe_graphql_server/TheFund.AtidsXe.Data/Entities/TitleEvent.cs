@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using HotChocolate.Types;
 using HotChocolate.Types.Relay;
+using TheFund.AtidsXe.Common.Middleware;
 
 namespace TheFund.AtidsXe.Data.Entities
 {
@@ -35,12 +36,14 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public decimal? Amount { get; set; }
 
+        [Trim]
         public string AdditionalInformation { get; set; }
 
         public DateTime? TitleEventDate { get; set; }
 
         public DateTime? CreateDate { get; set; }
 
+        [Trim]
         public string Tag { get; set; }
 
         public ExaminationStatusType CurrentExamStatusType { get; set; }

@@ -25,4 +25,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TheFund.AtidsXe.Common\TheFund.AtidsXe.Common.csproj" />
+  </ItemGroup>
+
 </Project>

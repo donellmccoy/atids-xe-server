@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using HotChocolate.Types;
+using TheFund.AtidsXe.Common.Middleware;
 
 namespace TheFund.AtidsXe.Data.Entities
 {
@@ -12,6 +13,7 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public int TitleEventStatusAssignorId { get; set; }
 
+        [Trim]
         public string Description { get; set; }
 
         [UseFiltering]

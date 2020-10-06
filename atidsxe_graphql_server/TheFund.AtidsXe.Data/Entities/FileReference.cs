@@ -2,6 +2,7 @@
 using HotChocolate.Types.Relay;
 using System;
 using System.Collections.Generic;
+using TheFund.AtidsXe.Common.Middleware;
 
 namespace TheFund.AtidsXe.Data.Entities
 {
@@ -18,10 +19,12 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public int BranchLocationId { get; set; }
 
+        [Trim]
         public string Name { get; set; }
 
         public int FileStatusId { get; set; }
 
+        [Trim]
         public string WorkerId { get; set; }
 
         public DateTime CreateDate { get; set; }

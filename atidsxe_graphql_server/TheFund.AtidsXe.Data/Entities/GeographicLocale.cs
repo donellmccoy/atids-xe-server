@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TheFund.AtidsXe.Common.Middleware;
 
 namespace TheFund.AtidsXe.Data.Entities
 {
@@ -11,8 +12,10 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public int GeographicLocaleId { get; set; }
 
+        [Trim]
         public string LocaleName { get; set; }
 
+        [Trim]
         public string LocaleAbbreviation { get; set; }
 
         public int GeographicLocaleTypeId { get; set; }

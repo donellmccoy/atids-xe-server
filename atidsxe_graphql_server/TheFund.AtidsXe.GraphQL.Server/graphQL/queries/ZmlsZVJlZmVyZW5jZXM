@@ -1,13 +1,17 @@
-query FileReferences {
-  fileReferences(first: 50, where: {name_contains: "dap"}) {
-    totalCount 
+query FileReferences
+(
+  $fileReferences_first: PaginationAmount!,
+  $chainOfTitles_first:PaginationAmount!,
+  $chainOfTitleItems_first:PaginationAmount!,
+  $chainOfTitleSearches_first:PaginationAmount!
+) 
+{
+  fileReferenceResult: fileReferences(first: $fileReferences_first, where: {name_contains: "dap"}) {
+    totalCount
     pageInfo {
-      startCursor
-      endCursor
-      hasPreviousPage
-      hasNextPage
+      ...pageInfoFields
     }
-    nodes {
+    fileReferences: nodes {
       name
       fileReferenceId
       defaultGeographicLocaleId
@@ -17,15 +21,96 @@ query FileReferences {
       updateDate
       workerId
       isTemporaryFile
-      searches {
+      titleSearchOrigination {
+        titleEventId
+        titleSearchOriginationId
+        orderDate
+        orderReference
+        fileReferenceId
+      }
+      chainOfTitleResult: chainOfTitles(first: $chainOfTitles_first) {
         totalCount
         pageInfo {
-          startCursor
-          endCursor
-          hasPreviousPage
-          hasNextPage
+          ...pageInfoFields
         }
-        nodes {
+        chainOfTitles: nodes {
+          chainOfTitleId
+          fileReferenceId
+          chainOfTitleItemResult: chainOfTitleItems(first: $chainOfTitleItems_first) {
+            totalCount
+            pageInfo {
+              ...pageInfoFields
+            }
+            chainOfTitleItems: nodes {
+              chainOfTitleItemId
+              chainOfTitleId
+              chainOfTitleCategoryId
+              orderIndex
+              parentTitleEventId
+              startingTitleEvent
+              titleEventId
+              userModified
+            }
+          }
+          chainOfTitleSearchResult: chainOfTitleSearches(first: $chainOfTitleSearches_first) {
+            totalCount
+            pageInfo {
+              ...pageInfoFields
+            }
+            chainOfTitleSearches: nodes {
+              chainOfTitleId
+              searchId
+            }
+          }
+          chainOfTitleNoteResult: chainOfTitleNotes(first: 10) {
+            totalCount
+            pageInfo {
+              ...pageInfoFields
+            }
+            chainOfTitleNotes: nodes {
+              chainOfTitleNotesId
+              chainOfTitleNotesId
+              userId
+              message
+              timeStamp
+            }
+          }
+        }
+      }
+      fileReferenceNoteResult: fileReferenceNotes(first: 2) {
+        totalCount
+        pageInfo {
+          ...pageInfoFields
+        }
+        fileReferenceNotes: nodes {
+          fileReferenceId
+          fileReferenceNotesId
+          message
+          userId
+          timeStamp
+        }
+      }
+      worksheet {
+        worksheetId
+        fileReferenceId
+        worksheetItemResult: worksheetItems(first: 2) {
+          totalCount
+          pageInfo {
+            ...pageInfoFields
+          }
+          worksheetItems: nodes {
+            titleEventId
+            worksheetId
+            sequence
+          }
+        }
+      }
+      searchResults: searches(first: 2) {
+        totalCount
+        pageInfo {
+          ...pageInfoFields
+        }
+        searches: nodes {
           searchId
           fileReferenceId
           searchTypeId
@@ -75,28 +160,22 @@ query FileReferences {
           inverseParentSearch {
             searchId
           }
-          chainOfTitleSearches(first: 25) {
+          chainOfTitleSearchResult: chainOfTitleSearches(first: 2) {
             totalCount
             pageInfo {
-              startCursor
-              endCursor
-              hasPreviousPage
-              hasNextPage
+              ...pageInfoFields
             }
-            nodes {
+            chainOfTitleSearches: nodes {
               chainOfTitleId
               searchId
             }
           }
-          searchNotes(first: 25) {
+          searchNoteResult: searchNotes(first: 2) {
             totalCount
             pageInfo {
-              startCursor
-              endCursor
-              hasPreviousPage
-              hasNextPage
+              ...pageInfoFields
             }
-            nodes {
+            searchNotes: nodes {
               searchNotesId
               searchId
               userId
@@ -106,108 +185,13 @@ query FileReferences {
           }
         }
       }
-      chainOfTitles(first: 25) {
-        totalCount
-        pageInfo {
-          startCursor
-          endCursor
-          hasPreviousPage
-          hasNextPage
-        }
-        nodes {
-          chainOfTitleId
-          fileReferenceId
-          chainOfTitleItems(first: 10) {
-            totalCount
-            pageInfo {
-              startCursor
-              endCursor
-              hasPreviousPage
-              hasNextPage
-            }
-            nodes {
-              chainOfTitleItemId
-              chainOfTitleId
-              chainOfTitleCategoryId
-              orderIndex
-              parentTitleEventId
-              startingTitleEvent
-              titleEventId
-              userModified
-            }
-          }
-          chainOfTitleSearches(first: 10) {
-            totalCount
-            pageInfo {
-              startCursor
-              endCursor
-              hasPreviousPage
-              hasNextPage
-            }
-            nodes {
-              chainOfTitleId
-              searchId
-            }
-          }
-          chainOfTitleNotes(first: 10) {
-            totalCount
-            pageInfo {
-              startCursor
-              endCursor
-              hasPreviousPage
-              hasNextPage
-            }
-            nodes {
-              chainOfTitleNotesId
-              chainOfTitleNotesId
-              userId
-              message
-              timeStamp
-            }
-          }
-        }
-      }
-      fileReferenceNotes(first: 10) {
-        totalCount
-        pageInfo {
-          startCursor
-          endCursor
-          hasPreviousPage
-          hasNextPage
-        }
-        nodes {
-          fileReferenceId
-          fileReferenceNotesId
-          message
-          userId
-          timeStamp
-        }
-      }
-      worksheet {
-        worksheetId
-        fileReferenceId
-        worksheetItems(first: 10) {
-          totalCount
-          pageInfo {
-            startCursor
-            endCursor
-            hasPreviousPage
-            hasNextPage
-          }
-          nodes {
-            titleEventId
-            worksheetId
-            sequence
-          }
-        }
-      }
-      titleSearchOrigination {
-        titleEventId
-        titleSearchOriginationId
-        orderDate
-        orderReference
-        fileReferenceId
-      }
     }
   }
+}
+
+fragment pageInfoFields on PageInfo {
+  startCursor
+  endCursor
+  hasPreviousPage
+  hasNextPage
 }
