@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheFund.AtidsXe.Data", "The
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheFund.AtidsXe.GraphQL.Server", "TheFund.AtidsXe.GraphQL.Server\TheFund.AtidsXe.GraphQL.Server.csproj", "{3CD2B86D-A087-46C7-BBD0-E93328A18EDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheFund.AtidsXe.Console", "TheFund.AtidsXe.Console\TheFund.AtidsXe.Console.csproj", "{AA4C9033-212D-4A32-A536-3C957671BE66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheFund.AtidsXe.Console", "TheFund.AtidsXe.Console\TheFund.AtidsXe.Console.csproj", "{AA4C9033-212D-4A32-A536-3C957671BE66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheFund.AtidsXe.Common", "TheFund.AtidsXe.Common\TheFund.AtidsXe.Common.csproj", "{83524B15-7B94-4DB3-B341-B8CFD3232F2D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{AA4C9033-212D-4A32-A536-3C957671BE66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA4C9033-212D-4A32-A536-3C957671BE66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA4C9033-212D-4A32-A536-3C957671BE66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83524B15-7B94-4DB3-B341-B8CFD3232F2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83524B15-7B94-4DB3-B341-B8CFD3232F2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83524B15-7B94-4DB3-B341-B8CFD3232F2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83524B15-7B94-4DB3-B341-B8CFD3232F2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

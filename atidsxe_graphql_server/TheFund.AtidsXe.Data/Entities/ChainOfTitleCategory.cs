@@ -1,5 +1,6 @@
 ﻿using HotChocolate.Types;
 using System.Collections.Generic;
+using TheFund.AtidsXe.Common.Middleware;
 
 namespace TheFund.AtidsXe.Data.Entities
 {
@@ -12,6 +13,7 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public int ChainOfTitleCategoryId { get; set; }
 
+        [Trim]
         public string Description { get; set; }
 
         [UseFiltering]
