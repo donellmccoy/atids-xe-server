@@ -11,7 +11,7 @@ namespace TheFund.AtidsXe.Data.Entities
         public TitleEvent()
         {
             ChainOfTitleItem = new HashSet<ChainOfTitleItem>();
-            //NameSearchListItem = new HashSet<NameSearchListItem>();
+            NameSearchListItem = new HashSet<NameSearchListItem>();
             //TitleEventGovtLotLegalMql = new HashSet<TitleEventGovtLotLegalMql>();
             //TitleEventLegalEntityMql = new HashSet<TitleEventLegalEntityMql>();
             //TitleEventNotes = new HashSet<TitleEventNotes>();
