@@ -13,12 +13,12 @@ namespace TheFund.AtidsXe.Data.Entities
             ChainOfTitleSearches = new HashSet<ChainOfTitleSearch>();
             InverseParentSearches = new HashSet<Search>();
             SearchNotes = new HashSet<SearchNotes>();
-            //AcreageGovtLotLegals = new HashSet<AcreageGovtLotLegal>();
-            //AcreageSectionLegals = new HashSet<AcreageSectionLegal>();
-            //PolicySearch = new HashSet<PolicySearch>();
-            //SearchWarning = new HashSet<SearchWarning>();
-            //SubdivisionPlattedLegal = new HashSet<SubdivisionPlattedLegal>();
-            //TitleEventSearch = new HashSet<TitleEventSearch>();
+            AcreageGovtLotLegals = new HashSet<AcreageGovtLotLegal>();
+            AcreageSectionLegals = new HashSet<AcreageSectionLegal>();
+            PolicySearches = new HashSet<PolicySearch>();
+            SearchWarnings = new HashSet<SearchWarning>();
+            SubdivisionPlattedLegals = new HashSet<SubdivisionPlattedLegal>();
+            TitleEventSearches = new HashSet<TitleEventSearch>();
         }
 
         public int SearchId { get; set; }
@@ -75,7 +75,7 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public NameSearchParameters NameSearchParameters { get; set; }
 
-        //public PolicyTitleStatusReport PolicyTitleStatusReport { get; set; }
+        public PolicyTitleStatusReport PolicyTitleStatusReport { get; set; }
 
         [UsePaging]
         [UseFiltering]
@@ -91,34 +91,34 @@ namespace TheFund.AtidsXe.Data.Entities
         [UseSorting]
         public virtual ICollection<SearchNotes> SearchNotes { get; set; }
 
-        //[UsePaging]
-        //[UseFiltering]
-        //[UseSorting]
-        //public virtual ICollection<AcreageGovtLotLegal> AcreageGovtLotLegals { get; set; }
+        [UsePaging]
+        [UseFiltering]
+        [UseSorting]
+        public virtual ICollection<AcreageGovtLotLegal> AcreageGovtLotLegals { get; set; }
 
-        //[UsePaging]
-        //[UseFiltering]
-        //[UseSorting]
-        //public virtual ICollection<AcreageSectionLegal> AcreageSectionLegals { get; set; }
+        [UsePaging]
+        [UseFiltering]
+        [UseSorting]
+        public virtual ICollection<AcreageSectionLegal> AcreageSectionLegals { get; set; }
 
-        //[UsePaging]
-        //[UseFiltering]
-        //[UseSorting]
-        //public virtual ICollection<PolicySearch> PolicySearch { get; set; }
+        [UsePaging]
+        [UseFiltering]
+        [UseSorting]
+        public virtual ICollection<PolicySearch> PolicySearches { get; set; }
 
-        //[UsePaging]
-        //[UseFiltering]
-        //[UseSorting]
-        //public virtual ICollection<SearchWarning> SearchWarning { get; set; }
+        [UsePaging]
+        [UseFiltering]
+        [UseSorting]
+        public virtual ICollection<SearchWarning> SearchWarnings { get; set; }
 
-        //[UsePaging]
-        //[UseFiltering]
-        //[UseSorting]
-        //public virtual ICollection<SubdivisionPlattedLegal> SubdivisionPlattedLegal { get; set; }
+        [UsePaging]
+        [UseFiltering]
+        [UseSorting]
+        public virtual ICollection<SubdivisionPlattedLegal> SubdivisionPlattedLegals { get; set; }
 
-        //[UsePaging]
-        //[UseFiltering]
-        //[UseSorting]
-        //public virtual ICollection<TitleEventSearch> TitleEventSearch { get; set; }
+        [UsePaging]
+        [UseFiltering]
+        [UseSorting]
+        public virtual ICollection<TitleEventSearch> TitleEventSearches { get; set; }
     }
 }

@@ -11,10 +11,10 @@ namespace TheFund.AtidsXe.Data.Context
         {
         }
 
-        //public virtual DbSet<PlatProperties> PlatProperties { get; set; }
-        //public virtual DbSet<GovernmentLotLegal> GovernmentLotLegal { get; set; }
-        //public virtual DbSet<AcreageGovtLotLegal> AcreageGovtLotLegal { get; set; }
-        //public virtual DbSet<AcreageSectionLegal> AcreageSectionLegal { get; set; }
+        public virtual DbSet<PlatProperties> PlatProperties { get; set; }
+        public virtual DbSet<GovernmentLotLegal> GovernmentLotLegal { get; set; }
+        public virtual DbSet<AcreageGovtLotLegal> AcreageGovtLotLegal { get; set; }
+        public virtual DbSet<AcreageSectionLegal> AcreageSectionLegal { get; set; }
         public virtual DbSet<TitleEventStatusAssignor> TitleEventStatusAssignor { get; set; }
         public virtual DbSet<SearchNotes> SearchNotes { get; set; }
         public virtual DbSet<SearchStatus> SearchStatus { get; set; }

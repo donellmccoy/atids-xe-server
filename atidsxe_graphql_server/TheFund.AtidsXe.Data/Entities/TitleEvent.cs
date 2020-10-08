@@ -70,7 +70,9 @@ namespace TheFund.AtidsXe.Data.Entities
         [UseSorting]
         public ICollection<WorksheetItem> WorksheetItem { get; set; }
 
-        //public ICollection<NameSearchListItem> NameSearchListItem { get; set; }
+        [UseFiltering]
+        [UseSorting]
+        public ICollection<NameSearchListItem> NameSearchListItem { get; set; }
 
         //public ICollection<TitleEventGovtLotLegalMql> TitleEventGovtLotLegalMql { get; set; }
 
@@ -84,7 +86,7 @@ namespace TheFund.AtidsXe.Data.Entities
 
         //public ICollection<TitleEventPlattedLegalMql> TitleEventPlattedLegalMql { get; set; }
 
-        //public ICollection<TitleEventSearch> TitleEventSearch { get; set; }
+        public ICollection<TitleEventSearch> TitleEventSearch { get; set; }
 
         //public ICollection<TitleEventSectionLegalMql> TitleEventSectionLegalMql { get; set; }
     }
