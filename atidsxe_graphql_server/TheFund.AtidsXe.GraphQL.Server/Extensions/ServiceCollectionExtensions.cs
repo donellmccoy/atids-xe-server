@@ -1,21 +1,22 @@
 ﻿using Ensure;
 using HotChocolate;
+using HotChocolate.Execution;
 using HotChocolate.Execution.Configuration;
 using HotChocolate.Types;
 using JetBrains.Annotations;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Builder;
+using StackExchange.Redis;
+using System.IO.Compression;
 using TheFund.AtidsXe.Data.Context;
 using TheFund.AtidsXe.GraphQL.Server.Data;
+using TheFund.AtidsXe.GraphQL.Server.Mutations;
 using TheFund.AtidsXe.GraphQL.Server.Options;
 using TheFund.AtidsXe.GraphQL.Server.Queries;
-using HotChocolate.Execution;
-using StackExchange.Redis;
-using TheFund.AtidsXe.GraphQL.Server.Mutations;
-using System.Threading.Tasks;
 
 namespace TheFund.AtidsXe.GraphQL.Server.Extensions
 {
@@ -126,6 +127,23 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
                     services.AddDbContext<ATIDSXEContext>(CreateOptionsAction, options.ContextLifetime, options.OptionsLifetime);
                 }
             }
+
+            return services;
+        }
+    
+        public static IServiceCollection ConfigureCompression([NotNull] this IServiceCollection services, [NotNull] IConfiguration configuration)
+        {
+            services.AddResponseCompression(options =>
+            {
+                options.Providers.Add<GzipCompressionProvider>();
+                options.EnableForHttps = true;
+                options.MimeTypes = new[] { "application/json" };
+            });
+
+            services.Configure<GzipCompressionProviderOptions>(options =>
+            {
+                options.Level = CompressionLevel.Fastest;
+            });
 
             return services;
         }
