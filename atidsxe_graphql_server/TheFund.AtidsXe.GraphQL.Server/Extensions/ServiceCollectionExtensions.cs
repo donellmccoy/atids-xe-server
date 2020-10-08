@@ -27,6 +27,17 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
 
             var options = configuration.GetOption<QueryExecutionOptions>();
 
+
+            services.AddStackExchangeRedisCache(_ =>
+            {
+                _.Configuration = "localhost:6379";
+            });
+
+            services.AddSingleton<IConnectionMultiplexer, ConnectionMultiplexer>(_ =>
+            {
+                return ConnectionMultiplexer.Connect("localhost:6379");
+            });
+
             services.AddGraphQL(sp => SchemaBuilder.New()
                                                    .AddServices(sp)
                                                    .AddQueryType(d => d.Name("Query"))
@@ -43,19 +54,17 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
                                                        b.UseActivePersistedQueryPipeline().AddSha256DocumentHashProvider();
                                                    });
 
-            services.AddFileSystemQueryStorage("./graphQL/queries");
+            //services.AddFileSystemQueryStorage("./graphQL/queries");
 
             //services.AddQueryRequestInterceptor((context, builder, cancellationToken) =>
             //{
             //    return Task.CompletedTask;
             //});
 
-            //services.AddReadOnlyRedisQueryStorage(s =>
-            //{
-            //    var service = s.GetService<ConnectionMultiplexer>();
-
-            //    return s.GetService<ConnectionMultiplexer>().GetDatabase();
-            //});
+            services.AddRedisQueryStorage(s =>
+            {
+                return s.GetService<IConnectionMultiplexer>().GetDatabase();
+            });
 
             return services;
         }

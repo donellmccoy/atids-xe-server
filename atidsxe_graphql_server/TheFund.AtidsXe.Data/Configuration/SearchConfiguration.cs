@@ -116,7 +116,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                 .HasConstraintName("FK_GRANTOR_CERT_RANGE_SEARCH");
 
             builder.HasOne(d => d.ParentSearch)
-                .WithMany(p => p.InverseParentSearch)
+                .WithMany(p => p.InverseParentSearches)
                 .HasForeignKey(d => d.ParentSearchId)
                 .HasConstraintName("FK_SEARCH_ID_PARENT_SEARCH_ID");
 
