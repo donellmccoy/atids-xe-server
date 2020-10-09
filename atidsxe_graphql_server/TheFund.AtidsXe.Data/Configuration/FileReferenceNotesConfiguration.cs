@@ -4,9 +4,9 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class FileReferenceNotesConfiguration : IEntityTypeConfiguration<FileReferenceNotes>
+    public class FileReferenceNotesConfiguration : IEntityTypeConfiguration<FileReferenceNote>
     {
-        public void Configure(EntityTypeBuilder<FileReferenceNotes> builder)
+        public void Configure(EntityTypeBuilder<FileReferenceNote> builder)
         {
             builder.ToTable("FILE_REFERENCE_NOTES");
 

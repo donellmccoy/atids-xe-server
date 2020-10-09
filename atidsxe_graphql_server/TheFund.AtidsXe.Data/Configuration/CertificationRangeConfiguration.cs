@@ -43,17 +43,17 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .WithOne(p => p.GrantorCertRange)
                    .HasForeignKey(p => p.GrantorCertRangeId);
 
-            //builder.HasOne(d => d.FromOrDocument)
-            //       .WithMany(p => p.CertificationRangeFromOrDocument)
-            //       .HasForeignKey(d => d.FromOrDocumentId)
-            //       .OnDelete(DeleteBehavior.ClientSetNull)
-            //       .HasConstraintName("FK_ORD_CERT_RANGE_FROM");
+            builder.HasOne(d => d.FromOrDocument)
+                   .WithMany(p => p.CertificationRangeFromOrDocument)
+                   .HasForeignKey(d => d.FromOrDocumentId)
+                   .OnDelete(DeleteBehavior.ClientSetNull)
+                   .HasConstraintName("FK_ORD_CERT_RANGE_FROM");
 
-            //builder.HasOne(d => d.ToOrDocument)
-            //       .WithMany(p => p.CertificationRangeToOrDocument)
-            //       .HasForeignKey(d => d.ToOrDocumentId)
-            //       .OnDelete(DeleteBehavior.ClientSetNull)
-            //       .HasConstraintName("FK_ORD_CERT_RANGE_TO");
+            builder.HasOne(d => d.ToOrDocument)
+                   .WithMany(p => p.CertificationRangeToOrDocument)
+                   .HasForeignKey(d => d.ToOrDocumentId)
+                   .OnDelete(DeleteBehavior.ClientSetNull)
+                   .HasConstraintName("FK_ORD_CERT_RANGE_TO");
         }
     }
 }

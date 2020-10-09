@@ -16,8 +16,6 @@ namespace TheFund.AtidsXe.Data.Entities
         [Trim]
         public string Description { get; set; }
 
-        [UseFiltering]
-        [UseSorting]
         public virtual ICollection<ChainOfTitleItem> ChainOfTitleItem { get; set; }
     }
 }

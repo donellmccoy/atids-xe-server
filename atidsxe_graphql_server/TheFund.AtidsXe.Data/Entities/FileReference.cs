@@ -11,7 +11,7 @@ namespace TheFund.AtidsXe.Data.Entities
         public FileReference()
         {
             ChainOfTitles = new HashSet<ChainOfTitle>();
-            FileReferenceNotes = new HashSet<FileReferenceNotes>();
+            FileReferenceNotes = new HashSet<FileReferenceNote>();
             Searches = new HashSet<Search>();
         }
 
@@ -48,7 +48,7 @@ namespace TheFund.AtidsXe.Data.Entities
         [UsePaging]
         [UseFiltering]
         [UseSorting]
-        public virtual ICollection<FileReferenceNotes> FileReferenceNotes { get; set; }
+        public virtual ICollection<FileReferenceNote> FileReferenceNotes { get; set; }
 
         [UsePaging]
         [UseFiltering]
