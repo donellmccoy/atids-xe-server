@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TheFund.AtidsXe.Common.Middleware;
 
 namespace TheFund.AtidsXe.Data.Entities
 {
@@ -10,6 +11,8 @@ namespace TheFund.AtidsXe.Data.Entities
         }
 
         public int PolicyRestrictionTypeId { get; set; }
+
+        [Trim]
         public string Description { get; set; }
 
         public virtual ICollection<Policy> Policy { get; set; }

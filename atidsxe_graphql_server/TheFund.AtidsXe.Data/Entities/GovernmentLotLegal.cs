@@ -12,12 +12,17 @@ namespace TheFund.AtidsXe.Data.Entities
         }
 
         public int UnplattedReferenceId { get; set; }
+
         public int GovernmentLotId { get; set; }
 
         public virtual GovernmentLot GovernmentLot { get; set; }
+
         public virtual UnplattedReference UnplattedReference { get; set; }
+
         public virtual ICollection<AcreageGovtLotLegal> AcreageGovtLotLegal { get; set; }
+
         public virtual ICollection<PolicyGovtLotLegalMql> PolicyGovtLotLegalMql { get; set; }
+
         public virtual ICollection<TitleEventGovtLotLegalMql> TitleEventGovtLotLegalMql { get; set; }
     }
 }

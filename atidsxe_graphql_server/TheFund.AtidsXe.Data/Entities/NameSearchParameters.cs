@@ -1,4 +1,6 @@
-﻿namespace TheFund.AtidsXe.Data.Entities
+﻿using TheFund.AtidsXe.Common.Middleware;
+
+namespace TheFund.AtidsXe.Data.Entities
 {
     public partial class NameSearchParameters
     {
@@ -24,6 +26,7 @@
 
         public int OwnerBuyerRelationshipId { get; set; }
 
+        [Trim]
         public string LegalFilter { get; set; }
 
         public virtual LegalEntityName LegalEntityName { get; set; }

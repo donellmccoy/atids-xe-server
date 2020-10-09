@@ -23,9 +23,9 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public int ToOrDocumentId { get; set; }
 
-        //public virtual OfficialRecordDocument FromOrDocument { get; set; }
+        public virtual OfficialRecordDocument FromOrDocument { get; set; }
 
-        //public virtual OfficialRecordDocument ToOrDocument { get; set; }
+        public virtual OfficialRecordDocument ToOrDocument { get; set; }
 
         [UseFiltering]
         [UseSorting]

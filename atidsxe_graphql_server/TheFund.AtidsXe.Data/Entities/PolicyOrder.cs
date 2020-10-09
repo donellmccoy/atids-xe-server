@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TheFund.AtidsXe.Common.Middleware;
 
 namespace TheFund.AtidsXe.Data.Entities
 {
@@ -11,7 +12,10 @@ namespace TheFund.AtidsXe.Data.Entities
         }
 
         public int PolicyOrderId { get; set; }
+
+        [Trim]
         public string TrackingIdentifier { get; set; }
+
         public DateTime OrderDate { get; set; }
 
         public virtual ICollection<PolicyOrderTracking> PolicyOrderTracking { get; set; }
