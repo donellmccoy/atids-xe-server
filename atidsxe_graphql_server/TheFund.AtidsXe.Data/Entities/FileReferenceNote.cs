@@ -3,7 +3,7 @@ using TheFund.AtidsXe.Common.Middleware;
 
 namespace TheFund.AtidsXe.Data.Entities
 {
-    public partial class FileReferenceNotes
+    public partial class FileReferenceNote
     {
         public int FileReferenceNotesId { get; set; }
 

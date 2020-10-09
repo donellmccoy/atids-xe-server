@@ -21,17 +21,14 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public virtual SubdivisionLevels SubdivisionLevel { get; set; }
 
-        [UsePaging]
         [UseFiltering]
         [UseSorting]
         public virtual ICollection<PolicyPlattedLegalMql> PolicyPlattedLegalMql { get; set; }
 
-        [UsePaging]
         [UseFiltering]
         [UseSorting]
         public virtual ICollection<SubdivisionPlattedLegal> SubdivisionPlattedLegal { get; set; }
 
-        [UsePaging]
         [UseFiltering]
         [UseSorting]
         public virtual ICollection<TitleEventPlattedLegalMql> TitleEventPlattedLegalMql { get; set; }

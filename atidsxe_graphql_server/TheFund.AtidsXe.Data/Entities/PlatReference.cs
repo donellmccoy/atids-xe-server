@@ -1,5 +1,4 @@
 ﻿using HotChocolate.Types;
-using HotChocolate.Types.Relay;
 using System.Collections.Generic;
 using TheFund.AtidsXe.Common.Middleware;
 
@@ -31,7 +30,6 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public virtual PlatProperties PlatProperties { get; set; }
 
-        [UsePaging]
         [UseFiltering]
         [UseSorting]
         public virtual ICollection<PlattedLegal> PlattedLegal { get; set; }

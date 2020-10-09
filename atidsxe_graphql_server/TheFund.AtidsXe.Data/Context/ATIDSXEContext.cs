@@ -26,7 +26,7 @@ namespace TheFund.AtidsXe.Data.Context
         public virtual DbSet<DeliveryOrderInfo> DeliveryOrderInfo { get; set; }
         public virtual DbSet<ExaminationStatusType> ExaminationStatusType { get; set; }
         public virtual DbSet<FileReference> FileReference { get; set; }
-        public virtual DbSet<FileReferenceNotes> FileReferenceNotes { get; set; }
+        public virtual DbSet<FileReferenceNote> FileReferenceNotes { get; set; }
         public virtual DbSet<FileStatus> FileStatus { get; set; }
         public virtual DbSet<GeographicLocale> GeographicLocale { get; set; }
         public virtual DbSet<GeographicLocaleType> GeographicLocaleType { get; set; }

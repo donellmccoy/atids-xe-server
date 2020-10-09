@@ -20,6 +20,11 @@ namespace TheFund.AtidsXe.Data.Entities
         [UsePaging]
         [UseFiltering]
         [UseSorting]
-        public ICollection<WorksheetItem> WorksheetItems { get; set; }
+        public virtual ICollection<WorksheetItem> WorksheetItems { get; set; }
+
+        [UsePaging]
+        [UseFiltering]
+        [UseSorting]
+        public virtual ICollection<PolicyWorksheetItem> PolicyWorksheetItem { get; set; }
     }
 }
