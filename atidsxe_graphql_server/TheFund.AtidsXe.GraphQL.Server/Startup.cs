@@ -1,12 +1,10 @@
 using HotChocolate.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.IO;
-using System.IO.Compression;
 using TheFund.AtidsXe.GraphQL.Server.Extensions;
 
 namespace TheFund.AtidsXe.GraphQL.Server
@@ -35,21 +33,10 @@ namespace TheFund.AtidsXe.GraphQL.Server
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddResponseCompression(options =>
-            {
-                options.Providers.Add<GzipCompressionProvider>();
-                options.EnableForHttps = true;
-                options.MimeTypes = new[] { "application/json" };
-            });
-
-            services.Configure<GzipCompressionProviderOptions>(options =>
-            {
-                options.Level = CompressionLevel.Fastest;
-            });
-
             services.ConfigureOptions(_configuration)
                     .ConfigureDbContext(_hostingEnvironment, _configuration)
-                    .ConfigureGraphQL(_configuration);
+                    .ConfigureGraphQL(_configuration)
+                    .ConfigureCompression(_configuration);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

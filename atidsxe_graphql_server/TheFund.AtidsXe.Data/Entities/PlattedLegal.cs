@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using HotChocolate.Types;
+using HotChocolate.Types.Relay;
+using System.Collections.Generic;
 
 namespace TheFund.AtidsXe.Data.Entities
 {
@@ -12,12 +14,26 @@ namespace TheFund.AtidsXe.Data.Entities
         }
 
         public int PlatReferenceId { get; set; }
+
         public int SubdivisionLevelId { get; set; }
 
         public virtual PlatReference PlatReference { get; set; }
+
         public virtual SubdivisionLevels SubdivisionLevel { get; set; }
+
+        [UsePaging]
+        [UseFiltering]
+        [UseSorting]
         public virtual ICollection<PolicyPlattedLegalMql> PolicyPlattedLegalMql { get; set; }
+
+        [UsePaging]
+        [UseFiltering]
+        [UseSorting]
         public virtual ICollection<SubdivisionPlattedLegal> SubdivisionPlattedLegal { get; set; }
+
+        [UsePaging]
+        [UseFiltering]
+        [UseSorting]
         public virtual ICollection<TitleEventPlattedLegalMql> TitleEventPlattedLegalMql { get; set; }
     }
 }

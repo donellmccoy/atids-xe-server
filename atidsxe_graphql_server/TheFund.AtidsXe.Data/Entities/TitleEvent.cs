@@ -1,7 +1,6 @@
-﻿using System;
+﻿using HotChocolate.Types;
+using System;
 using System.Collections.Generic;
-using HotChocolate.Types;
-using HotChocolate.Types.Relay;
 using TheFund.AtidsXe.Common.Middleware;
 
 namespace TheFund.AtidsXe.Data.Entities
@@ -11,15 +10,15 @@ namespace TheFund.AtidsXe.Data.Entities
         public TitleEvent()
         {
             ChainOfTitleItem = new HashSet<ChainOfTitleItem>();
-            //NameSearchListItem = new HashSet<NameSearchListItem>();
-            //TitleEventGovtLotLegalMql = new HashSet<TitleEventGovtLotLegalMql>();
-            //TitleEventLegalEntityMql = new HashSet<TitleEventLegalEntityMql>();
-            //TitleEventNotes = new HashSet<TitleEventNotes>();
-            //TitleEventOrderTracking = new HashSet<TitleEventOrderTracking>();
-            //TitleEventParty = new HashSet<TitleEventParty>();
-            //TitleEventPlattedLegalMql = new HashSet<TitleEventPlattedLegalMql>();
-            //TitleEventSearch = new HashSet<TitleEventSearch>();
-            //TitleEventSectionLegalMql = new HashSet<TitleEventSectionLegalMql>();
+            NameSearchListItem = new HashSet<NameSearchListItem>();
+            TitleEventGovtLotLegalMql = new HashSet<TitleEventGovtLotLegalMql>();
+            TitleEventLegalEntityMql = new HashSet<TitleEventLegalEntityMql>();
+            TitleEventNotes = new HashSet<TitleEventNotes>();
+            TitleEventOrderTracking = new HashSet<TitleEventOrderTracking>();
+            TitleEventParty = new HashSet<TitleEventParty>();
+            TitleEventPlattedLegalMql = new HashSet<TitleEventPlattedLegalMql>();
+            TitleEventSearch = new HashSet<TitleEventSearch>();
+            TitleEventSectionLegalMql = new HashSet<TitleEventSectionLegalMql>();
             TitleSearchOrigination = new HashSet<TitleSearchOrigination>();
             WorksheetItem = new HashSet<WorksheetItem>();
         }
@@ -52,11 +51,11 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public TitleEventStatusAssignor TitleEventStatusAssignor { get; set; }
 
-        //public TitleEventType TitleEventType { get; set; }
+        public TitleEventType TitleEventType { get; set; }
 
-        //public MortgageTitleEvent MortgageTitleEvent { get; set; }
+        public MortgageTitleEvent MortgageTitleEvent { get; set; }
 
-        //public TitleEventDocument TitleEventDocument { get; set; }
+        public TitleEventDocument TitleEventDocument { get; set; }
 
         [UseFiltering]
         [UseSorting]
@@ -70,22 +69,40 @@ namespace TheFund.AtidsXe.Data.Entities
         [UseSorting]
         public ICollection<WorksheetItem> WorksheetItem { get; set; }
 
-        //public ICollection<NameSearchListItem> NameSearchListItem { get; set; }
+        [UseFiltering]
+        [UseSorting]
+        public ICollection<NameSearchListItem> NameSearchListItem { get; set; }
 
-        //public ICollection<TitleEventGovtLotLegalMql> TitleEventGovtLotLegalMql { get; set; }
+        [UseFiltering]
+        [UseSorting]
+        public ICollection<TitleEventGovtLotLegalMql> TitleEventGovtLotLegalMql { get; set; }
 
-        //public ICollection<TitleEventLegalEntityMql> TitleEventLegalEntityMql { get; set; }
+        [UseFiltering]
+        [UseSorting]
+        public ICollection<TitleEventLegalEntityMql> TitleEventLegalEntityMql { get; set; }
 
-        //public ICollection<TitleEventNotes> TitleEventNotes { get; set; }
+        [UseFiltering]
+        [UseSorting]
+        public ICollection<TitleEventNotes> TitleEventNotes { get; set; }
 
-        //public ICollection<TitleEventOrderTracking> TitleEventOrderTracking { get; set; }
+        [UseFiltering]
+        [UseSorting]
+        public ICollection<TitleEventOrderTracking> TitleEventOrderTracking { get; set; }
 
-        //public ICollection<TitleEventParty> TitleEventParty { get; set; }
+        [UseFiltering]
+        [UseSorting]
+        public ICollection<TitleEventParty> TitleEventParty { get; set; }
 
-        //public ICollection<TitleEventPlattedLegalMql> TitleEventPlattedLegalMql { get; set; }
+        [UseFiltering]
+        [UseSorting]
+        public ICollection<TitleEventPlattedLegalMql> TitleEventPlattedLegalMql { get; set; }
 
-        //public ICollection<TitleEventSearch> TitleEventSearch { get; set; }
+        [UseFiltering]
+        [UseSorting]
+        public ICollection<TitleEventSearch> TitleEventSearch { get; set; }
 
-        //public ICollection<TitleEventSectionLegalMql> TitleEventSectionLegalMql { get; set; }
+        [UseFiltering]
+        [UseSorting]
+        public ICollection<TitleEventSectionLegalMql> TitleEventSectionLegalMql { get; set; }
     }
 }
