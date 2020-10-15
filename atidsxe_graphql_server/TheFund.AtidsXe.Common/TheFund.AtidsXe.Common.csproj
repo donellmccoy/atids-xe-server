@@ -151,7 +151,6 @@
     <Compile Remove="TaxFolioReference.cs" />
     <Compile Remove="TaxFolioReferenceConfiguration.cs" />
     <Compile Remove="TitleEvent.cs" />
-    <Compile Remove="TitleEventConfiguration.cs" />
     <Compile Remove="TitleEventDocument.cs" />
     <Compile Remove="TitleEventDocumentConfiguration.cs" />
     <Compile Remove="TitleEventGovtLotLegalMql.cs" />
@@ -202,10 +201,6 @@
     <Compile Remove="WorksheetItemConfiguration.cs" />
     <Compile Remove="YearNumberReference.cs" />
     <Compile Remove="YearNumberReferenceConfiguration.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="efpt.config.json" />
   </ItemGroup>
 
   <ItemGroup>

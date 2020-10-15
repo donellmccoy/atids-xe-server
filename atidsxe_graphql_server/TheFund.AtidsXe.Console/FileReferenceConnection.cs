@@ -2,9 +2,9 @@
 
 namespace TheFund.AtidsXe.Console
 {
-    public class FileReferenceResult
+    public class FileReferenceConnection
     {
-        public FileReferenceResult()
+        public FileReferenceConnection()
         {
             FileReferences = new List<FileReference>();
         }

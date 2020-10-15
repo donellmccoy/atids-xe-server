@@ -12,7 +12,9 @@ namespace TheFund.AtidsXe.Common.Extensions
 
                 if (context.Result is string s)
                 {
-                    context.Result = s?.Trim();
+                    var result = s?.Trim();
+
+                    context.Result = string.IsNullOrWhiteSpace(result) ? null : (object)(s?.Trim());
                 }
             });
         }
@@ -25,7 +27,7 @@ namespace TheFund.AtidsXe.Common.Extensions
 
                 if (context.Result is string s)
                 {
-                    context.Result = s.ToUpperInvariant();
+                    context.Result = s?.ToUpperInvariant();
                 }
             });
         }

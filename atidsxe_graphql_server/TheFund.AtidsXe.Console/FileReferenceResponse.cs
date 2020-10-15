@@ -7,6 +7,6 @@
 
         }
 
-        public FileReferenceResult FileReferenceResult { get; set; }
+        public FileReferenceConnection FileReferenceResult { get; set; }
     }
 }

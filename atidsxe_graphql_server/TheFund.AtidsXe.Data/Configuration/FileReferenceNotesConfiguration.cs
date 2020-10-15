@@ -10,6 +10,8 @@ namespace TheFund.AtidsXe.Data.Configuration
         {
             builder.ToTable("FILE_REFERENCE_NOTES");
 
+            builder.HasKey(p => p.FileReferenceNotesId);
+
             builder.HasIndex(e => e.FileReferenceId)
                    .HasName("I_FK_FILE_REFERENCE");
 
