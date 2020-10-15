@@ -39,7 +39,6 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
             });
 
             services.AddGraphQL(sp => SchemaBuilder.New()
-                                                   //.EnableRelaySupport()
                                                    .AddServices(sp)
                                                    .AddQueryType(d => d.Name("Query"))
                                                    .AddType<FileReferenceQueries>()
