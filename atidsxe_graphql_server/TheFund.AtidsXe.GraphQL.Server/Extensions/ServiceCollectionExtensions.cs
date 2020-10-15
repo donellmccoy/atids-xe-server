@@ -43,6 +43,8 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
                                                    .AddServices(sp)
                                                    .AddQueryType(d => d.Name("Query"))
                                                    .AddType<FileReferenceQueries>()
+                                                   .AddType<SearchQueries>()
+                                                   .AddType<TitleEventSearchQueries>()
                                                    .AddType<BranchLocationQueries>()
                                                    .AddType<ChainOfTitlesQueries>()
                                                    .AddType<WorksheetQueries>()
