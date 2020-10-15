@@ -31,6 +31,4 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasForeignKey(p => p.GeographicLocaleTypeId);
         }
     }
-
-
 }

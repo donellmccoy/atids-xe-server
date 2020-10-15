@@ -41,5 +41,4 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasConstraintName("FK_CHAIN_OF_TITLE_NOTES_CHAIN_OF_TITLE");
         }
     }
-
 }
