@@ -5,10 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Payloads\**" />
+    <Content Remove="Payloads\**" />
+    <EmbeddedResource Remove="Payloads\**" />
+    <None Remove="Payloads\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="DataLoaders\" />
     <Folder Include="Inputs\" />
     <Folder Include="ObjectTypes\" />
-    <Folder Include="Payloads\" />
     <Folder Include="Subscriptions\" />
   </ItemGroup>
 
