@@ -27,10 +27,10 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.Property(e => e.UnplattedReferenceId)
                    .HasColumnName("UNPLATTED_REFERENCE_ID");
 
-            //builder.HasOne(d => d.Search)
-            //       .WithMany(p => p.AcreageGovtLotLegals)
-            //       .HasForeignKey(d => d.SearchId)
-            //       .HasConstraintName("FK_ACRE_GOVT_LOT_LGL_SRCH");
+            builder.HasOne(d => d.Search)
+                   .WithMany(p => p.AcreageGovtLotLegals)
+                   .HasForeignKey(d => d.SearchId)
+                   .HasConstraintName("FK_ACRE_GOVT_LOT_LGL_SRCH");
 
             builder.HasOne(d => d.GovernmentLotLegal)
                    .WithMany(p => p.AcreageGovtLotLegal)

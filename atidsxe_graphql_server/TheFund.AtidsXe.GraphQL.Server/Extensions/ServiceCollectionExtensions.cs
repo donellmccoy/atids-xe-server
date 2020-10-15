@@ -11,7 +11,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StackExchange.Redis;
-using System.IO.Compression;
 using TheFund.AtidsXe.Data.Context;
 using TheFund.AtidsXe.GraphQL.Server.Data;
 using TheFund.AtidsXe.GraphQL.Server.Mutations;
@@ -29,21 +28,27 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
             var options = configuration.GetOption<QueryExecutionOptions>();
 
 
-            services.AddStackExchangeRedisCache(_ =>
-            {
-                _.Configuration = "localhost:6379";
-            });
+            //services.AddStackExchangeRedisCache(_ =>
+            //{
+            //    _.Configuration = "localhost:6379";
+            //});
 
-            services.AddSingleton<IConnectionMultiplexer, ConnectionMultiplexer>(_ =>
+            services.AddSingleton<ConnectionMultiplexer>(_ =>
             {
                 return ConnectionMultiplexer.Connect("localhost:6379");
             });
 
             services.AddGraphQL(sp => SchemaBuilder.New()
+                                                   //.EnableRelaySupport()
                                                    .AddServices(sp)
                                                    .AddQueryType(d => d.Name("Query"))
                                                    .AddType<FileReferenceQueries>()
                                                    .AddType<BranchLocationQueries>()
+                                                   .AddType<ChainOfTitlesQueries>()
+                                                   .AddType<WorksheetQueries>()
+                                                   .AddType<ExaminationStatusTypeQueries>()
+                                                   .AddType<ChainOfTitleCategoryTypeQueries>()
+                                                   .AddType<TitleEventTypeQueries>()
                                                    .AddType<FileStatusQueries>()
                                                    .AddExportDirectiveType()
                                                    .AddMutationType(d => d.Name("Mutation"))
@@ -51,8 +56,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
                                                    .BindClrType<string, StringType>()
                                                    .Create(), b =>
                                                    {
-                                                       b.AddOptions(options);
-                                                       b.UseActivePersistedQueryPipeline().AddSha256DocumentHashProvider();
+                                                       b.UseActivePersistedQueryPipeline(options);
                                                    });
 
             //services.AddFileSystemQueryStorage("./graphQL/queries");
@@ -64,10 +68,31 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
 
             services.AddRedisQueryStorage(s =>
             {
-                return s.GetService<IConnectionMultiplexer>().GetDatabase();
+                var database = s.GetService<ConnectionMultiplexer>().GetDatabase();
+                
+                database.Multiplexer.ErrorMessage += Multiplexer_ErrorMessage;
+                database.Multiplexer.HashSlotMoved += Multiplexer_HashSlotMoved;
+                database.Multiplexer.InternalError += Multiplexer_InternalError;
+
+                return database;
             });
 
             return services;
+        }
+
+        private static void Multiplexer_InternalError(object sender, InternalErrorEventArgs e)
+        {
+            
+        }
+
+        private static void Multiplexer_HashSlotMoved(object sender, HashSlotMovedEventArgs e)
+        {
+            
+        }
+
+        private static void Multiplexer_ErrorMessage(object sender, RedisErrorEventArgs e)
+        {
+            
         }
 
         public static IServiceCollection ConfigureOptions([NotNull] this IServiceCollection services, [NotNull] IConfiguration configuration)
@@ -140,10 +165,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
                 options.MimeTypes = new[] { "application/json" };
             });
 
-            services.Configure<GzipCompressionProviderOptions>(options =>
-            {
-                options.Level = CompressionLevel.Fastest;
-            });
+            services.Configure((System.Action<GzipCompressionProviderOptions>)(_ => _ = configuration.GetOption<GzipCompressionProviderOptions>()));
 
             return services;
         }

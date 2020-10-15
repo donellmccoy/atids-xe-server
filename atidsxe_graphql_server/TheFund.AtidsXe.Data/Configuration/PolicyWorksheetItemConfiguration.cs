@@ -31,7 +31,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                 .HasConstraintName("FK_POLICY_POLICY_WORKSHEET_ITEM");
 
             entity.HasOne(d => d.Worksheet)
-                .WithMany(p => p.PolicyWorksheetItem)
+                .WithMany(p => p.PolicyWorksheetItems)
                 .HasForeignKey(d => d.WorksheetId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_WORKSHEET_POLICY_WORKSHEET_ITEM");
