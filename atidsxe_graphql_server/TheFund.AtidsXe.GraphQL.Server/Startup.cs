@@ -50,7 +50,7 @@ namespace TheFund.AtidsXe.GraphQL.Server
 
             app.UseRouting();
             
-            app.UseGraphQL("/graphql");
+            app.UseGraphQL("/api/v1/graphql");
         }
     }
 }
