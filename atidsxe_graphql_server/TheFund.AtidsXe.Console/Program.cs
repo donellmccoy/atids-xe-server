@@ -29,17 +29,19 @@ namespace TheFund.AtidsXe.Console
 
             var fileReferences = response.Data.FileReferenceResult.FileReferences;
 
-            cachingService.AddOrUpdate(fileReferences.ToArray());
-
             cachingService.Connect().Subscribe(p =>
             {
 
             });
+
+            cachingService.AddOrUpdate(fileReferences.ToArray());
+
+            System.Console.ReadLine();
         }
 
         private static string CreateFileReferenceQuery(string searchTerm, int first, string after = null)
         {
-            return "query FileReferences " 
+            return "query FileReferences "
                    + "{ fileReferenceResult: fileReferences (" + CreateInput(searchTerm, first, after) + ") "
                    + "{ totalCount pageInfo {  ...pageInfoFields } "
                    + "fileReferences: nodes { name fileReferenceId defaultGeographicLocaleId branchLocationId fileStatusId createDate updateDate workerId isTemporaryFile "
