@@ -1,26 +1,13 @@
 ﻿namespace TheFund.AtidsXe.Console
 {
     public class PageInfo
-        : IPageInfo
     {
-        public PageInfo(
-            string startCursor,
-            string endCursor,
-            bool hasPreviousPage,
-            bool hasNextPage)
-        {
-            StartCursor = startCursor;
-            EndCursor = endCursor;
-            HasPreviousPage = hasPreviousPage;
-            HasNextPage = hasNextPage;
-        }
-
-        public string StartCursor { get; }
-
-        public string EndCursor { get; }
-
-        public bool HasPreviousPage { get; }
-
-        public bool HasNextPage { get; }
+        public string __Typename { get; set; }
+        public string StartCursor { get; set; }
+        public string EndCursor { get; set; }
+        public bool HasPreviousPage { get; set; }
+        public bool HasNextPage { get; set; }
     }
+
+
 }

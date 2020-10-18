@@ -1,6 +1,7 @@
 using HotChocolate.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -33,6 +34,9 @@ namespace TheFund.AtidsXe.GraphQL.Server
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<KestrelServerOptions>(options => options.AllowSynchronousIO = true)
+                    .Configure<IISServerOptions>(options => options.AllowSynchronousIO = true);
+
             services.ConfigureOptions(_configuration)
                     .ConfigureDbContext(_hostingEnvironment, _configuration)
                     .ConfigureGraphQL(_configuration)
