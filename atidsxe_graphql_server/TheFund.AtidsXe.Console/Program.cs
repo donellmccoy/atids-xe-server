@@ -7,20 +7,21 @@ using System;
 using System.Collections.ObjectModel;
 using System.Text.Json;
 using System.Threading.Tasks;
+using TheFund.AtidsXe.Console.DataTransferObjects;
 
 namespace TheFund.AtidsXe.Console
 {
     public class Program
     {
-        private static ReadOnlyObservableCollection<FileReference> _list;
+        private static ReadOnlyObservableCollection<FileReferenceDTO> _list;
 
         private static async Task Main()
         {
             var response = await GetFileReferencesResponse("don", 50);
 
-            var fileReferences = response.Data.FileReferencesConnection.FileReferences;
+            var fileReferences = response.Data.FileReferencesConnection.Nodes;
 
-            var fileReferencesCache = new SourceCache<FileReference, int>(p => p.FileReferenceId);
+            var fileReferencesCache = new SourceCache<FileReferenceDTO, int>(p => p.FileReferenceId);
 
             fileReferencesCache.Edit(innerCache =>
             {
@@ -73,7 +74,7 @@ namespace TheFund.AtidsXe.Console
 
         private static string GetFileReferenceQueryString()
         {
-            return "query FileReferences($searchTerm:String!,$pageSize:PaginationAmount!){fileReferencesConnection:fileReferences(first:$pageSize where:{name_contains:$searchTerm}){__typename totalCount pageInfo{...pageInfoFields}fileReferences:nodes{__typename fileReferenceId name defaultGeographicLocaleId branchLocationId fileStatusId createDate updateDate workerId isTemporaryFile titleSearchOrigination{titleEventId titleSearchOriginationId orderDate orderReference fileReferenceId}chainOfTitlesConnection:chainOfTitles{__typename totalCount pageInfo{...pageInfoFields}chainOfTitles:nodes{__typename chainOfTitleId fileReferenceId}}fileReferenceNotesConnection:fileReferenceNotes{__typename totalCount pageInfo{...pageInfoFields}fileReferenceNotes:nodes{__typename fileReferenceId fileReferenceNotesId message userId timeStamp}}worksheet{__typename worksheetId fileReferenceId worksheetItemsConnection:worksheetItems{totalCount pageInfo{...pageInfoFields}worksheetItems:nodes{__typename titleEventId worksheetId sequence}}}searchesConnection:searches{__typename totalCount pageInfo{...pageInfoFields}searches:nodes{__typename searchId fileReferenceId searchTypeId searchThruDate searchFromDate searchStatusId geographicLocaleId geographicCertRangeId geographicLocaleId parentSearchId instrumentFilters lrsSearch inclMortgageeShortForm hidden}}}}}fragment pageInfoFields on PageInfo{__typename startCursor endCursor hasPreviousPage hasNextPage}";
+            return "query FileReferences($searchTerm:String!,$pageSize:PaginationAmount!){fileReferencesConnection:fileReferences(first:$pageSize where:{name_contains:$searchTerm}){__typename totalCount pageInfo{...pageInfoFields}nodes{__typename fileReferenceId name defaultGeographicLocaleId branchLocationId fileStatusId createDate updateDate workerId isTemporaryFile titleSearchOrigination{titleEventId titleSearchOriginationId orderDate orderReference fileReferenceId}chainOfTitlesConnection:chainOfTitles{__typename totalCount pageInfo{...pageInfoFields}nodes{__typename chainOfTitleId fileReferenceId}}fileReferenceNotesConnection:fileReferenceNotes{__typename totalCount pageInfo{...pageInfoFields}fileReferenceNotes:nodes{__typename fileReferenceId fileReferenceNotesId message userId timeStamp}}worksheet{__typename worksheetId fileReferenceId worksheetItemsConnection:worksheetItems{totalCount pageInfo{...pageInfoFields}nodes{__typename titleEventId worksheetId sequence}}}searchesConnection:searches{__typename totalCount pageInfo{...pageInfoFields}nodes{__typename searchId fileReferenceId searchTypeId searchThruDate searchFromDate searchStatusId geographicLocaleId geographicCertRangeId geographicLocaleId parentSearchId instrumentFilters lrsSearch inclMortgageeShortForm hidden}}}}}fragment pageInfoFields on PageInfo{__typename startCursor endCursor hasPreviousPage hasNextPage}";
         }
     }
 

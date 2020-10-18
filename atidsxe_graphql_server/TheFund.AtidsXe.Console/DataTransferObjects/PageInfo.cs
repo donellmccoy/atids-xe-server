@@ -1,13 +1,13 @@
-﻿namespace TheFund.AtidsXe.Console
+﻿namespace TheFund.AtidsXe.Console.DataTransferObjects
 {
-    public class PageInfo
+    public sealed class PageInfo
     {
-        public string __Typename { get; set; }
         public string StartCursor { get; set; }
+
         public string EndCursor { get; set; }
+
         public bool HasPreviousPage { get; set; }
+
         public bool HasNextPage { get; set; }
     }
-
-
 }
