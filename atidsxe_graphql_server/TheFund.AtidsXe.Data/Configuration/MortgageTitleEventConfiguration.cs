@@ -13,29 +13,30 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.ToTable("MORTGAGE_TITLE_EVENT");
 
             entity.HasIndex(e => e.MinNumberId)
-                .HasName("I_FK_MIN_NUMBER");
+                  .HasName("I_FK_MIN_NUMBER");
 
             entity.Property(e => e.TitleEventId)
-                .HasColumnName("TITLE_EVENT_ID")
-                .ValueGeneratedNever();
+                  .HasColumnName("TITLE_EVENT_ID")
+                  .ValueGeneratedNever();
 
             entity.Property(e => e.LenderName)
-                .IsRequired()
-                .HasColumnName("LENDER_NAME")
-                .HasMaxLength(200)
-                .IsUnicode(false);
+                  .IsRequired()
+                  .HasColumnName("LENDER_NAME")
+                  .HasMaxLength(200)
+                  .IsUnicode(false);
 
-            entity.Property(e => e.MinNumberId).HasColumnName("MIN_NUMBER_ID");
+            entity.Property(e => e.MinNumberId)
+                  .HasColumnName("MIN_NUMBER_ID");
 
             entity.HasOne(d => d.MinNumber)
-                .WithMany(p => p.MortgageTitleEvent)
-                .HasForeignKey(d => d.MinNumberId)
-                .HasConstraintName("FK_MIN_NBR_MTG_TITLE_EVENT");
+                  .WithMany(p => p.MortgageTitleEvent)
+                  .HasForeignKey(d => d.MinNumberId)
+                  .HasConstraintName("FK_MIN_NBR_MTG_TITLE_EVENT");
 
             entity.HasOne(d => d.TitleEvent)
-                .WithOne(p => p.MortgageTitleEvent)
-                .HasForeignKey<MortgageTitleEvent>(d => d.TitleEventId)
-                .HasConstraintName("FK_TITLE_EVENT_MTG_TITLE_EVENT");
+                  .WithOne(p => p.MortgageTitleEvent)
+                  .HasForeignKey<MortgageTitleEvent>(d => d.TitleEventId)
+                  .HasConstraintName("FK_TITLE_EVENT_MTG_TITLE_EVENT");
         }
     }
 }

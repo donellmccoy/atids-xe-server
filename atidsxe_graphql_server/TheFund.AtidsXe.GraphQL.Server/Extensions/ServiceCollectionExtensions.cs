@@ -27,22 +27,14 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
 
             var options = configuration.GetOption<QueryExecutionOptions>();
 
-
-            //services.AddStackExchangeRedisCache(_ =>
-            //{
-            //    _.Configuration = "localhost:6379";
-            //});
-
-            services.AddSingleton<ConnectionMultiplexer>(_ =>
-            {
-                return ConnectionMultiplexer.Connect("localhost:6379");
-            });
+            services.AddRedisQueryStorage(_ => ConnectionMultiplexer.Connect("localhost:6379").GetDatabase(0));
 
             services.AddGraphQL(sp => SchemaBuilder.New()
-                                                   //.EnableRelaySupport()
                                                    .AddServices(sp)
                                                    .AddQueryType(d => d.Name("Query"))
                                                    .AddType<FileReferenceQueries>()
+                                                   .AddType<SearchQueries>()
+                                                   .AddType<TitleEventSearchQueries>()
                                                    .AddType<BranchLocationQueries>()
                                                    .AddType<ChainOfTitlesQueries>()
                                                    .AddType<WorksheetQueries>()
@@ -54,45 +46,9 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
                                                    .AddMutationType(d => d.Name("Mutation"))
                                                    .AddType<FileReferenceMutations>()
                                                    .BindClrType<string, StringType>()
-                                                   .Create(), b =>
-                                                   {
-                                                       b.UseActivePersistedQueryPipeline(options);
-                                                   });
-
-            //services.AddFileSystemQueryStorage("./graphQL/queries");
-
-            //services.AddQueryRequestInterceptor((context, builder, cancellationToken) =>
-            //{
-            //    return Task.CompletedTask;
-            //});
-
-            services.AddRedisQueryStorage(s =>
-            {
-                var database = s.GetService<ConnectionMultiplexer>().GetDatabase();
-                
-                database.Multiplexer.ErrorMessage += Multiplexer_ErrorMessage;
-                database.Multiplexer.HashSlotMoved += Multiplexer_HashSlotMoved;
-                database.Multiplexer.InternalError += Multiplexer_InternalError;
-
-                return database;
-            });
+                                                   .Create(), b => b.UseActivePersistedQueryPipeline(options).AddSha256DocumentHashProvider());
 
             return services;
-        }
-
-        private static void Multiplexer_InternalError(object sender, InternalErrorEventArgs e)
-        {
-            
-        }
-
-        private static void Multiplexer_HashSlotMoved(object sender, HashSlotMovedEventArgs e)
-        {
-            
-        }
-
-        private static void Multiplexer_ErrorMessage(object sender, RedisErrorEventArgs e)
-        {
-            
         }
 
         public static IServiceCollection ConfigureOptions([NotNull] this IServiceCollection services, [NotNull] IConfiguration configuration)
@@ -119,10 +75,10 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
 
             if(options.UseInMemoryDatabase)
             {
-                services.AddDbContext<ATIDSXEContext>(_ =>
+                services.AddDbContext<ATIDSXEContext>(builder =>
                 {
-                    _.EnableDetailedErrors(options.EnableDetailedErrors);
-                    _.UseInMemoryDatabase(options.InMemoryDatabaseName);
+                    builder.EnableDetailedErrors(options.EnableDetailedErrors);
+                    builder.UseInMemoryDatabase(options.InMemoryDatabaseName);
                 });
 
                 DataGenerator.Initialize(services);

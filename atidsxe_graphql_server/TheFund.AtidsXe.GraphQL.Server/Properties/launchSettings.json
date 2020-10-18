@@ -11,7 +11,7 @@
   "profiles": {
     "Using Development Database": {
       "commandName": "Project",
-      "launchUrl": "api/graphql",
+      "launchUrl": "/api/v1/graphql",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
@@ -19,7 +19,7 @@
     },
     "Using Local Database": {
       "commandName": "Project",
-      "launchUrl": "api/graphql",
+      //"launchUrl": "/api/v1/graphql",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Local"
       },
@@ -27,7 +27,7 @@
     },
     "Using Personal Database": {
       "commandName": "Project",
-      "launchUrl": "api/graphql",
+      "launchUrl": "/api/v1/graphql",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Personal"
       },
@@ -35,7 +35,7 @@
     },
     "Using Production": {
       "commandName": "Project",
-      "launchUrl": "api/graphql",
+      "launchUrl": "/api/v1/graphql",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Production"
       },

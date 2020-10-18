@@ -5,10 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DataLoaders\" />
-    <Folder Include="Inputs\" />
-    <Folder Include="ObjectTypes\" />
-    <Folder Include="Payloads\" />
+    <Compile Remove="Inputs\**" />
+    <Compile Remove="Payloads\**" />
+    <Content Remove="Inputs\**" />
+    <Content Remove="Payloads\**" />
+    <EmbeddedResource Remove="Inputs\**" />
+    <EmbeddedResource Remove="Payloads\**" />
+    <None Remove="Inputs\**" />
+    <None Remove="Payloads\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Subscriptions\" />
   </ItemGroup>
 
@@ -22,8 +29,8 @@
     <PackageReference Include="HotChocolate.Types.Selections" Version="10.5.3" />
     <PackageReference Include="HotChocolate.Types.Sorting" Version="10.5.3" />
     <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
-    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="3.1.9" />
   </ItemGroup>
 
   <ItemGroup>

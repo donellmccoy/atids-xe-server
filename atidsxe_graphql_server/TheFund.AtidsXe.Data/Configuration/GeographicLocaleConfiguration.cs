@@ -40,16 +40,16 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.Property(e => e.ParentGeographicLocaleId)
                    .HasColumnName("PARENT_GEOGRAPHIC_LOCALE_ID");
 
-            //builder.HasOne(d => d.GeographicLocaleType)
-            //    .WithMany(p => p.GeographicLocale)
-            //    .HasForeignKey(d => d.GeographicLocaleTypeId)
-            //    .OnDelete(DeleteBehavior.ClientSetNull)
-            //    .HasConstraintName("FK_GEO_LOCALETYPE_GEO_LOCALE");
+            builder.HasOne(d => d.GeographicLocaleType)
+                   .WithMany(p => p.GeographicLocale)
+                   .HasForeignKey(d => d.GeographicLocaleTypeId)
+                   .OnDelete(DeleteBehavior.ClientSetNull)
+                   .HasConstraintName("FK_GEO_LOCALETYPE_GEO_LOCALE");
 
-            //builder.HasOne(d => d.ParentGeographicLocale)
-            //    .WithMany(p => p.InverseParentGeographicLocale)
-            //    .HasForeignKey(d => d.ParentGeographicLocaleId)
-            //    .HasConstraintName("FK_GEO_LOCALE_PARENT_LOCALE");
+            builder.HasOne(d => d.ParentGeographicLocale)
+                   .WithMany(p => p.InverseParentGeographicLocale)
+                   .HasForeignKey(d => d.ParentGeographicLocaleId)
+                   .HasConstraintName("FK_GEO_LOCALE_PARENT_LOCALE");
         }
     }
 }

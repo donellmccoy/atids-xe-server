@@ -10,19 +10,21 @@ namespace TheFund.AtidsXe.Data.Configuration
         {
             entity.ToTable("NAME_SEARCH_STATUS_CODE");
 
+            entity.HasKey(p => p.NameSearchStatusCodeId);
+
             entity.HasIndex(e => e.Description)
-                .HasName("NAME_SEARCH_STATUS_CODE_DESCRIPTION_UC1")
-                .IsUnique();
+                  .HasName("NAME_SEARCH_STATUS_CODE_DESCRIPTION_UC1")
+                  .IsUnique();
 
             entity.Property(e => e.NameSearchStatusCodeId)
-                .HasColumnName("NAME_SEARCH_STATUS_CODE_ID")
-                .ValueGeneratedNever();
+                  .HasColumnName("NAME_SEARCH_STATUS_CODE_ID")
+                  .ValueGeneratedNever();
 
             entity.Property(e => e.Description)
-                .IsRequired()
-                .HasColumnName("DESCRIPTION")
-                .HasMaxLength(50)
-                .IsUnicode(false);
+                  .IsRequired()
+                  .HasColumnName("DESCRIPTION")
+                  .HasMaxLength(50)
+                  .IsUnicode(false);
         }
     }
 }

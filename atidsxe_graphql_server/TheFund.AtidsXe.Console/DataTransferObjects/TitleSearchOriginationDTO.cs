@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace TheFund.AtidsXe.Console
+namespace TheFund.AtidsXe.Console.DataTransferObjects
 {
-    public class TitleSearchOrigination
+    public class TitleSearchOriginationDTO
     {
         public int TitleSearchOriginationId { get; set; }
 

@@ -8,9 +8,9 @@ namespace TheFund.AtidsXe.Data.Configuration
     {
         public void Configure(EntityTypeBuilder<BookPageReference> entity)
         {
-            entity.HasKey(e => e.OfficialRecordDocumentId);
-
             entity.ToTable("BOOK_PAGE_REFERENCE");
+
+            entity.HasKey(e => e.OfficialRecordDocumentId);
 
             entity.Property(e => e.OfficialRecordDocumentId)
                   .HasColumnName("OFFICIAL_RECORD_DOCUMENT_ID")

@@ -9,7 +9,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheFund.AtidsXe.GraphQL.Ser
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheFund.AtidsXe.Console", "TheFund.AtidsXe.Console\TheFund.AtidsXe.Console.csproj", "{AA4C9033-212D-4A32-A536-3C957671BE66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheFund.AtidsXe.Common", "TheFund.AtidsXe.Common\TheFund.AtidsXe.Common.csproj", "{83524B15-7B94-4DB3-B341-B8CFD3232F2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheFund.AtidsXe.Common", "TheFund.AtidsXe.Common\TheFund.AtidsXe.Common.csproj", "{83524B15-7B94-4DB3-B341-B8CFD3232F2D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{9427AFE7-FB9C-4ED7-913C-85D8FD3DCA09}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{51EB6247-9BC8-42A4-8E1B-B6795FFCA696}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{AF516E87-592F-4F28-9226-31862AB7B75E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheFund.AtidsXe.Services", "TheFund.AtidsXe.Services\TheFund.AtidsXe.Services.csproj", "{F578ED13-2E0E-4C42-9690-8030720CA88B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{8E4E58F0-8C02-4C8A-AFAB-2AFBE5D6A8C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +43,20 @@ Global
 		{83524B15-7B94-4DB3-B341-B8CFD3232F2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83524B15-7B94-4DB3-B341-B8CFD3232F2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83524B15-7B94-4DB3-B341-B8CFD3232F2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F578ED13-2E0E-4C42-9690-8030720CA88B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F578ED13-2E0E-4C42-9690-8030720CA88B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F578ED13-2E0E-4C42-9690-8030720CA88B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F578ED13-2E0E-4C42-9690-8030720CA88B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A4B35335-EB5F-4719-9AE7-95E082CA57B4} = {8E4E58F0-8C02-4C8A-AFAB-2AFBE5D6A8C6}
+		{3CD2B86D-A087-46C7-BBD0-E93328A18EDD} = {9427AFE7-FB9C-4ED7-913C-85D8FD3DCA09}
+		{AA4C9033-212D-4A32-A536-3C957671BE66} = {AF516E87-592F-4F28-9226-31862AB7B75E}
+		{83524B15-7B94-4DB3-B341-B8CFD3232F2D} = {51EB6247-9BC8-42A4-8E1B-B6795FFCA696}
+		{F578ED13-2E0E-4C42-9690-8030720CA88B} = {51EB6247-9BC8-42A4-8E1B-B6795FFCA696}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {872D5F89-17D9-445C-8DA6-3A33E87CF9D1}
