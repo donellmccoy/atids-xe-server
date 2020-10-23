@@ -1,6 +1,6 @@
 ﻿namespace TheFund.AtidsXe.Console.DataTransferObjects
 {
-    public sealed class WorksheetItemDTO : DtoBase
+    public sealed class WorksheetItem : DtoBase
     {
         public int TitleEventId { get; set; }
 

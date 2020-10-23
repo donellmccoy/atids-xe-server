@@ -23,16 +23,16 @@ namespace TheFund.AtidsXe.GraphQL.Server.Queries
         [UseSelection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<Search> GetSearches([Service] ATIDSXEContext context, int[] fileReferences)
+        public IQueryable<Search> GetSearches([Service] ATIDSXEContext context, int fileReferenceId)
         {
-            return context.Search.Where(p => fileReferences.Contains(p.FileReferenceId));
+            return context.Search.Where(p => p.FileReferenceId == fileReferenceId);
         }
 
         [UseSingleOrDefault]
         [UseSelection]
-        public IQueryable<Search> GetSearchById([Service] ATIDSXEContext context, int searchId)
+        public IQueryable<Search> GetSearch([Service] ATIDSXEContext context, int fileReferenceId, int searchId)
         {
-            return context.Search.Where(p => p.SearchId == searchId);
+            return context.Search.Where(p => p.SearchId == searchId && p.FileReferenceId == fileReferenceId);
         }
     }
 }

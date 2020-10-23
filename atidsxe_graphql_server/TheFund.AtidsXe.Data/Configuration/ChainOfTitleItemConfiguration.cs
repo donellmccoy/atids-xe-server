@@ -56,7 +56,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasConstraintName("FK_CHAIN_OF_TITLE_ITEM_CHAIN_OF_TITLE");
 
             builder.HasOne(d => d.TitleEvent)
-                   .WithMany(p => p.ChainOfTitleItem)
+                   .WithMany(p => p.ChainOfTitleItems)
                    .HasForeignKey(d => d.TitleEventId)
                    .OnDelete(DeleteBehavior.ClientSetNull)
                    .HasConstraintName("FK_CHAIN_OF_TITLE_ITEM_TITLE_EVENT");

@@ -41,7 +41,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasConstraintName("FK_TITLE_SEARCH_ORIGINATION_FILE_REFERENCE");
 
             builder.HasOne(d => d.TitleEvent)
-                   .WithMany(p => p.TitleSearchOrigination)
+                   .WithMany(p => p.TitleSearchOriginations)
                    .HasForeignKey(d => d.TitleEventId)
                    .OnDelete(DeleteBehavior.ClientSetNull)
                    .HasConstraintName("FK_TITLE_SEARCH_ORIGINATION_TITLE_EVENT");

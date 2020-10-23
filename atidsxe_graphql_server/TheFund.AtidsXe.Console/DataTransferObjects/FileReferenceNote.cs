@@ -2,7 +2,7 @@
 
 namespace TheFund.AtidsXe.Console.DataTransferObjects
 {
-    public sealed class FileReferenceNoteDTO : DtoBase
+    public sealed class FileReferenceNote : DtoBase
     {
         public int FileReferenceId { get; set; }
 

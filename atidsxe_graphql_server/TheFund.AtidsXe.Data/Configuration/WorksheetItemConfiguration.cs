@@ -25,7 +25,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasColumnName("SEQUENCE");
 
             builder.HasOne(d => d.TitleEvent)
-                   .WithMany(p => p.WorksheetItem)
+                   .WithMany(p => p.WorksheetItems)
                    .HasForeignKey(d => d.TitleEventId)
                    .HasConstraintName("FK_TITLE_EVENT_WORKSHEET_ITEM");
 

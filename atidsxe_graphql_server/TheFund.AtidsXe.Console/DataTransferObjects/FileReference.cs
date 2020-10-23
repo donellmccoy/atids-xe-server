@@ -2,7 +2,7 @@
 
 namespace TheFund.AtidsXe.Console.DataTransferObjects
 {
-    public sealed class FileReferenceDTO : DtoBase
+    public sealed class FileReference
     {
         public int FileReferenceId { get; set; }
 
@@ -22,16 +22,14 @@ namespace TheFund.AtidsXe.Console.DataTransferObjects
 
         public byte? IsTemporaryFile { get; set; }
 
-        public bool IsTemporaryFileBool => IsTemporaryFile == 1;
+        public TitleSearchOrigination titleSearchOrigination { get; set; }
 
-        public TitleSearchOriginationDTO titleSearchOrigination { get; set; }
+        public Worksheet Worksheet { get; set; }
 
-        public Connection<ChainOfTitleDTO> ChainOfTitlesConnection { get; set; }
+        public Connection<ChainOfTitle> ChainOfTitlesConnection { get; set; }
 
-        public Connection<FileReferenceNoteDTO> FileReferenceNotesConnection { get; set; }
+        public Connection<FileReferenceNote> FileReferenceNotesConnection { get; set; }
 
-        public WorksheetDTO Worksheet { get; set; }
-
-        public Connection<SearchDTO> SearchesConnection { get; set; }
+        public Connection<Search> SearchesConnection { get; set; }
     }
 }

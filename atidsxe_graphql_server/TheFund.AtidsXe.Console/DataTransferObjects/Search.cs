@@ -2,7 +2,7 @@
 
 namespace TheFund.AtidsXe.Console.DataTransferObjects
 {
-    public sealed class SearchDTO : DtoBase
+    public sealed class Search : DtoBase
     {
         public int SearchId { get; set; }
 

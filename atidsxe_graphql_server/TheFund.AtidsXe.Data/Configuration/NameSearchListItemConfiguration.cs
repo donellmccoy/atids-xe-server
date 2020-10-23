@@ -49,7 +49,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .HasConstraintName("FK_NAME_SEARCH_STATUS_CODE");
 
             entity.HasOne(d => d.ReferenceTitleEvent)
-                  .WithMany(p => p.NameSearchListItem)
+                  .WithMany(p => p.NameSearchListItems)
                   .HasForeignKey(d => d.ReferenceTitleEventId)
                   .OnDelete(DeleteBehavior.ClientSetNull)
                   .HasConstraintName("FK_NAME_SEARCH_LIST_ITEM_TITLE_EVENT");

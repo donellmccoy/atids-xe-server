@@ -28,7 +28,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                 .HasConstraintName("FK_PARTY_TITLE_EVENT_PARTY");
 
             entity.HasOne(d => d.TitleEvent)
-                .WithMany(p => p.TitleEventParty)
+                .WithMany(p => p.TitleEventParties)
                 .HasForeignKey(d => d.TitleEventId)
                 .HasConstraintName("FK_TITLE_EVENT_PARTY");
         }

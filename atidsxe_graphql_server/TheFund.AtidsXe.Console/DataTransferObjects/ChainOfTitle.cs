@@ -1,6 +1,6 @@
 ﻿namespace TheFund.AtidsXe.Console.DataTransferObjects
 {
-    public sealed class ChainOfTitleDTO : DtoBase
+    public sealed class ChainOfTitle : DtoBase
     {
         public int ChainOfTitleId { get; set; }
 
