@@ -1,4 +1,4 @@
-﻿namespace TheFund.AtidsXe.Console
+﻿namespace TheFund.AtidsXe.Blazor.Server.Models.Requests
 {
     public class SearchRequest
     {

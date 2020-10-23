@@ -117,10 +117,5 @@ namespace TheFund.AtidsXe.Console
         public string SearchTerm { get; set; }
     }
 
-    public class PagingOptions
-    {
-        public int PageSize { get; set; }
-    }
-
 
 }
