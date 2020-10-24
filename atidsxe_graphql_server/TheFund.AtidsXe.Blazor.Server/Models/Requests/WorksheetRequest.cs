@@ -1,12 +1,14 @@
-﻿namespace TheFund.AtidsXe.Blazor.Server.Models.Requests
+﻿using System;
+
+namespace TheFund.AtidsXe.Blazor.Server.Models.Requests
 {
-    public class WorksheetRequest
+    public sealed class WorksheetRequest
     {
-        public WorksheetRequest(int fileReferenceId, int worksheetId, PagingOptions pagingOptions)
+        private WorksheetRequest(int fileReferenceId, int worksheetId, PagingOptions pagingOptions)
         {
             FileReferenceId = fileReferenceId;
             WorksheetId = worksheetId;
-            PagingOptions = pagingOptions;
+            PagingOptions = pagingOptions ?? throw new ArgumentNullException(nameof(pagingOptions));
         }
 
         public int FileReferenceId { get; }
@@ -16,5 +18,10 @@
         public (int fileReferenceId, int worksheetId) Key => (FileReferenceId, WorksheetId);
 
         public PagingOptions PagingOptions { get; }
+
+        public static WorksheetRequest Create(int fileReferenceId, int worksheetId, PagingOptions pagingOptions = null)
+        {
+            return new WorksheetRequest(fileReferenceId, worksheetId, pagingOptions ?? new PagingOptions());
+        }
     }
 }

@@ -5,6 +5,6 @@ namespace TheFund.AtidsXe.Blazor.Server.Models.Responses
 {
     public sealed class SearchResponse
     {
-        public Search Search { get; set; }
+        public SearchDTO Search { get; set; }
     }
 }

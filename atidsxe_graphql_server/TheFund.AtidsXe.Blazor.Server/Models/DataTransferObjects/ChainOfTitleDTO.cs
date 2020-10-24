@@ -1,6 +1,6 @@
 ﻿namespace TheFund.AtidsXe.Blazor.Server.Models.DataTransferObjects
 {
-    public sealed class ChainOfTitle : DtoBase
+    public sealed class ChainOfTitleDTO : BaseDTO
     {
         public int ChainOfTitleId { get; set; }
 

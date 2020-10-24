@@ -1,20 +1,32 @@
-﻿namespace TheFund.AtidsXe.Blazor.Server.Models.Requests
+﻿using GraphQL;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace TheFund.AtidsXe.Blazor.Server.Models.Requests
 {
-    public class SearchRequest
+    public sealed class SearchRequest : IRequest
     {
-        public SearchRequest(int fileReferenceId, int searchId, PagingOptions pagingOptions)
+        private SearchRequest(int fileReferenceId, int searchId, PagingOptions pagingOptions)
         {
             FileReferenceId = fileReferenceId;
             SearchId = searchId;
-            PagingOptions = pagingOptions;
+            PagingOptions = pagingOptions ?? throw new ArgumentNullException(nameof(pagingOptions));
         }
 
         public int FileReferenceId { get; }
 
         public int SearchId { get; }
 
-        public (int fileReferenceId, int searchId) Key => (FileReferenceId, SearchId);
+        public (int fileReferenceId, int searchId) CacheKey => (FileReferenceId, SearchId);
+
+        public (string, int)[] Variables => new[] { ("FileReferenceId", FileReferenceId), ("SearchId", SearchId) };
 
         public PagingOptions PagingOptions { get; }
+
+        public static SearchRequest Create(int fileReferenceId, int searchId, PagingOptions pagingOptions = null)
+        {
+            return new SearchRequest(fileReferenceId, searchId, pagingOptions ?? new PagingOptions());
+        }
     }
 }

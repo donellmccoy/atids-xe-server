@@ -1,40 +1,56 @@
-﻿using System;
+﻿using DynamicData.Kernel;
+using GraphQL;
+using GraphQL.Client.Http;
+using Optional;
+using System;
+using System.Threading;
 using System.Threading.Tasks;
 using TheFund.AtidsXe.Blazor.Server.Models.Requests;
 using TheFund.AtidsXe.Blazor.Server.Models.Responses;
 using TheFund.AtidsXe.Blazor.Server.Utility;
 
-namespace TheFund.AtidsXe.Console
+namespace TheFund.AtidsXe.Blazor.Server.Services
 {
-    public class DataService : IDataService
+    public sealed class DataService : IDataService
     {
+        #region Fields
+
         private readonly IGraphQLService _graphQLService;
         private readonly ITaskCache _cache;
 
+        #endregion
+
+        #region Constructors
+
         public DataService(IGraphQLService graphQLService, ITaskCache cache)
         {
-            _graphQLService = graphQLService;
-            _cache = cache;
+            _graphQLService = graphQLService ?? throw new ArgumentNullException(nameof(graphQLService));
+            _cache = cache ?? throw new ArgumentNullException(nameof(cache));
         }
 
-        public async Task<SearchResponse> GetSearchAsync(SearchRequest request)
+        #endregion
+
+        #region Search
+
+        public async Task<Option<SearchResponse>> GetSearchAsync(SearchRequest request, CancellationToken token = default)
         {
             if (request is null)
             {
-                throw new ArgumentNullException(nameof(request));
+                return Option.None<SearchResponse>();
             }
 
-            var result = await _cache.AddOrGetExistingAsync
+            var result = await _cache.GetOrCreateAsync
             (
-                request.Key,
-                () =>
-                {
-                    return _graphQLService.GetSearchAsync(request.FileReferenceId, request.SearchId, request.PagingOptions);
-                }
+                request.CacheKey, 
+                () => _graphQLService.GetSearchAsync(request.PagingOptions, token, request.Variables)
             );
 
-            return result.Data;
+            return result.Data.SomeNotNull();
         }
+
+        #endregion
+
+        #region FileReference
 
         public async Task<FileReferencesResponse> GetFileReferenceAsync(FileReferencesRequest request)
         {
@@ -43,17 +59,14 @@ namespace TheFund.AtidsXe.Console
                 throw new ArgumentNullException(nameof(request));
             }
 
-            var result = await _cache.AddOrGetExistingAsync
-            (
-                request.Key,
-                () =>
-                {
-                    return _graphQLService.GetFileReferenceAsync(request.FileReferenceId, request.PagingOptions);
-                }
-            );
+            var result = await _cache.GetOrCreateAsync(request.Key, () => _graphQLService.GetFileReferenceAsync(request.FileReferenceId, request.PagingOptions));
 
-            return result.Data;
+            return result?.Data;
         }
+
+        #endregion
+
+        #region ChainOfTitle
 
         public async Task<ChainOfTitleResponse> GetChainOfTitleAsync(ChainOfTitleRequest request)
         {
@@ -62,17 +75,14 @@ namespace TheFund.AtidsXe.Console
                 throw new ArgumentNullException(nameof(request));
             }
 
-            var result = await _cache.AddOrGetExistingAsync
-            (
-                request.Key,
-                () =>
-                {
-                    return _graphQLService.GetChainOfTitleAsync(request.FileReferenceId, request.ChainOfTitleId, request.PagingOptions);
-                }
-            );
+            var result = await _cache.GetOrCreateAsync(request.Key, () => _graphQLService.GetChainOfTitleAsync(request.FileReferenceId, request.ChainOfTitleId, request.PagingOptions));
 
-            return result.Data;
+            return result?.Data;
         }
+
+        #endregion
+
+        #region Worksheet
 
         public async Task<WorksheetResponse> GetWorksheetAsync(WorksheetRequest request)
         {
@@ -81,16 +91,26 @@ namespace TheFund.AtidsXe.Console
                 throw new ArgumentNullException(nameof(request));
             }
 
-            var result = await _cache.AddOrGetExistingAsync
-            (
-                request.Key,
-                () =>
-                {
-                    return _graphQLService.GetWorksheetAsync(request.FileReferenceId, request.WorksheetId, request.PagingOptions);
-                }
-            );
+            var result = await _cache.GetOrCreateAsync(request.Key, () => _graphQLService.GetWorksheetAsync(request.FileReferenceId, request.WorksheetId, request.PagingOptions));
 
-            return result.Data;
+            return result?.Data;
+        }
+
+        #endregion
+
+        #region Policy
+        #endregion
+
+        public object InvalidateCachedItem(object key)
+        {
+            if (key is null)
+            {
+                throw new ArgumentNullException(nameof(key));
+            }
+
+            _cache.Invalidate(key);
+
+            return key;
         }
     }
 }

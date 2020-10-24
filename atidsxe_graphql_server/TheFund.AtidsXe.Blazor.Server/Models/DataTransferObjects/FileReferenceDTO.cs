@@ -2,7 +2,7 @@
 
 namespace TheFund.AtidsXe.Blazor.Server.Models.DataTransferObjects
 {
-    public sealed class FileReference
+    public sealed class FileReferenceDTO
     {
         public int FileReferenceId { get; set; }
 
@@ -22,14 +22,14 @@ namespace TheFund.AtidsXe.Blazor.Server.Models.DataTransferObjects
 
         public byte? IsTemporaryFile { get; set; }
 
-        public TitleSearchOrigination titleSearchOrigination { get; set; }
+        public TitleSearchOriginationDTO titleSearchOrigination { get; set; }
 
-        public Worksheet Worksheet { get; set; }
+        public WorksheetDTO Worksheet { get; set; }
 
-        public Connection<ChainOfTitle> ChainOfTitlesConnection { get; set; }
+        public Connection<ChainOfTitleDTO> ChainOfTitlesConnection { get; set; }
 
-        public Connection<FileReferenceNote> FileReferenceNotesConnection { get; set; }
+        public Connection<FileReferenceNoteDTO> FileReferenceNotesConnection { get; set; }
 
-        public Connection<Search> SearchesConnection { get; set; }
+        public Connection<SearchDTO> SearchesConnection { get; set; }
     }
 }

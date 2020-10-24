@@ -16,6 +16,6 @@ namespace TheFund.AtidsXe.Blazor.Server.Models.DataTransferObjects
 
         public int TotalCount { get; set; }
 
-        public PageInfo PageInfo { get; set; }
+        public PageInfoDTO PageInfo { get; set; }
     }
 }

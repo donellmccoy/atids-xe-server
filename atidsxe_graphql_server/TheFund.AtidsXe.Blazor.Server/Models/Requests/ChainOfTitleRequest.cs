@@ -1,4 +1,6 @@
-﻿namespace TheFund.AtidsXe.Blazor.Server.Models.Requests
+﻿using System;
+
+namespace TheFund.AtidsXe.Blazor.Server.Models.Requests
 {
     public class ChainOfTitleRequest
     {
@@ -6,7 +8,7 @@
         {
             FileReferenceId = fileReferenceId;
             ChainOfTitleId = chainOfTitleId;
-            PagingOptions = pagingOptions;
+            PagingOptions = pagingOptions ?? throw new ArgumentNullException(nameof(pagingOptions));
         }
 
         public int FileReferenceId { get; }

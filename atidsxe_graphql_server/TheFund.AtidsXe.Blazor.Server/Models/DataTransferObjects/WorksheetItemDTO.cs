@@ -1,6 +1,6 @@
 ﻿namespace TheFund.AtidsXe.Blazor.Server.Models.DataTransferObjects
 {
-    public sealed class WorksheetItem : DtoBase
+    public sealed class WorksheetItemDTO : BaseDTO
     {
         public int TitleEventId { get; set; }
 

@@ -5,11 +5,11 @@ namespace TheFund.AtidsXe.Blazor.Server.Models.Responses
 {
     public sealed class WorksheetResponse
     {
-        public Connection<WorksheetItem> WorksheetConnection { get; set; }
+        public Connection<WorksheetItemDTO> WorksheetConnection { get; set; }
 
-        public IEnumerable<WorksheetItem> WorksheetItems => WorksheetConnection?.Nodes ?? new List<WorksheetItem>();
+        public IEnumerable<WorksheetItemDTO> WorksheetItems => WorksheetConnection?.Nodes ?? new List<WorksheetItemDTO>();
 
-        public PageInfo PageInfo => WorksheetConnection?.PageInfo ?? new PageInfo();
+        public PageInfoDTO PageInfo => WorksheetConnection?.PageInfo ?? new PageInfoDTO();
 
         public int TotalCount => WorksheetConnection?.TotalCount ?? 0;
     }

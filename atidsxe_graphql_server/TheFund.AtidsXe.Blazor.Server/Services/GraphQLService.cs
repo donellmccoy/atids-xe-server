@@ -3,13 +3,47 @@ using GraphQL.Client.Http;
 using GraphQL.Client.Serializer.Newtonsoft;
 using System.Threading;
 using System.Threading.Tasks;
+using TheFund.AtidsXe.Blazor.Server.Factories;
 using TheFund.AtidsXe.Blazor.Server.Models;
+using TheFund.AtidsXe.Blazor.Server.Models.Requests;
 using TheFund.AtidsXe.Blazor.Server.Models.Responses;
 
-namespace TheFund.AtidsXe.Console
+namespace TheFund.AtidsXe.Blazor.Server.Services
 {
     public class GraphQLService : IGraphQLService
     {
+        public async Task<GraphQLResponse<SearchResponse>> GetSearchAsync(SearchRequest request, CancellationToken token = default)
+        {
+            using var client = new GraphQLHttpClient("http://localhost:5002/api/v1/graphql", new NewtonsoftJsonSerializer());
+
+            var req = GraphQLRequestFactory.Create
+            (
+               query: "query Search($fileReferenceId:Int!,$searchId:Int!){search(fileReferenceId:$fileReferenceId,searchId:$searchId){__typename searchId fileReferenceId searchTypeId searchThruDate searchFromDate searchStatusId geographicLocaleId geographicCertRangeId geographicLocaleId parentSearchId instrumentFilters lrsSearch inclMortgageeShortForm hidden geographicLocale{__typename geographicLocaleId geographicLocaleTypeId localeName localeAbbreviation parentGeographicLocaleId}geographicCertRange{__typename certificationRangeId fromDate fromOrDocumentId toDate toOrDocumentId}giCertRange{__typename certificationRangeId fromDate fromOrDocumentId toDate toOrDocumentId}grantorCertRange{__typename certificationRangeId fromDate fromOrDocumentId toDate toOrDocumentId}parentSearch{__typename searchId fileReferenceId}inverseParentSearches{__typename searchId}titleEventSearches{__typename totalCount pageInfo{...pageInfoFields}nodes{searchId titleEventId titleEvent{__typename titleEventId additionalInformation amount createDate currentExamStatusTypeId originalExamStatusTypeId tag titleEventDate titleEventTypeId}}}}}fragment pageInfoFields on PageInfo{startCursor endCursor hasPreviousPage hasNextPage}",
+               operationName: "Search",
+               variables: request.Variables
+            );
+
+            var response = await client.SendQueryAsync<SearchResponse>(req, token).ConfigureAwait(true);
+
+            return response;
+        }
+
+        public async Task<GraphQLResponse<SearchResponse>> GetSearchAsync(PagingOptions pagingOptions, CancellationToken token = default, params (string, int)[] Variables)
+        {
+            using var client = new GraphQLHttpClient("http://localhost:5002/api/v1/graphql", new NewtonsoftJsonSerializer());
+
+            var request = GraphQLRequestFactory.Create
+            (
+               query: "query Search($fileReferenceId:Int!,$searchId:Int!){search(fileReferenceId:$fileReferenceId,searchId:$searchId){__typename searchId fileReferenceId searchTypeId searchThruDate searchFromDate searchStatusId geographicLocaleId geographicCertRangeId geographicLocaleId parentSearchId instrumentFilters lrsSearch inclMortgageeShortForm hidden geographicLocale{__typename geographicLocaleId geographicLocaleTypeId localeName localeAbbreviation parentGeographicLocaleId}geographicCertRange{__typename certificationRangeId fromDate fromOrDocumentId toDate toOrDocumentId}giCertRange{__typename certificationRangeId fromDate fromOrDocumentId toDate toOrDocumentId}grantorCertRange{__typename certificationRangeId fromDate fromOrDocumentId toDate toOrDocumentId}parentSearch{__typename searchId fileReferenceId}inverseParentSearches{__typename searchId}titleEventSearches{__typename totalCount pageInfo{...pageInfoFields}nodes{searchId titleEventId titleEvent{__typename titleEventId additionalInformation amount createDate currentExamStatusTypeId originalExamStatusTypeId tag titleEventDate titleEventTypeId}}}}}fragment pageInfoFields on PageInfo{startCursor endCursor hasPreviousPage hasNextPage}",
+               operationName: "Search",
+               variables: Variables
+            );
+
+            var response = await client.SendQueryAsync<SearchResponse>(request, token).ConfigureAwait(true);
+
+            return response;
+        }
+
         public async Task<GraphQLResponse<SearchResponse>> GetSearchAsync(int fileReferenceId, int searchId, PagingOptions pagingOptions, CancellationToken token)
         {
             using var client = new GraphQLHttpClient("http://localhost:5002/api/v1/graphql", new NewtonsoftJsonSerializer());

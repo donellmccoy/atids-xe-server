@@ -26,7 +26,7 @@ namespace TheFund.AtidsXe.Blazor.Server.Utility
         /// <param name="key">Key that matches the wanted return value.</param>
         /// <param name="valueFactory">Function that is run only if a value for the given key is not already present in the cache.</param>
         /// <returns>Returned task-object can be completed or running. Note that the task might result in exception.</returns>
-        Task<T> AddOrGetExistingAsync<T>(object key, Func<Task<T>> valueFactory);
+        Task<T> GetOrCreateAsync<T>(object key, Func<Task<T>> valueFactory);
         /// <summary>
         /// Invalidate the value for the given key, if value exists.
         /// </summary>

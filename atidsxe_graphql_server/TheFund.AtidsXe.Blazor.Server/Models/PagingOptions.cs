@@ -1,7 +1,16 @@
 ﻿namespace TheFund.AtidsXe.Blazor.Server.Models
 {
-    public class PagingOptions
+    public sealed class PagingOptions
     {
-        public int PageSize { get; set; }
+        public PagingOptions() : this(pageSize: 10)
+        {
+        }
+
+        public PagingOptions(int pageSize)
+        {
+            PageSize = pageSize;
+        }
+
+        public int PageSize { get; }
     }
 }

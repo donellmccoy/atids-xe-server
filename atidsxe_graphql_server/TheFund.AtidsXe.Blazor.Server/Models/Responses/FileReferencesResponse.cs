@@ -5,11 +5,11 @@ namespace TheFund.AtidsXe.Blazor.Server.Models.Responses
 {
     public sealed class FileReferencesResponse
     {
-        public Connection<FileReference> FileReferencesConnection { get; set; }
+        public Connection<FileReferenceDTO> FileReferencesConnection { get; set; }
 
-        public IEnumerable<FileReference> FileReferences => FileReferencesConnection?.Nodes ?? new List<FileReference>();
+        public IEnumerable<FileReferenceDTO> FileReferences => FileReferencesConnection?.Nodes ?? new List<FileReferenceDTO>();
 
-        public PageInfo PageInfo => FileReferencesConnection?.PageInfo ?? new PageInfo();
+        public PageInfoDTO PageInfo => FileReferencesConnection?.PageInfo ?? new PageInfoDTO();
 
         public int TotalCount => FileReferencesConnection?.TotalCount ??  0;
     }

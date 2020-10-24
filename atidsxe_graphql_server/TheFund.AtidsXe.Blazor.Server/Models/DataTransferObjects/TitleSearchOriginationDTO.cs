@@ -2,7 +2,7 @@
 
 namespace TheFund.AtidsXe.Blazor.Server.Models.DataTransferObjects
 {
-    public class TitleSearchOrigination
+    public class TitleSearchOriginationDTO
     {
         public int TitleSearchOriginationId { get; set; }
 

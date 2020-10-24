@@ -2,7 +2,7 @@
 
 namespace TheFund.AtidsXe.Blazor.Server.Models.DataTransferObjects
 {
-    public sealed class FileReferenceNote : DtoBase
+    public sealed class FileReferenceNoteDTO : BaseDTO
     {
         public int FileReferenceId { get; set; }
 

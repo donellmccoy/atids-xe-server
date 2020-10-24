@@ -2,7 +2,7 @@
 
 namespace TheFund.AtidsXe.Blazor.Server.Models.DataTransferObjects
 {
-    public sealed class Search : DtoBase
+    public sealed class SearchDTO : BaseDTO
     {
         public int SearchId { get; set; }
 

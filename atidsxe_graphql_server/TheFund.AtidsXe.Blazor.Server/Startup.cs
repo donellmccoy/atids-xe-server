@@ -1,16 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TheFund.AtidsXe.Blazor.Server.Data;
+using TheFund.AtidsXe.Blazor.Server.Services;
 using TheFund.AtidsXe.Blazor.Server.Utility;
-using TheFund.AtidsXe.Console;
 
 namespace TheFund.AtidsXe.Blazor.Server
 {
