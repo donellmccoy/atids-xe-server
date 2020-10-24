@@ -4,7 +4,7 @@ using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace TheFund.AtidsXe.Blazor.Server.Models
+namespace TheFund.AtidsXe.Blazor.Server.Utility
 {
     public sealed class TaskCache : ITaskCache
     {

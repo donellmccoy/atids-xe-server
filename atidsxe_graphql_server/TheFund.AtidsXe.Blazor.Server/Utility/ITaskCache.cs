@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace TheFund.AtidsXe.Blazor.Server.Models
+namespace TheFund.AtidsXe.Blazor.Server.Utility
 {
     public interface ITaskCache
     {

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
-using TheFund.AtidsXe.Blazor.Server.Models;
 using TheFund.AtidsXe.Blazor.Server.Models.Requests;
 using TheFund.AtidsXe.Blazor.Server.Models.Responses;
+using TheFund.AtidsXe.Blazor.Server.Utility;
 
 namespace TheFund.AtidsXe.Console
 {
