@@ -2,7 +2,7 @@
 
 namespace TheFund.AtidsXe.Blazor.Server.Models.Requests
 {
-    public sealed class WorksheetRequest
+    public sealed class WorksheetRequest : IRequest
     {
         private WorksheetRequest(int fileReferenceId, int worksheetId, PagingOptions pagingOptions)
         {
@@ -15,9 +15,15 @@ namespace TheFund.AtidsXe.Blazor.Server.Models.Requests
 
         public int WorksheetId { get; }
 
-        public (int fileReferenceId, int worksheetId) Key => (FileReferenceId, WorksheetId);
+        public object CacheKey => (FileReferenceId, WorksheetId);
 
         public PagingOptions PagingOptions { get; }
+
+        public object Variables { get; }
+
+        public string Query { get; }
+
+        public string OperationName { get; }
 
         public static WorksheetRequest Create(int fileReferenceId, int worksheetId, PagingOptions pagingOptions = null)
         {

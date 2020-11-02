@@ -4,7 +4,9 @@ namespace TheFund.AtidsXe.Blazor.Server.Data
 {
     public class WeatherForecast
     {
-        public DateTime Date { get; set; }
+        public int Index { get; set; }
+
+        public string Date { get; set; }
 
         public int TemperatureC { get; set; }
 

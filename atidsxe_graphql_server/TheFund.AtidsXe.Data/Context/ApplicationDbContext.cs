@@ -4,9 +4,9 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Context
 {
-    public partial class ATIDSXEContext : DbContext
+    public partial class ApplicationDbContext : DbContext
     {
-        public ATIDSXEContext(DbContextOptions<ATIDSXEContext> options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
@@ -105,7 +105,7 @@ namespace TheFund.AtidsXe.Data.Context
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.ApplyConfigurationsFromAssembly(Assembly.GetAssembly(typeof(ATIDSXEContext)));
+            builder.ApplyConfigurationsFromAssembly(Assembly.GetAssembly(typeof(ApplicationDbContext)));
         }
     }
 }

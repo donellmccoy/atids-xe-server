@@ -19,7 +19,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Options
         public bool EnablePooling { get; set; } = false;
         public bool UseInMemoryDatabase { get; set; } = false;
         public bool EnableDetailedErrors { get; set; } = true;
-        public string InMemoryDatabaseName { get; set; } = nameof(ATIDSXEContext);
+        public string InMemoryDatabaseName { get; set; } = nameof(ApplicationDbContext);
         public QueryTrackingBehavior QueryTrackingBehavior { get; set; } = QueryTrackingBehavior.NoTracking;
         public ServiceLifetime ContextLifetime { get; set; } = ServiceLifetime.Transient;
         public ServiceLifetime OptionsLifetime { get; set; } = ServiceLifetime.Transient;

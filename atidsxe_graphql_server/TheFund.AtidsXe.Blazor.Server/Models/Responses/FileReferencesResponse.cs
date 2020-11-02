@@ -9,7 +9,7 @@ namespace TheFund.AtidsXe.Blazor.Server.Models.Responses
 
         public IEnumerable<FileReferenceDTO> FileReferences => FileReferencesConnection?.Nodes ?? new List<FileReferenceDTO>();
 
-        public PageInfoDTO PageInfo => FileReferencesConnection?.PageInfo ?? new PageInfoDTO();
+        public PageInfo PageInfo => FileReferencesConnection?.PageInfo ?? new PageInfo();
 
         public int TotalCount => FileReferencesConnection?.TotalCount ??  0;
     }

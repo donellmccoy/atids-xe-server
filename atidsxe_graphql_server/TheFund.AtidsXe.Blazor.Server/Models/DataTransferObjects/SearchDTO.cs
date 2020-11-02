@@ -33,5 +33,7 @@ namespace TheFund.AtidsXe.Blazor.Server.Models.DataTransferObjects
         public byte? Hidden { get; set; }
 
         public bool HiddenBool => Hidden == 1;
+
+        public Connection<TitleEventSearchDTO> TitleEventSearchConnection { get; set; }
     }
 }

@@ -12,9 +12,9 @@ namespace TheFund.AtidsXe.Data.Services
 {
     public class EFDataStore : IEFDataStore
     {
-        private readonly ATIDSXEContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public EFDataStore(ATIDSXEContext context)
+        public EFDataStore(ApplicationDbContext context)
         {
             _context = context;
         }

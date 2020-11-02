@@ -12,14 +12,14 @@ namespace TheFund.AtidsXe.GraphQL.Server.Queries
         [UseSelection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<ExaminationStatusType> GetExaminationStatusTypes([Service] ATIDSXEContext context)
+        public IQueryable<ExaminationStatusType> GetExaminationStatusTypes([Service] ApplicationDbContext context)
         {
             return context.ExaminationStatusType;
         }
 
         [UseSingleOrDefault]
         [UseSelection]
-        public IQueryable<ExaminationStatusType> GetExaminationStatusType(int examinationStatusTypeId, [Service] ATIDSXEContext context)
+        public IQueryable<ExaminationStatusType> GetExaminationStatusType(int examinationStatusTypeId, [Service] ApplicationDbContext context)
         {
             return context.ExaminationStatusType.Where(p => p.ExaminationStatusTypeId == examinationStatusTypeId);
         }

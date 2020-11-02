@@ -9,7 +9,7 @@ namespace TheFund.AtidsXe.Blazor.Server.Models.Responses
 
         public IEnumerable<WorksheetItemDTO> WorksheetItems => WorksheetConnection?.Nodes ?? new List<WorksheetItemDTO>();
 
-        public PageInfoDTO PageInfo => WorksheetConnection?.PageInfo ?? new PageInfoDTO();
+        public PageInfo PageInfo => WorksheetConnection?.PageInfo ?? new PageInfo();
 
         public int TotalCount => WorksheetConnection?.TotalCount ?? 0;
     }

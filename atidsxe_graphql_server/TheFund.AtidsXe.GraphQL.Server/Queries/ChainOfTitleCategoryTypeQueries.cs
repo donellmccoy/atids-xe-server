@@ -12,14 +12,14 @@ namespace TheFund.AtidsXe.GraphQL.Server.Queries
         [UseSelection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<ChainOfTitleCategory> GetChainOfTitleCategoryTypes([Service] ATIDSXEContext context)
+        public IQueryable<ChainOfTitleCategory> GetChainOfTitleCategoryTypes([Service] ApplicationDbContext context)
         {
             return context.ChainOfTitleCategory;
         }
 
         [UseSingleOrDefault]
         [UseSelection]
-        public IQueryable<ChainOfTitleCategory> GetChainOfTitleCategoryType(int chainOfTitleCategoryId, [Service] ATIDSXEContext context)
+        public IQueryable<ChainOfTitleCategory> GetChainOfTitleCategoryType(int chainOfTitleCategoryId, [Service] ApplicationDbContext context)
         {
             return context.ChainOfTitleCategory.Where(p => p.ChainOfTitleCategoryId == chainOfTitleCategoryId);
         }

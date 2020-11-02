@@ -15,14 +15,14 @@ namespace TheFund.AtidsXe.GraphQL.Server.Queries
         [UseSelection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<ChainOfTitle> GetChainOfTitles(int fileReferenceId, [Service] ATIDSXEContext context)
+        public IQueryable<ChainOfTitle> GetChainOfTitles(int fileReferenceId, [Service] ApplicationDbContext context)
         {
             return context.ChainOfTitle.Where(p => p.FileReferenceId == fileReferenceId);
         }
 
         [UseSingleOrDefault]
         [UseSelection]
-        public IQueryable<ChainOfTitle> GetChainOfTitle(int fileReferenceId, int chainOfTitleId, [Service] ATIDSXEContext context)
+        public IQueryable<ChainOfTitle> GetChainOfTitle(int fileReferenceId, int chainOfTitleId, [Service] ApplicationDbContext context)
         {
             return context.ChainOfTitle.Where(p => p.FileReferenceId == fileReferenceId && p.ChainOfTitleId == chainOfTitleId);
         }

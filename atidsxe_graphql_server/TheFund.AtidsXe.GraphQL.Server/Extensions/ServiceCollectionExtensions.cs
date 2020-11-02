@@ -46,7 +46,9 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
                                                    .AddMutationType(d => d.Name("Mutation"))
                                                    .AddType<FileReferenceMutations>()
                                                    .BindClrType<string, StringType>()
-                                                   .Create(), b => b.UseActivePersistedQueryPipeline(options).AddSha256DocumentHashProvider());
+                                                   .Create());
+
+            //.Create(), b => b.UseActivePersistedQueryPipeline(options).AddSha256DocumentHashProvider());
 
             return services;
         }
@@ -75,7 +77,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
 
             if(options.UseInMemoryDatabase)
             {
-                services.AddDbContext<ATIDSXEContext>(builder =>
+                services.AddDbContext<ApplicationDbContext>(builder =>
                 {
                     builder.EnableDetailedErrors(options.EnableDetailedErrors);
                     builder.UseInMemoryDatabase(options.InMemoryDatabaseName);
@@ -101,11 +103,11 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
 
                 if (options.EnablePooling)
                 {
-                    services.AddDbContextPool<ATIDSXEContext>(CreateOptionsAction, options.PoolSize);
+                    services.AddDbContextPool<ApplicationDbContext>(CreateOptionsAction, options.PoolSize);
                 }
                 else
                 {
-                    services.AddDbContext<ATIDSXEContext>(CreateOptionsAction, options.ContextLifetime, options.OptionsLifetime);
+                    services.AddDbContext<ApplicationDbContext>(CreateOptionsAction, options.ContextLifetime, options.OptionsLifetime);
                 }
             }
 

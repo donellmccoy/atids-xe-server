@@ -1,6 +1,6 @@
 ﻿namespace TheFund.AtidsXe.Blazor.Server.Models.DataTransferObjects
 {
-    public sealed class PageInfoDTO
+    public sealed class PageInfo
     {
         public string StartCursor { get; set; }
 

@@ -1,7 +1,16 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using DynamicData;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Rendering;
+using Syncfusion.Blazor;
+using Syncfusion.Blazor.Data;
+using Syncfusion.Blazor.Grids;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using TheFund.AtidsXe.Blazor.Server.Data;
+using TheFund.AtidsXe.Blazor.Server.Models;
 using TheFund.AtidsXe.Blazor.Server.Models.DataTransferObjects;
 using TheFund.AtidsXe.Blazor.Server.Models.Requests;
 using TheFund.AtidsXe.Blazor.Server.Services;
@@ -10,42 +19,48 @@ namespace TheFund.AtidsXe.Blazor.Server.Pages
 {
     public partial class SearchResults
     {
-        private WeatherForecast[] forecasts;
-        private SearchDTO search;
-        
         public SearchResults()
         {
-
         }
-
-        [Inject]
-        public WeatherForecastService WeatherForecastService { get; set; }
-
-        [Inject]
-        public IDataService DataService { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
-            var result = await DataService.GetSearchAsync(SearchRequest.Create(fileReferenceId: 24196, searchId: 40101));
 
-            search = result.Match(
-                some: p => p.Search,
-                none: () => null
-            );
+        }
+    }
 
-            forecasts = await WeatherForecastService.GetForecastAsync(DateTime.Now);
+    public class SearchResultsAdaptor : DataAdaptor
+    {
+        private readonly IDataService _dataService;
+
+        public SearchResultsAdaptor(IDataService dataService)
+        {
+            _dataService = dataService;
         }
 
-        protected override void OnAfterRender(bool firstRender) => base.OnAfterRender(firstRender);
+        private string _endCursor = null;
 
-        protected override Task OnAfterRenderAsync(bool firstRender) => base.OnAfterRenderAsync(firstRender);
+        public override async Task<object> ReadAsync(DataManagerRequest request, string key = null)
+        {
 
-        protected override Task OnParametersSetAsync() => base.OnParametersSetAsync();
+            var result = await _dataService.GetSearchAsync(SearchRequest.Create(fileReferenceId: 24196, searchId: 40101, request.Take, _endCursor));
 
-        protected override void OnInitialized() => base.OnInitialized();
+            return result.Match
+            (
+                p =>
+                {
+                    var connection = p.Search.TitleEventSearchConnection;
+                    _endCursor = connection.PageInfo.EndCursor;
+                    var titleEvents = connection.Nodes.Select(p => p.TitleEvent).ToList();
 
-        protected override void OnParametersSet() => base.OnParametersSet();
-
-        protected override bool ShouldRender() => base.ShouldRender();
+                    return request.RequiresCounts ? new DataResult
+                    {
+                        Result = titleEvents,
+                        Count = connection.TotalCount
+                    } : (object)titleEvents;
+                },
+                () => new List<TitleEventDTO>()
+            );
+        }
     }
 }

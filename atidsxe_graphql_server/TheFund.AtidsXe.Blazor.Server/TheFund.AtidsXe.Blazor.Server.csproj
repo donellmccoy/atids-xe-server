@@ -11,6 +11,7 @@
     <PackageReference Include="GraphQL.Client.Serializer.Newtonsoft" Version="3.2.0" />
     <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
     <PackageReference Include="Optional" Version="4.0.0" />
+    <PackageReference Include="Syncfusion.Blazor" Version="18.3.0.44" />
   </ItemGroup>
 
 </Project>

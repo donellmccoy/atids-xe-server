@@ -1,8 +1,6 @@
-﻿using DynamicData.Kernel;
-using GraphQL;
-using GraphQL.Client.Http;
-using Optional;
+﻿using Optional;
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using TheFund.AtidsXe.Blazor.Server.Models.Requests;
@@ -39,67 +37,77 @@ namespace TheFund.AtidsXe.Blazor.Server.Services
                 return Option.None<SearchResponse>();
             }
 
-            var result = await _cache.GetOrCreateAsync
-            (
-                request.CacheKey, 
-                () => _graphQLService.GetSearchAsync(request.PagingOptions, token, request.Variables)
-            );
+            var response = await _cache.GetOrCreateAsync(request.CacheKey, () => _graphQLService.SendQueryAsync<SearchResponse>(request, token));
 
-            return result.Data.SomeNotNull();
+            //TODO: need to forward these errors somehow
+            if(response.Errors?.Any() == true)
+            {
+                return Option.None<SearchResponse>();
+            }
+
+            return response.Data.SomeNotNull();
         }
 
         #endregion
 
         #region FileReference
 
-        public async Task<FileReferencesResponse> GetFileReferenceAsync(FileReferencesRequest request)
+        public async Task<Option<FileReferencesResponse>> GetFileReferenceAsync(FileReferencesRequest request, CancellationToken token = default)
         {
             if (request is null)
             {
-                throw new ArgumentNullException(nameof(request));
+                return Option.None<FileReferencesResponse>();
             }
 
-            var result = await _cache.GetOrCreateAsync(request.Key, () => _graphQLService.GetFileReferenceAsync(request.FileReferenceId, request.PagingOptions));
+            var response = await _cache.GetOrCreateAsync(request.CacheKey, () => _graphQLService.SendQueryAsync<FileReferencesResponse>(request, token));
 
-            return result?.Data;
+            if (response.Errors.Any())
+            {
+                return Option.None<FileReferencesResponse>();
+            }
+
+            return response.Data.SomeNotNull();
         }
 
         #endregion
 
         #region ChainOfTitle
 
-        public async Task<ChainOfTitleResponse> GetChainOfTitleAsync(ChainOfTitleRequest request)
+        public async Task<Option<ChainOfTitleResponse>> GetChainOfTitleAsync(ChainOfTitleRequest request, CancellationToken token = default)
         {
             if (request is null)
             {
-                throw new ArgumentNullException(nameof(request));
+                return Option.None<ChainOfTitleResponse>();
             }
 
-            var result = await _cache.GetOrCreateAsync(request.Key, () => _graphQLService.GetChainOfTitleAsync(request.FileReferenceId, request.ChainOfTitleId, request.PagingOptions));
+            var response = await _cache.GetOrCreateAsync(request.CacheKey, () => _graphQLService.SendQueryAsync<ChainOfTitleResponse>(request, token));
 
-            return result?.Data;
+            return response.Data.SomeNotNull();
         }
 
         #endregion
 
         #region Worksheet
 
-        public async Task<WorksheetResponse> GetWorksheetAsync(WorksheetRequest request)
+        public async Task<Option<WorksheetResponse>> GetWorksheetAsync(WorksheetRequest request, CancellationToken token = default)
         {
             if (request is null)
             {
-                throw new ArgumentNullException(nameof(request));
+                return Option.None<WorksheetResponse>();
             }
 
-            var result = await _cache.GetOrCreateAsync(request.Key, () => _graphQLService.GetWorksheetAsync(request.FileReferenceId, request.WorksheetId, request.PagingOptions));
+            var response = await _cache.GetOrCreateAsync(request.CacheKey, () => _graphQLService.SendQueryAsync<WorksheetResponse>(request, token));
 
-            return result?.Data;
+            return response.Data.SomeNotNull();
         }
 
         #endregion
 
         #region Policy
+
         #endregion
+
+        #region Helpers
 
         public object InvalidateCachedItem(object key)
         {
@@ -112,5 +120,7 @@ namespace TheFund.AtidsXe.Blazor.Server.Services
 
             return key;
         }
+
+        #endregion
     }
 }

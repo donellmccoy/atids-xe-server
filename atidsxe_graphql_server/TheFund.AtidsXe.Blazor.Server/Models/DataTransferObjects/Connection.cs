@@ -14,8 +14,17 @@ namespace TheFund.AtidsXe.Blazor.Server.Models.DataTransferObjects
 
         public IEnumerable<T> Nodes { get; set; }
 
+        //public IEnumerable<Edge> Edges { get; set; }
+
         public int TotalCount { get; set; }
 
-        public PageInfoDTO PageInfo { get; set; }
+        public PageInfo PageInfo { get; set; }
+    }
+
+    public sealed class Edge<T>
+    {
+        public string Cusor { get; set; }
+
+        public T Node { get; set; }
     }
 }

@@ -11,7 +11,10 @@ namespace TheFund.AtidsXe.Blazor.Server.Utility
         private readonly IMemoryCache _cache;
         private ConcurrentDictionary<object, SemaphoreSlim> _locks = new ConcurrentDictionary<object, SemaphoreSlim>();
 
-        public TaskCache(IMemoryCache cache) => _cache = cache;
+        public TaskCache(IMemoryCache cache)
+        {
+            _cache = cache;
+        }
 
         public async Task<TCacheItem> GetOrCreateAsync<TCacheItem>(object key, Func<Task<TCacheItem>> valueFactory)
         {

@@ -2,6 +2,9 @@
 {
     public interface IRequest
     {
-        (string, int)[] Variables { get; }
+        object Variables { get; }
+        string Query { get; }
+        string OperationName { get; }
+        object CacheKey { get; }
     }
 }

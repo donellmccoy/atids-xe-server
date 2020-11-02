@@ -9,7 +9,7 @@ namespace TheFund.AtidsXe.Blazor.Server.Models.Responses
 
         public IEnumerable<ChainOfTitleDTO> ChainOfTitle => ChainOfTitleConnection?.Nodes ?? new List<ChainOfTitleDTO>();
 
-        public PageInfoDTO PageInfo => ChainOfTitleConnection?.PageInfo ?? new PageInfoDTO();
+        public PageInfo PageInfo => ChainOfTitleConnection?.PageInfo ?? new PageInfo();
 
         public int TotalCount => ChainOfTitleConnection?.TotalCount ?? 0;
     }

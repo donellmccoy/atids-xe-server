@@ -14,14 +14,14 @@ namespace TheFund.AtidsXe.GraphQL.Server.Queries
         [UseSelection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<TitleEventSearch> GetTitleEventSearches([Service] ATIDSXEContext context)
+        public IQueryable<TitleEventSearch> GetTitleEventSearches([Service] ApplicationDbContext context)
         {
             return context.TitleEventSearch;
         }
 
         [UseSingleOrDefault]
         [UseSelection]
-        public IQueryable<TitleEventSearch> GetTitleEventSearchById(int searchId, int titleEventId, [Service] ATIDSXEContext context)
+        public IQueryable<TitleEventSearch> GetTitleEventSearchById(int searchId, int titleEventId, [Service] ApplicationDbContext context)
         {
             return context.TitleEventSearch.Where(p => p.SearchId == searchId && p.TitleEventId == titleEventId);
         }

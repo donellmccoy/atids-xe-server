@@ -2,9 +2,9 @@
 
 namespace TheFund.AtidsXe.Blazor.Server.Models.Requests
 {
-    public class ChainOfTitleRequest
+    public class ChainOfTitleRequest : IRequest
     {
-        public ChainOfTitleRequest(int fileReferenceId, int chainOfTitleId, PagingOptions pagingOptions)
+        private ChainOfTitleRequest(int fileReferenceId, int chainOfTitleId, PagingOptions pagingOptions)
         {
             FileReferenceId = fileReferenceId;
             ChainOfTitleId = chainOfTitleId;
@@ -15,8 +15,19 @@ namespace TheFund.AtidsXe.Blazor.Server.Models.Requests
 
         public int ChainOfTitleId { get; }
 
-        public (int fileReferenceId, int chainOfTitleId) Key => (FileReferenceId, ChainOfTitleId);
+        public object CacheKey => (FileReferenceId, ChainOfTitleId);
 
         public PagingOptions PagingOptions { get; }
+
+        public object Variables { get; }
+
+        public string Query { get; }
+
+        public string OperationName { get; }
+
+        public static ChainOfTitleRequest Create(int fileReferenceId, int chainOfTitleId, PagingOptions pagingOptions = null)
+        {
+            return new ChainOfTitleRequest(fileReferenceId, chainOfTitleId, pagingOptions ?? new PagingOptions());
+        }
     }
 }
