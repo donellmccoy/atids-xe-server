@@ -8,7 +8,7 @@ using TheFund.AtidsXe.Data.Entities;
 namespace TheFund.AtidsXe.GraphQL.Server.Queries
 {
     [ExtendObjectType(Name = "Query")]
-    public class SearchQueries
+    public sealed class SearchQueries
     {
         [UsePaging]
         [UseSelection]

@@ -9,6 +9,7 @@ namespace TheFund.AtidsXe.Data.Entities
         public Worksheet()
         {
             WorksheetItems = new HashSet<WorksheetItem>();
+            PolicyWorksheetItems = new HashSet<PolicyWorksheetItem>();
         }
 
         public int WorksheetId { get; set; }

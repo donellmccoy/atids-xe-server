@@ -25,7 +25,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.Property(e => e.Sequence).HasColumnName("SEQUENCE");
 
             entity.HasOne(d => d.Policy)
-                .WithMany(p => p.PolicyWorksheetItem)
+                .WithMany(p => p.PolicyWorksheetItems)
                 .HasForeignKey(d => d.PolicyId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_POLICY_POLICY_WORKSHEET_ITEM");

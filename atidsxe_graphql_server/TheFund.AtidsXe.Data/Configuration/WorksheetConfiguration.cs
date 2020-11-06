@@ -4,11 +4,14 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class WorksheetConfiguration : IEntityTypeConfiguration<Worksheet>
+    public sealed class WorksheetConfiguration : IEntityTypeConfiguration<Worksheet>
     {
         public void Configure(EntityTypeBuilder<Worksheet> builder)
         {
             builder.ToTable("WORKSHEET");
+
+            builder.HasKey(p => p.WorksheetId)
+                   .HasName("PK_WORKSHEET");
 
             builder.HasIndex(e => e.FileReferenceId)
                    .HasName("WORKSHEET_UC1")

@@ -23,7 +23,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.Property(e => e.SearchId).HasColumnName("SEARCH_ID");
 
             entity.HasOne(d => d.Policy)
-                .WithMany(p => p.PolicySearch)
+                .WithMany(p => p.PolicySearches)
                 .HasForeignKey(d => d.PolicyId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_POLICY_POLICY_SEARCH");

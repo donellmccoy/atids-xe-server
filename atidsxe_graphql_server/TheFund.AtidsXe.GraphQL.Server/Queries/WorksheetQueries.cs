@@ -21,7 +21,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Queries
 
         [UseSingleOrDefault]
         [UseSelection]
-        public IQueryable<Worksheet> GetWorksheet(int fileReferenceId, int worksheetId, [Service] ApplicationDbContext context)
+        public IQueryable<Worksheet> GetWorksheet([Service] ApplicationDbContext context, int fileReferenceId, int worksheetId)
         {
             return context.Worksheet.Where(p => p.FileReferenceId == fileReferenceId && p.WorksheetId == worksheetId);
         }

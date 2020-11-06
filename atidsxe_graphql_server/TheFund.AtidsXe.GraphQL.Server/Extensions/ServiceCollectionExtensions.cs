@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StackExchange.Redis;
+using System;
 using TheFund.AtidsXe.Data.Context;
 using TheFund.AtidsXe.GraphQL.Server.Data;
 using TheFund.AtidsXe.GraphQL.Server.Mutations;
@@ -27,7 +28,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
 
             var options = configuration.GetOption<QueryExecutionOptions>();
 
-            services.AddRedisQueryStorage(_ => ConnectionMultiplexer.Connect("localhost:6379").GetDatabase(0));
+            //services.AddRedisQueryStorage(_ => ConnectionMultiplexer.Connect("localhost:6379").GetDatabase(0));
 
             services.AddGraphQL(sp => SchemaBuilder.New()
                                                    .AddServices(sp)
@@ -123,7 +124,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
                 options.MimeTypes = new[] { "application/json" };
             });
 
-            services.Configure((System.Action<GzipCompressionProviderOptions>)(_ => _ = configuration.GetOption<GzipCompressionProviderOptions>()));
+            services.Configure((Action<GzipCompressionProviderOptions>)(_ => _ = configuration.GetOption<GzipCompressionProviderOptions>()));
 
             return services;
         }

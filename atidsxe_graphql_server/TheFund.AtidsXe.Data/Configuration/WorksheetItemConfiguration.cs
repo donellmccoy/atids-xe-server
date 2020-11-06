@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class WorksheetItemConfiguration : IEntityTypeConfiguration<WorksheetItem>
+    public sealed class WorksheetItemConfiguration : IEntityTypeConfiguration<WorksheetItem>
     {
         public void Configure(EntityTypeBuilder<WorksheetItem> builder)
         {

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HotChocolate.Types;
+using HotChocolate.Types.Relay;
+using System;
 using System.Collections.Generic;
 using TheFund.AtidsXe.Common.Middleware;
 
@@ -8,14 +10,14 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public Policy()
         {
-            PolicyGovtLotLegalMql = new HashSet<PolicyGovtLotLegalMql>();
-            PolicyInsuredDocument = new HashSet<PolicyInsuredDocument>();
+            PolicyGovtLotLegalMqls = new HashSet<PolicyGovtLotLegalMql>();
+            PolicyInsuredDocuments = new HashSet<PolicyInsuredDocument>();
             PolicyNotes = new HashSet<PolicyNotes>();
-            PolicyOrderTracking = new HashSet<PolicyOrderTracking>();
-            PolicyPlattedLegalMql = new HashSet<PolicyPlattedLegalMql>();
-            PolicySearch = new HashSet<PolicySearch>();
-            PolicySectionLegalMql = new HashSet<PolicySectionLegalMql>();
-            PolicyWorksheetItem = new HashSet<PolicyWorksheetItem>();
+            PolicyOrderTrackings = new HashSet<PolicyOrderTracking>();
+            PolicyPlattedLegalMqls = new HashSet<PolicyPlattedLegalMql>();
+            PolicySearches = new HashSet<PolicySearch>();
+            PolicySectionLegalMqls = new HashSet<PolicySectionLegalMql>();
+            PolicyWorksheetItems = new HashSet<PolicyWorksheetItem>();
         }
 
         public int PolicyId { get; set; }
@@ -46,20 +48,44 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public virtual PolicyRestrictionType PolicyRestrictionType { get; set; }
 
-        public virtual ICollection<PolicyGovtLotLegalMql> PolicyGovtLotLegalMql { get; set; }
+        [UsePaging]
+        [UseFiltering]
+        [UseSorting]
+        public virtual ICollection<PolicyGovtLotLegalMql> PolicyGovtLotLegalMqls { get; set; }
 
-        public virtual ICollection<PolicyInsuredDocument> PolicyInsuredDocument { get; set; }
+        [UsePaging]
+        [UseFiltering]
+        [UseSorting]
+        public virtual ICollection<PolicyInsuredDocument> PolicyInsuredDocuments { get; set; }
 
+        [UsePaging]
+        [UseFiltering]
+        [UseSorting]
         public virtual ICollection<PolicyNotes> PolicyNotes { get; set; }
 
-        public virtual ICollection<PolicyOrderTracking> PolicyOrderTracking { get; set; }
+        [UsePaging]
+        [UseFiltering]
+        [UseSorting]
+        public virtual ICollection<PolicyOrderTracking> PolicyOrderTrackings { get; set; }
 
-        public virtual ICollection<PolicyPlattedLegalMql> PolicyPlattedLegalMql { get; set; }
+        [UsePaging]
+        [UseFiltering]
+        [UseSorting]
+        public virtual ICollection<PolicyPlattedLegalMql> PolicyPlattedLegalMqls { get; set; }
 
-        public virtual ICollection<PolicySearch> PolicySearch { get; set; }
+        [UsePaging]
+        [UseFiltering]
+        [UseSorting]
+        public virtual ICollection<PolicySearch> PolicySearches { get; set; }
 
-        public virtual ICollection<PolicySectionLegalMql> PolicySectionLegalMql { get; set; }
+        [UsePaging]
+        [UseFiltering]
+        [UseSorting]
+        public virtual ICollection<PolicySectionLegalMql> PolicySectionLegalMqls { get; set; }
 
-        public virtual ICollection<PolicyWorksheetItem> PolicyWorksheetItem { get; set; }
+        [UsePaging]
+        [UseFiltering]
+        [UseSorting]
+        public virtual ICollection<PolicyWorksheetItem> PolicyWorksheetItems { get; set; }
     }
 }

@@ -24,6 +24,11 @@ namespace TheFund.AtidsXe.GraphQL.Server.Queries
         [UseSelection]
         public IQueryable<BranchLocation> GetBranchLocationByAccountNumber(string accountNumber, [Service] ApplicationDbContext context)
         {
+            if (string.IsNullOrWhiteSpace(accountNumber))
+            {
+                throw new System.ArgumentException($"'{nameof(accountNumber)}' cannot be null or whitespace", nameof(accountNumber));
+            }
+
             return context.BranchLocation.Where(p => p.AccountNumber == accountNumber);
         }
 
