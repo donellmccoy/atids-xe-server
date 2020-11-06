@@ -2,7 +2,7 @@
 using HotChocolate.Types.Relay;
 using System;
 using System.Collections.Generic;
-using TheFund.AtidsXe.Common.Middleware;
+using TheFund.AtidsXe.Common.Attributes;
 
 namespace TheFund.AtidsXe.Data.Entities
 {

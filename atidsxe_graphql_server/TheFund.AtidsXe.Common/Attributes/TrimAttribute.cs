@@ -4,7 +4,7 @@ using System;
 using System.Reflection;
 using TheFund.AtidsXe.Common.Extensions;
 
-namespace TheFund.AtidsXe.Common.Middleware
+namespace TheFund.AtidsXe.Common.Attributes
 {
     public class TrimAttribute : ObjectFieldDescriptorAttribute
     {

@@ -25,7 +25,7 @@ namespace TheFund.AtidsXe.Blazor.Server.Pages
 
         protected override async Task OnInitializedAsync()
         {
-
+            await Task.CompletedTask;
         }
     }
 

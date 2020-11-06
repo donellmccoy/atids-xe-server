@@ -10,11 +10,11 @@ namespace TheFund.AtidsXe.Common.Extensions
             {
                 await next(context);
 
-                if (context.Result is string s)
+                if (context.Result is string inputString)
                 {
-                    var result = s?.Trim();
+                    var result = inputString?.Trim();
 
-                    context.Result = string.IsNullOrWhiteSpace(result) ? null : (object)(s?.Trim());
+                    context.Result = string.IsNullOrWhiteSpace(result) ? null : (object)(inputString?.Trim());
                 }
             });
         }
@@ -25,9 +25,9 @@ namespace TheFund.AtidsXe.Common.Extensions
             {
                 await next(context);
 
-                if (context.Result is string s)
+                if (context.Result is string inputString)
                 {
-                    context.Result = s?.ToUpperInvariant();
+                    context.Result = inputString?.ToUpperInvariant();
                 }
             });
         }
