@@ -4,21 +4,24 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class BreakdownCodeTypeConfiguration : IEntityTypeConfiguration<BreakdownCodeType>
+    public sealed class BreakdownCodeTypeConfiguration : IEntityTypeConfiguration<BreakdownCodeType>
     {
-        public void Configure(EntityTypeBuilder<BreakdownCodeType> entity)
+        public void Configure(EntityTypeBuilder<BreakdownCodeType> builder)
         {
-            entity.ToTable("BREAKDOWN_CODE_TYPE");
+            builder.ToTable("BREAKDOWN_CODE_TYPE");
 
-            entity.Property(e => e.BreakdownCodeTypeId)
-                  .HasColumnName("BREAKDOWN_CODE_TYPE_ID")
-                  .ValueGeneratedNever();
+            builder.HasKey(p => p.BreakdownCodeTypeId)
+                   .HasName("PK_BREAKDOWN_CODE_TYPE");
 
-            entity.Property(e => e.Description)
-                  .IsRequired()
-                  .HasColumnName("DESCRIPTION")
-                  .HasMaxLength(32)
-                  .IsUnicode(false);
+            builder.Property(e => e.BreakdownCodeTypeId)
+                   .HasColumnName("BREAKDOWN_CODE_TYPE_ID")
+                   .ValueGeneratedNever();
+
+            builder.Property(e => e.Description)
+                   .HasColumnName("DESCRIPTION")
+                   .HasMaxLength(32)
+                   .IsUnicode(false)
+                   .IsRequired();
         }
     }
 }

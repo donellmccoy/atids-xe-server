@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class BranchLocationConfiguration : IEntityTypeConfiguration<BranchLocation>
+    public sealed class BranchLocationConfiguration : IEntityTypeConfiguration<BranchLocation>
     {
         public void Configure(EntityTypeBuilder<BranchLocation> builder)
         {

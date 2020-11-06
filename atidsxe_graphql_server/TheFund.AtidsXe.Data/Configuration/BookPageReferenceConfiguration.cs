@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class BookPageReferenceConfiguration : IEntityTypeConfiguration<BookPageReference>
+    public sealed class BookPageReferenceConfiguration : IEntityTypeConfiguration<BookPageReference>
     {
         public void Configure(EntityTypeBuilder<BookPageReference> entity)
         {
