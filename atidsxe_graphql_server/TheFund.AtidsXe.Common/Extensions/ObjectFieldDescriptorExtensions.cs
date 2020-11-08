@@ -4,6 +4,19 @@ namespace TheFund.AtidsXe.Common.Extensions
 {
     public static class ObjectFieldDescriptorExtensions
     {
+        public static IObjectFieldDescriptor ToBoolean(this IObjectFieldDescriptor descriptor)
+        {
+            return descriptor.Use(next => async context =>
+            {
+                await next(context);
+
+                if (context.Result is byte inputByte)
+                {
+                    context.Result = inputByte == 1;
+                }
+            });
+        }
+
         public static IObjectFieldDescriptor Trim(this IObjectFieldDescriptor descriptor)
         {
             return descriptor.Use(next => async context =>

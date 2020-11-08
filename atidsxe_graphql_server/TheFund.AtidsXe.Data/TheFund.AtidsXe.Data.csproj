@@ -5,16 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Entities\Partial\**" />
     <Compile Remove="Migrations\**" />
     <Compile Remove="Repositories\**" />
+    <EmbeddedResource Remove="Entities\Partial\**" />
     <EmbeddedResource Remove="Migrations\**" />
     <EmbeddedResource Remove="Repositories\**" />
+    <None Remove="Entities\Partial\**" />
     <None Remove="Migrations\**" />
     <None Remove="Repositories\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Entities\Partial\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +35,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TheFund.AtidsXe.Common\TheFund.AtidsXe.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Entities\Partials\" />
   </ItemGroup>
 
 </Project>
