@@ -7,7 +7,7 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public CaseNumberReference()
         {
-            RelatedCaseNumber = new HashSet<RelatedCaseNumber>();
+            RelatedCaseNumbers = new HashSet<RelatedCaseNumber>();
         }
 
         public int CaseNumberReferenceId { get; set; }
@@ -29,6 +29,6 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public virtual GeographicLocale GeographicLocale { get; set; }
 
-        public virtual ICollection<RelatedCaseNumber> RelatedCaseNumber { get; set; }
+        public virtual ICollection<RelatedCaseNumber> RelatedCaseNumbers { get; set; }
     }
 }

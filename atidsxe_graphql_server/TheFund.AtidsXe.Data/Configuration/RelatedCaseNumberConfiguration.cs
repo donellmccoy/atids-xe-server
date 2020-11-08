@@ -23,7 +23,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.Property(e => e.CaseNumberReferenceId).HasColumnName("CASE_NUMBER_REFERENCE_ID");
 
             entity.HasOne(d => d.CaseNumberReference)
-                .WithMany(p => p.RelatedCaseNumber)
+                .WithMany(p => p.RelatedCaseNumbers)
                 .HasForeignKey(d => d.CaseNumberReferenceId)
                 .HasConstraintName("FK_CASE_NBR_REF_RELATED_CASENM");
 

@@ -10,6 +10,8 @@ namespace TheFund.AtidsXe.Data.Configuration
         {
             builder.ToTable("CHAIN_OF_TITLE_ITEM");
 
+            builder.HasKey(p => p.ChainOfTitleItemId);
+
             builder.HasIndex(e => e.ChainOfTitleCategoryId)
                    .HasName("I_FK_CHAIN_OF_TITLE_ITEM_CHAIN_OF_TITLE_CATEGORY_ID");
 
@@ -44,7 +46,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasColumnName("CHAIN_OF_TITLE_CATEGORY_ID");
 
             builder.HasOne(d => d.ChainOfTitleCategory)
-                   .WithMany(p => p.ChainOfTitleItem)
+                   .WithMany(p => p.ChainOfTitleItems)
                    .HasForeignKey(d => d.ChainOfTitleCategoryId)
                    .OnDelete(DeleteBehavior.ClientSetNull)
                    .HasConstraintName("FK_CHAIN_OF_TITLE_ITEM_CHAIN_OF_TITLE_CATEGORY");

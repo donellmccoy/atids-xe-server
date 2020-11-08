@@ -22,6 +22,10 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasMaxLength(32)
                    .IsUnicode(false)
                    .IsRequired();
+
+            builder.HasMany(p => p.UnplattedReference)
+                   .WithOne(p => p.BreakdownCodeType)
+                   .HasForeignKey(p => p.UnplattedReferenceId);
         }
     }
 }
