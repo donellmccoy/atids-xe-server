@@ -4,11 +4,13 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class LegalEntityNameConfiguration : IEntityTypeConfiguration<LegalEntityName>
+    public sealed class LegalEntityNameConfiguration : IEntityTypeConfiguration<LegalEntityName>
     {
         public void Configure(EntityTypeBuilder<LegalEntityName> entity)
         {
             entity.ToTable("LEGAL_ENTITY_NAME");
+
+            entity.HasKey(p => p.LegalEntityNameId);
 
             entity.HasIndex(e => e.LegalEntityNameTypeId)
                   .HasName("I_FK_LEGAL_ENTITY_NAME_TYPE");
@@ -35,6 +37,28 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .HasForeignKey(d => d.LegalEntityNameTypeId)
                   .OnDelete(DeleteBehavior.ClientSetNull)
                   .HasConstraintName("FK_LGLENT_NMTYP_LGLENT_NAME");
+
+            entity.HasOne(d => d.PersonalLegalEntityName)
+                  .WithOne(p => p.LegalEntityName)
+                  .HasForeignKey<LegalEntityName>(d => d.LegalEntityNameId)
+                  .OnDelete(DeleteBehavior.ClientSetNull)
+                  .HasConstraintName("FK_LGLENT_NMTYP_LGLENT_NAME");
+
+            entity.HasMany(p => p.NameSearchListItems)
+                  .WithOne(p => p.LegalEntityName)
+                  .HasForeignKey(p => p.LegalEntityNameId);
+
+            entity.HasMany(p => p.NameSearchParameters)
+                  .WithOne(p => p.LegalEntityName)
+                  .HasForeignKey(p => p.LegalEntityNameId);
+
+            entity.HasMany(p => p.PartyLegalEntityNames)
+                  .WithOne(p => p.LegalEntityName)
+                  .HasForeignKey(p => p.LegalEntityNameId);
+
+            entity.HasMany(p => p.TitleEventLegalEntityMqls)
+                  .WithOne(p => p.LegalEntityName)
+                  .HasForeignKey(p => p.LegalEntityNameId);
         }
     }
 }

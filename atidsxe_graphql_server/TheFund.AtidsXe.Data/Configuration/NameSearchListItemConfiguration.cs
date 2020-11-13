@@ -37,7 +37,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .HasColumnName("REFERENCE_TITLE_EVENT_ID");
 
             entity.HasOne(d => d.LegalEntityName)
-                  .WithMany(p => p.NameSearchListItem)
+                  .WithMany(p => p.NameSearchListItems)
                   .HasForeignKey(d => d.LegalEntityNameId)
                   .OnDelete(DeleteBehavior.ClientSetNull)
                   .HasConstraintName("FK_LEGAL_ENTITY_NAME");

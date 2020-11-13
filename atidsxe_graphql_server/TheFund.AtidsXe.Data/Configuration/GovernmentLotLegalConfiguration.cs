@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class GovernmentLotLegalConfiguration : IEntityTypeConfiguration<GovernmentLotLegal>
+    public sealed class GovernmentLotLegalConfiguration : IEntityTypeConfiguration<GovernmentLotLegal>
     {
         public void Configure(EntityTypeBuilder<GovernmentLotLegal> builder)
         {

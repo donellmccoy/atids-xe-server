@@ -10,6 +10,8 @@ namespace TheFund.AtidsXe.Data.Configuration
         {
             entity.ToTable("POLICY");
 
+            entity.HasKey(e => e.PolicyId);
+
             entity.HasIndex(e => e.PolicyRestrictionTypeId)
                   .HasName("I_FK_POLICY_POLICY_RESTRICTION_TYPE_ID");
 
