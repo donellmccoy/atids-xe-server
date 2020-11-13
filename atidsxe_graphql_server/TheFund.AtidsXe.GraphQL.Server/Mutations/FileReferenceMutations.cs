@@ -14,7 +14,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Mutations
     {
         public async Task<UpdateTemporaryFileStatusPayload> UpdateTemporaryFileStatusAsync(
             UpdateTemporaryFileStatusInput input,
-            [Service] ATIDSXEContext context,
+            [Service] ApplicationDbContext context,
             CancellationToken cancellationToken)
         {
             var fileReference = await context.FileReference.FindAsync(input.FileReferenceId);
@@ -35,7 +35,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Mutations
 
         public async Task<UpdateBranchLocationPayload> UpdateBranchLocationAsync(
             UpdateBranchLocationInput input,
-            [Service] ATIDSXEContext context,
+            [Service] ApplicationDbContext context,
             CancellationToken cancellationToken)
         {
             var fileReference = await context.FileReference.FindAsync(input.FileReferenceId);
@@ -56,7 +56,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Mutations
 
         public async Task<UpdateFileStatusPayload> UpdateFileStatusAsync(
             UpdateFileStatusInput input,
-            [Service] ATIDSXEContext context,
+            [Service] ApplicationDbContext context,
             CancellationToken cancellationToken)
         {
             var fileReference = await context.FileReference.FindAsync(input.FileReferenceId);

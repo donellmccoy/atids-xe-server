@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace TheFund.AtidsXe.Console.DataTransferObjects
 {
-    public class Connection<T> where T : class 
+    public sealed class Connection<T> where T : class 
     {
         public Connection()
         {
-            Nodes = new List<T>();
+            Nodes = Enumerable.Empty<T>();
         }
 
         public string __TypeName { get; set; }

@@ -96,40 +96,76 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasConstraintName("FK_FILE_REFERENCE_SEARCH");
 
             builder.HasOne(d => d.GeographicCertRange)
-                .WithMany(p => p.SearchGeographicCertRange)
-                .HasForeignKey(d => d.GeographicCertRangeId)
-                .HasConstraintName("FK_SEARCH_CERTIFICATION_RANGE");
+                   .WithMany(p => p.SearchGeographicCertRange)
+                   .HasForeignKey(d => d.GeographicCertRangeId)
+                   .HasConstraintName("FK_SEARCH_CERTIFICATION_RANGE");
 
             builder.HasOne(d => d.GeographicLocale)
-                .WithMany(p => p.Searches)
-                .HasForeignKey(d => d.GeographicLocaleId)
-                .HasConstraintName("FK_LOCATION_SEARCH");
+                   .WithMany(p => p.Searches)
+                   .HasForeignKey(d => d.GeographicLocaleId)
+                   .HasConstraintName("FK_LOCATION_SEARCH");
 
             builder.HasOne(d => d.GiCertRange)
-                .WithMany(p => p.SearchGiCertRange)
-                .HasForeignKey(d => d.GiCertRangeId)
-                .HasConstraintName("FK_SEARCH_CERTIFICATION_RANGE1");
+                   .WithMany(p => p.SearchGiCertRange)
+                   .HasForeignKey(d => d.GiCertRangeId)
+                   .HasConstraintName("FK_SEARCH_CERTIFICATION_RANGE1");
 
             builder.HasOne(d => d.GrantorCertRange)
-                .WithMany(p => p.SearchGrantorCertRange)
-                .HasForeignKey(d => d.GrantorCertRangeId)
-                .HasConstraintName("FK_GRANTOR_CERT_RANGE_SEARCH");
+                   .WithMany(p => p.SearchGrantorCertRange)
+                   .HasForeignKey(d => d.GrantorCertRangeId)
+                   .HasConstraintName("FK_GRANTOR_CERT_RANGE_SEARCH");
 
             builder.HasOne(d => d.ParentSearch)
-                .WithMany(p => p.InverseParentSearches)
-                .HasForeignKey(d => d.ParentSearchId)
-                .HasConstraintName("FK_SEARCH_ID_PARENT_SEARCH_ID");
+                   .WithMany(p => p.InverseParentSearches)
+                   .HasForeignKey(d => d.ParentSearchId)
+                   .HasConstraintName("FK_SEARCH_ID_PARENT_SEARCH_ID");
 
             builder.HasOne(d => d.SearchStatus)
-                .WithMany(p => p.Search)
-                .HasForeignKey(d => d.SearchStatusId)
-                .HasConstraintName("FK_SEARCH_SEARCH_STATUS");
+                   .WithMany(p => p.Search)
+                   .HasForeignKey(d => d.SearchStatusId)
+                   .HasConstraintName("FK_SEARCH_SEARCH_STATUS");
 
             builder.HasOne(d => d.SearchType)
-                .WithMany(p => p.Search)
-                .HasForeignKey(d => d.SearchTypeId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_SEARCH_TYPE_SEARCH");
+                   .WithMany(p => p.Search)
+                   .HasForeignKey(d => d.SearchTypeId)
+                   .OnDelete(DeleteBehavior.ClientSetNull)
+                   .HasConstraintName("FK_SEARCH_TYPE_SEARCH");
+
+            builder.HasMany(p => p.ChainOfTitleSearches)
+                   .WithOne(p => p.Search)
+                   .HasForeignKey(p => p.SearchId);
+
+            builder.HasMany(p => p.InverseParentSearches)
+                   .WithOne(p => p.ParentSearch)
+                   .HasForeignKey(p => p.SearchId);
+
+            builder.HasMany(p => p.SearchNotes)
+                   .WithOne(p => p.Search)
+                   .HasForeignKey(p => p.SearchId);
+
+            builder.HasMany(p => p.AcreageGovtLotLegals)
+                   .WithOne(p => p.Search)
+                   .HasForeignKey(p => p.SearchId);
+
+            builder.HasMany(p => p.AcreageSectionLegals)
+                   .WithOne(p => p.Search)
+                   .HasForeignKey(p => p.SearchId);
+
+            builder.HasMany(p => p.PolicySearches)
+                   .WithOne(p => p.Search)
+                   .HasForeignKey(p => p.SearchId);
+
+            builder.HasMany(p => p.SearchWarnings)
+                   .WithOne(p => p.Search)
+                   .HasForeignKey(p => p.SearchId);
+
+            builder.HasMany(p => p.SubdivisionPlattedLegals)
+                   .WithOne(p => p.Search)
+                   .HasForeignKey(p => p.SearchId);
+
+            builder.HasMany(p => p.TitleEventSearches)
+                   .WithOne(p => p.Search)
+                   .HasForeignKey(p => p.SearchId);
         }
     }
 }

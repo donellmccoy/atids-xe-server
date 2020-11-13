@@ -34,7 +34,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasConstraintName("FK_LOCATION_POLICY_INSURED_DOCUMENT");
 
             builder.HasOne(d => d.Policy)
-                   .WithMany(p => p.PolicyInsuredDocument)
+                   .WithMany(p => p.PolicyInsuredDocuments)
                    .HasForeignKey(d => d.PolicyId)
                    .OnDelete(DeleteBehavior.ClientSetNull)
                    .HasConstraintName("FK_POLICY_POLICY_INSURED_DOCUMENT");

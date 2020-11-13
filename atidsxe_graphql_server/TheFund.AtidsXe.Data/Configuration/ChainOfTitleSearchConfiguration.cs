@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class ChainOfTitleSearchConfiguration : IEntityTypeConfiguration<ChainOfTitleSearch>
+    public sealed class ChainOfTitleSearchConfiguration : IEntityTypeConfiguration<ChainOfTitleSearch>
     {
         public void Configure(EntityTypeBuilder<ChainOfTitleSearch> builder)
         {

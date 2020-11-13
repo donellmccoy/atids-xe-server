@@ -4,17 +4,30 @@ namespace TheFund.AtidsXe.Common.Extensions
 {
     public static class ObjectFieldDescriptorExtensions
     {
+        public static IObjectFieldDescriptor ToBoolean(this IObjectFieldDescriptor descriptor)
+        {
+            return descriptor.Use(next => async context =>
+            {
+                await next(context);
+
+                if (context.Result is byte inputByte)
+                {
+                    context.Result = inputByte == 1;
+                }
+            });
+        }
+
         public static IObjectFieldDescriptor Trim(this IObjectFieldDescriptor descriptor)
         {
             return descriptor.Use(next => async context =>
             {
                 await next(context);
 
-                if (context.Result is string s)
+                if (context.Result is string inputString)
                 {
-                    var result = s?.Trim();
+                    var result = inputString?.Trim();
 
-                    context.Result = string.IsNullOrWhiteSpace(result) ? null : (object)(s?.Trim());
+                    context.Result = string.IsNullOrWhiteSpace(result) ? null : (object)(inputString?.Trim());
                 }
             });
         }
@@ -25,9 +38,9 @@ namespace TheFund.AtidsXe.Common.Extensions
             {
                 await next(context);
 
-                if (context.Result is string s)
+                if (context.Result is string inputString)
                 {
-                    context.Result = s?.ToUpperInvariant();
+                    context.Result = inputString?.ToUpperInvariant();
                 }
             });
         }

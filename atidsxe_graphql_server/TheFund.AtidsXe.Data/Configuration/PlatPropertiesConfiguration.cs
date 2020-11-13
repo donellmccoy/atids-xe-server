@@ -24,6 +24,9 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .IsUnicode(false)
                    .HasMaxLength(184);
 
+            builder.Property(e => e.PlatDate)
+                   .HasColumnName("PLAT_DATE");
+
             builder.Property(e => e.PostingsConform)
                    .HasColumnName("POSTINGS_CONFORM");
 

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using TheFund.AtidsXe.Common.Middleware;
+using TheFund.AtidsXe.Common.Attributes;
 
 namespace TheFund.AtidsXe.Data.Entities
 {
@@ -7,10 +7,10 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public LegalEntityName()
         {
-            NameSearchListItem = new HashSet<NameSearchListItem>();
+            NameSearchListItems = new HashSet<NameSearchListItem>();
             NameSearchParameters = new HashSet<NameSearchParameters>();
-            PartyLegalEntityName = new HashSet<PartyLegalEntityName>();
-            TitleEventLegalEntityMql = new HashSet<TitleEventLegalEntityMql>();
+            PartyLegalEntityNames = new HashSet<PartyLegalEntityName>();
+            TitleEventLegalEntityMqls = new HashSet<TitleEventLegalEntityMql>();
         }
 
         public int LegalEntityNameId { get; set; }
@@ -27,12 +27,12 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public virtual PersonalLegalEntityName PersonalLegalEntityName { get; set; }
 
-        public virtual ICollection<NameSearchListItem> NameSearchListItem { get; set; }
+        public virtual ICollection<NameSearchListItem> NameSearchListItems { get; set; }
 
         public virtual ICollection<NameSearchParameters> NameSearchParameters { get; set; }
 
-        public virtual ICollection<PartyLegalEntityName> PartyLegalEntityName { get; set; }
+        public virtual ICollection<PartyLegalEntityName> PartyLegalEntityNames { get; set; }
 
-        public virtual ICollection<TitleEventLegalEntityMql> TitleEventLegalEntityMql { get; set; }
+        public virtual ICollection<TitleEventLegalEntityMql> TitleEventLegalEntityMqls { get; set; }
     }
 }

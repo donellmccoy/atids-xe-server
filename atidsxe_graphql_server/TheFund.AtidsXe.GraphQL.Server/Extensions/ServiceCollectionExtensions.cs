@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StackExchange.Redis;
+using System;
 using TheFund.AtidsXe.Data.Context;
 using TheFund.AtidsXe.GraphQL.Server.Data;
 using TheFund.AtidsXe.GraphQL.Server.Mutations;
@@ -27,7 +28,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
 
             var options = configuration.GetOption<QueryExecutionOptions>();
 
-            services.AddRedisQueryStorage(_ => ConnectionMultiplexer.Connect("localhost:6379").GetDatabase(0));
+            //services.AddRedisQueryStorage(_ => ConnectionMultiplexer.Connect("localhost:6379").GetDatabase(0));
 
             services.AddGraphQL(sp => SchemaBuilder.New()
                                                    .AddServices(sp)
@@ -46,7 +47,9 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
                                                    .AddMutationType(d => d.Name("Mutation"))
                                                    .AddType<FileReferenceMutations>()
                                                    .BindClrType<string, StringType>()
-                                                   .Create(), b => b.UseActivePersistedQueryPipeline(options).AddSha256DocumentHashProvider());
+                                                   .Create());
+
+            //.Create(), b => b.UseActivePersistedQueryPipeline(options).AddSha256DocumentHashProvider());
 
             return services;
         }
@@ -75,7 +78,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
 
             if(options.UseInMemoryDatabase)
             {
-                services.AddDbContext<ATIDSXEContext>(builder =>
+                services.AddDbContext<ApplicationDbContext>(builder =>
                 {
                     builder.EnableDetailedErrors(options.EnableDetailedErrors);
                     builder.UseInMemoryDatabase(options.InMemoryDatabaseName);
@@ -101,11 +104,11 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
 
                 if (options.EnablePooling)
                 {
-                    services.AddDbContextPool<ATIDSXEContext>(CreateOptionsAction, options.PoolSize);
+                    services.AddDbContextPool<ApplicationDbContext>(CreateOptionsAction, options.PoolSize);
                 }
                 else
                 {
-                    services.AddDbContext<ATIDSXEContext>(CreateOptionsAction, options.ContextLifetime, options.OptionsLifetime);
+                    services.AddDbContext<ApplicationDbContext>(CreateOptionsAction, options.ContextLifetime, options.OptionsLifetime);
                 }
             }
 
@@ -121,7 +124,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Extensions
                 options.MimeTypes = new[] { "application/json" };
             });
 
-            services.Configure((System.Action<GzipCompressionProviderOptions>)(_ => _ = configuration.GetOption<GzipCompressionProviderOptions>()));
+            services.Configure((Action<GzipCompressionProviderOptions>)(_ => _ = configuration.GetOption<GzipCompressionProviderOptions>()));
 
             return services;
         }

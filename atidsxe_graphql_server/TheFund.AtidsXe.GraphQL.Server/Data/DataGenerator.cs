@@ -14,7 +14,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Data
         {
             services.EnsureNotNull();
 
-            using var context = new ATIDSXEContext(services.BuildServiceProvider().GetRequiredService<DbContextOptions<ATIDSXEContext>>());
+            using var context = new ApplicationDbContext(services.BuildServiceProvider().GetRequiredService<DbContextOptions<ApplicationDbContext>>());
             LoadBranchLocations(context);
             LoadFileStatuses(context);
             LoadGeographicLocales(context);
@@ -23,7 +23,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Data
             context.SaveChanges();
         }
 
-        private static void LoadGeographicLocales(ATIDSXEContext context)
+        private static void LoadGeographicLocales(ApplicationDbContext context)
         {
             context.GeographicLocale.AddRange
             (
@@ -54,7 +54,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Data
             );
         }
 
-        private static void LoadFileReferences(ATIDSXEContext context)
+        private static void LoadFileReferences(ApplicationDbContext context)
         {
             context.FileReference.AddRange
             (
@@ -139,7 +139,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Data
             );
         }
 
-        private static void LoadBranchLocations(ATIDSXEContext context)
+        private static void LoadBranchLocations(ApplicationDbContext context)
         {
             context.BranchLocation.AddRange
             (
@@ -188,7 +188,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Data
             );
         }
 
-        private static void LoadFileStatuses(ATIDSXEContext context)
+        private static void LoadFileStatuses(ApplicationDbContext context)
         {
             context.FileStatus.AddRange
             (

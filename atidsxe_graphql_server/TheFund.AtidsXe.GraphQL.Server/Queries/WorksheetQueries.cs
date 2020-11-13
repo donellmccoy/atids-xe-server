@@ -14,14 +14,14 @@ namespace TheFund.AtidsXe.GraphQL.Server.Queries
         [UseSelection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<Worksheet> GetWorksheets([Service] ATIDSXEContext context)
+        public IQueryable<Worksheet> GetWorksheets([Service] ApplicationDbContext context)
         {
             return context.Worksheet;
         }
 
         [UseSingleOrDefault]
         [UseSelection]
-        public IQueryable<Worksheet> GetWorksheet(int fileReferenceId, int worksheetId, [Service] ATIDSXEContext context)
+        public IQueryable<Worksheet> GetWorksheet([Service] ApplicationDbContext context, int fileReferenceId, int worksheetId)
         {
             return context.Worksheet.Where(p => p.FileReferenceId == fileReferenceId && p.WorksheetId == worksheetId);
         }

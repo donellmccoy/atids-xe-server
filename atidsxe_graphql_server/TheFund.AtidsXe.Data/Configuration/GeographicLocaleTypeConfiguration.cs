@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class GeographicLocaleTypeConfiguration : IEntityTypeConfiguration<GeographicLocaleType>
+    public sealed class GeographicLocaleTypeConfiguration : IEntityTypeConfiguration<GeographicLocaleType>
     {
         public void Configure(EntityTypeBuilder<GeographicLocaleType> builder)
         {

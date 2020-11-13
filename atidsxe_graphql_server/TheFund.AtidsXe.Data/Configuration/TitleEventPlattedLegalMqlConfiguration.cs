@@ -28,7 +28,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.Property(e => e.TitleEventId).HasColumnName("TITLE_EVENT_ID");
 
             entity.HasOne(d => d.TitleEvent)
-                .WithMany(p => p.TitleEventPlattedLegalMql)
+                .WithMany(p => p.TitleEventPlattedLegalMqls)
                 .HasForeignKey(d => d.TitleEventId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_TITLE_EVENT_PLATTED_LEGAL");

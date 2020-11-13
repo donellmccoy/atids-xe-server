@@ -12,14 +12,14 @@ namespace TheFund.AtidsXe.GraphQL.Server.Queries
         [UseSelection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<TitleEventType> GetTitleEventTypes([Service] ATIDSXEContext context)
+        public IQueryable<TitleEventType> GetTitleEventTypes([Service] ApplicationDbContext context)
         {
             return context.TitleEventType;
         }
 
         [UseSingleOrDefault]
         [UseSelection]
-        public IQueryable<TitleEventType> GetTitleEventType(int titleEventTypeId, [Service] ATIDSXEContext context)
+        public IQueryable<TitleEventType> GetTitleEventType(int titleEventTypeId, [Service] ApplicationDbContext context)
         {
             return context.TitleEventType.Where(p => p.TitleEventTypeId == titleEventTypeId);
         }

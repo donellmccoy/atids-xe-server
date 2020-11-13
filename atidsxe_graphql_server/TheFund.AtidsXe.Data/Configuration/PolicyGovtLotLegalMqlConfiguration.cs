@@ -29,7 +29,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasColumnName("UNPLATTED_REFERENCE_ID");
 
             builder.HasOne(d => d.Policy)
-                   .WithMany(p => p.PolicyGovtLotLegalMql)
+                   .WithMany(p => p.PolicyGovtLotLegalMqls)
                    .HasForeignKey(d => d.PolicyId)
                    .OnDelete(DeleteBehavior.ClientSetNull)
                    .HasConstraintName("FK_POLICY_GOVT_LOT_LEGAL");

@@ -4,11 +4,13 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class ChainOfTitleCategoryConfiguration : IEntityTypeConfiguration<ChainOfTitleCategory>
+    public sealed class ChainOfTitleCategoryConfiguration : IEntityTypeConfiguration<ChainOfTitleCategory>
     {
         public void Configure(EntityTypeBuilder<ChainOfTitleCategory> builder)
         {
             builder.ToTable("CHAIN_OF_TITLE_CATEGORY");
+
+            builder.HasKey(p => p.ChainOfTitleCategoryId);
 
             builder.HasIndex(e => e.ChainOfTitleCategoryId)
                    .HasName("COT_CATEGORY_DESCRIPTION_UC1")
@@ -22,6 +24,10 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasColumnName("DESCRIPTION")
                    .HasMaxLength(50)
                    .IsUnicode(false);
+
+            builder.HasMany(p => p.ChainOfTitleItems)
+                   .WithOne(p => p.ChainOfTitleCategory)
+                   .HasForeignKey(p => p.ChainOfTitleCategoryId);
         }
     }
 }

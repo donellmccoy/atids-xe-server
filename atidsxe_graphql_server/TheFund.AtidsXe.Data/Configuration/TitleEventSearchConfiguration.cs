@@ -29,7 +29,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                 .HasConstraintName("FK_TITLE_EVENT_SEARCH_ID");
 
             entity.HasOne(d => d.TitleEvent)
-                .WithMany(p => p.TitleEventSearch)
+                .WithMany(p => p.TitleEventSearches)
                 .HasForeignKey(d => d.TitleEventId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_TITLE_EVENT_TITLE_EVENT_ID");

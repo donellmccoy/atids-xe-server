@@ -4,11 +4,13 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class CertificationRangeConfiguration : IEntityTypeConfiguration<CertificationRange>
+    public sealed class CertificationRangeConfiguration : IEntityTypeConfiguration<CertificationRange>
     {
         public void Configure(EntityTypeBuilder<CertificationRange> builder)
         {
             builder.ToTable("CERTIFICATION_RANGE");
+
+            builder.HasKey(p => p.CertificationRangeId);
 
             builder.HasIndex(e => e.ToOrDocumentId)
                    .HasName("I_FK_CERTIFICATION_RANGE_TO_OR_DOCUMENT_ID");

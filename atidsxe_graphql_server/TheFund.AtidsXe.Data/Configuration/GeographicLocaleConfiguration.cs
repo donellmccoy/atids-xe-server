@@ -4,11 +4,13 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class GeographicLocaleConfiguration : IEntityTypeConfiguration<GeographicLocale>
+    public sealed class GeographicLocaleConfiguration : IEntityTypeConfiguration<GeographicLocale>
     {
         public void Configure(EntityTypeBuilder<GeographicLocale> builder)
         {
             builder.ToTable("GEOGRAPHIC_LOCALE");
+
+            builder.HasKey(p => p.GeographicLocaleId);
 
             builder.HasIndex(e => e.GeographicLocaleTypeId)
                    .HasName("I_FK_GEOGRAPHIC_LOCALE_TYPE");

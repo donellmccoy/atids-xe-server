@@ -14,14 +14,14 @@ namespace TheFund.AtidsXe.GraphQL.Server.Queries
         [UseSelection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<FileStatus> GetFileStatuses([Service] ATIDSXEContext context)
+        public IQueryable<FileStatus> GetFileStatuses([Service] ApplicationDbContext context)
         {
             return context.FileStatus;
         }
 
         [UseSingleOrDefault]
         [UseSelection]
-        public IQueryable<FileStatus> GetFileStatusById(int fileStatusId, [Service] ATIDSXEContext context)
+        public IQueryable<FileStatus> GetFileStatusById(int fileStatusId, [Service] ApplicationDbContext context)
         {
             return context.FileStatus.Where(p => p.FileStatusId == fileStatusId);
         }

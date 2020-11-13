@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using HotChocolate.Types;
-using TheFund.AtidsXe.Common.Middleware;
+using TheFund.AtidsXe.Common.Attributes;
 
 namespace TheFund.AtidsXe.Data.Entities
 {

@@ -12,12 +12,17 @@ namespace TheFund.AtidsXe.Data.Entities
         }
 
         public int SectionBreakdownCodeId { get; set; }
+
         public int UnplattedReferenceId { get; set; }
 
         public virtual SectionBreakdownCode SectionBreakdownCode { get; set; }
+
         public virtual UnplattedReference UnplattedReference { get; set; }
+
         public virtual ICollection<AcreageSectionLegal> AcreageSectionLegal { get; set; }
+
         public virtual ICollection<PolicySectionLegalMql> PolicySectionLegalMql { get; set; }
+
         public virtual ICollection<TitleEventSectionLegalMql> TitleEventSectionLegalMql { get; set; }
     }
 }

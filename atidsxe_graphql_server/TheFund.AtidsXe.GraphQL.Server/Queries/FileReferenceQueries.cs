@@ -14,7 +14,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Queries
         [UseSelection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<FileReference> GetFileReferences([Service] ATIDSXEContext context)
+        public IQueryable<FileReference> GetFileReferences([Service] ApplicationDbContext context)
         {
             return context.FileReference;
         }
@@ -22,7 +22,7 @@ namespace TheFund.AtidsXe.GraphQL.Server.Queries
 
         [UseSingleOrDefault]
         [UseSelection]
-        public IQueryable<FileReference> GetFileReferenceById([Service] ATIDSXEContext context, int fileReferenceId)
+        public IQueryable<FileReference> GetFileReferenceById([Service] ApplicationDbContext context, int fileReferenceId)
         {
             return context.FileReference.Where(p => p.FileReferenceId == fileReferenceId).AsQueryable();
         }

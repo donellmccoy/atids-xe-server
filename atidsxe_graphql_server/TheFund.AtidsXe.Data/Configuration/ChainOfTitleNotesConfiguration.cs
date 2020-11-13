@@ -4,11 +4,13 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class ChainOfTitleNotesConfiguration : IEntityTypeConfiguration<ChainOfTitleNotes>
+    public sealed class ChainOfTitleNotesConfiguration : IEntityTypeConfiguration<ChainOfTitleNotes>
     {
         public void Configure(EntityTypeBuilder<ChainOfTitleNotes> builder)
         {
             builder.ToTable("CHAIN_OF_TITLE_NOTES");
+
+            builder.HasKey(e => e.ChainOfTitleNotesId);
 
             builder.HasIndex(e => e.ChainOfTitleId)
                    .HasName("I_FK_CHAIN_OF_TITLE_NOTES_CHAIN_OF_TITLE_ID");

@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class AcreageSectionLegalConfiguration : IEntityTypeConfiguration<AcreageSectionLegal>
+    public sealed class AcreageSectionLegalConfiguration : IEntityTypeConfiguration<AcreageSectionLegal>
     {
         public void Configure(EntityTypeBuilder<AcreageSectionLegal> builder)
         {

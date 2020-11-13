@@ -8,9 +8,9 @@ namespace TheFund.AtidsXe.Data.Configuration
     {
         public void Configure(EntityTypeBuilder<MortgageTitleEvent> entity)
         {
-            entity.HasKey(e => e.TitleEventId);
-
             entity.ToTable("MORTGAGE_TITLE_EVENT");
+
+            entity.HasKey(e => e.TitleEventId);
 
             entity.HasIndex(e => e.MinNumberId)
                   .HasName("I_FK_MIN_NUMBER");

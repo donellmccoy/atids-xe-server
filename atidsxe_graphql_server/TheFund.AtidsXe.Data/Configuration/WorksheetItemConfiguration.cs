@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class WorksheetItemConfiguration : IEntityTypeConfiguration<WorksheetItem>
+    public sealed class WorksheetItemConfiguration : IEntityTypeConfiguration<WorksheetItem>
     {
         public void Configure(EntityTypeBuilder<WorksheetItem> builder)
         {
@@ -25,7 +25,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasColumnName("SEQUENCE");
 
             builder.HasOne(d => d.TitleEvent)
-                   .WithMany(p => p.WorksheetItem)
+                   .WithMany(p => p.WorksheetItems)
                    .HasForeignKey(d => d.TitleEventId)
                    .HasConstraintName("FK_TITLE_EVENT_WORKSHEET_ITEM");
 

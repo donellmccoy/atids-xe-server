@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="afnpires.Ensure" Version="2.0.0" />
+    <PackageReference Include="DynamicData" Version="6.17.14" />
+    <PackageReference Include="GraphQL.Client" Version="3.2.0" />
+    <PackageReference Include="GraphQL.Client.Serializer.Newtonsoft" Version="3.2.0" />
+    <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
+    <PackageReference Include="Optional" Version="4.0.0" />
+    <PackageReference Include="Syncfusion.Blazor" Version="18.3.0.44" />
+  </ItemGroup>
+
+</Project>

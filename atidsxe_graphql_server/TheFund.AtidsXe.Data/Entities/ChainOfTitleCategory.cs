@@ -1,6 +1,5 @@
-﻿using HotChocolate.Types;
-using System.Collections.Generic;
-using TheFund.AtidsXe.Common.Middleware;
+﻿using System.Collections.Generic;
+using TheFund.AtidsXe.Common.Attributes;
 
 namespace TheFund.AtidsXe.Data.Entities
 {
@@ -8,7 +7,7 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public ChainOfTitleCategory()
         {
-            ChainOfTitleItem = new HashSet<ChainOfTitleItem>();
+            ChainOfTitleItems = new HashSet<ChainOfTitleItem>();
         }
 
         public int ChainOfTitleCategoryId { get; set; }
@@ -16,6 +15,6 @@ namespace TheFund.AtidsXe.Data.Entities
         [Trim]
         public string Description { get; set; }
 
-        public virtual ICollection<ChainOfTitleItem> ChainOfTitleItem { get; set; }
+        public virtual ICollection<ChainOfTitleItem> ChainOfTitleItems { get; set; }
     }
 }

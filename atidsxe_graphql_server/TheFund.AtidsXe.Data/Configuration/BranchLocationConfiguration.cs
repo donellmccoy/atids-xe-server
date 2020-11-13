@@ -4,11 +4,13 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class BranchLocationConfiguration : IEntityTypeConfiguration<BranchLocation>
+    public sealed class BranchLocationConfiguration : IEntityTypeConfiguration<BranchLocation>
     {
         public void Configure(EntityTypeBuilder<BranchLocation> builder)
         {
             builder.ToTable("BRANCH_LOCATION");
+
+            builder.HasKey(p => p.BranchLocationId);
 
             builder.HasIndex(e => e.AccountNumber)
                    .HasName("IX_BRANCH_LOCATION_ACCOUNT")
