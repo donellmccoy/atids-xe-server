@@ -10,6 +10,8 @@ namespace TheFund.AtidsXe.Data.Configuration
         {
             builder.ToTable("TITLE_SEARCH_ORIGINATION");
 
+            builder.HasKey(e => e.TitleSearchOriginationId);
+
             builder.HasIndex(e => e.FileReferenceId)
                    .HasName("UX_TITLE_SEARCH_ORIGINATION")
                    .IsUnique();

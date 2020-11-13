@@ -10,6 +10,8 @@ namespace TheFund.AtidsXe.Data.Configuration
         {
             entity.ToTable("TAX_FOLIO_REFERENCE");
 
+            entity.HasKey(e => e.TaxFolioReferenceId);
+
             entity.HasIndex(e => e.GeographicLocaleId)
                   .HasName("I_FK_GEOGRAPHIC_LOCALE");
 
