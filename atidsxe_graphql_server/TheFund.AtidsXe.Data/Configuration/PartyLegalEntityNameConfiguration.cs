@@ -27,7 +27,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasConstraintName("FK_LGL_ENTNM_PARTY_LGL_ENTNM");
 
             builder.HasOne(d => d.Party)
-                   .WithMany(p => p.PartyLegalEntityName)
+                   .WithMany(p => p.PartyLegalEntityNames)
                    .HasForeignKey(d => d.PartyId)
                    .HasConstraintName("FK_PARTY_PARTY_LGL_ENT_NAME");
         }

@@ -7,8 +7,8 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public Party()
         {
-            PartyLegalEntityName = new HashSet<PartyLegalEntityName>();
-            TitleEventParty = new HashSet<TitleEventParty>();
+            PartyLegalEntityNames = new HashSet<PartyLegalEntityName>();
+            TitleEventParties = new HashSet<TitleEventParty>();
         }
 
         public int PartyId { get; set; }
@@ -20,8 +20,8 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public virtual PartyRoleType PartyRoleType { get; set; }
 
-        public virtual ICollection<PartyLegalEntityName> PartyLegalEntityName { get; set; }
+        public virtual ICollection<PartyLegalEntityName> PartyLegalEntityNames { get; set; }
 
-        public virtual ICollection<TitleEventParty> TitleEventParty { get; set; }
+        public virtual ICollection<TitleEventParty> TitleEventParties { get; set; }
     }
 }

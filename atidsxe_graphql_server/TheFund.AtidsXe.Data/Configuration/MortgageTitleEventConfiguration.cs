@@ -29,7 +29,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .HasColumnName("MIN_NUMBER_ID");
 
             entity.HasOne(d => d.MinNumber)
-                  .WithMany(p => p.MortgageTitleEvent)
+                  .WithMany(p => p.MortgageTitleEvents)
                   .HasForeignKey(d => d.MinNumberId)
                   .HasConstraintName("FK_MIN_NBR_MTG_TITLE_EVENT");
 

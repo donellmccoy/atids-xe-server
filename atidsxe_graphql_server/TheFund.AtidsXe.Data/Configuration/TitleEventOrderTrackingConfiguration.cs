@@ -25,7 +25,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .HasColumnName("DELIVERY_ORDER_INFO_ID");
 
             entity.HasOne(d => d.DeliveryOrderInfo)
-                  .WithMany(p => p.TitleEventOrderTracking)
+                  .WithMany(p => p.TitleEventOrderTrackings)
                   .HasForeignKey(d => d.DeliveryOrderInfoId)
                   .OnDelete(DeleteBehavior.ClientSetNull)
                   .HasConstraintName("FK_TITLE_EVENT_ORDER_TRACKING_DELIVERY_ORDER_INFO");

@@ -22,13 +22,13 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasColumnName("NAME_REASON_CODE_ID");
 
             builder.HasOne(d => d.NameReasonCode)
-                   .WithMany(p => p.NameSearchListReasonCode)
+                   .WithMany(p => p.NameSearchListReasonCodes)
                    .HasForeignKey(d => d.NameReasonCodeId)
                    .OnDelete(DeleteBehavior.ClientSetNull)
                    .HasConstraintName("FK_NAME_SEARCH_LIST_REASON_CODE_NAME_REASON_CODE");
 
             builder.HasOne(d => d.NameSearchListItem)
-                   .WithMany(p => p.NameSearchListReasonCode)
+                   .WithMany(p => p.NameSearchListReasonCodes)
                    .HasForeignKey(d => d.NameSearchListItemId)
                    .OnDelete(DeleteBehavior.ClientSetNull)
                    .HasConstraintName("FK_NAME_SEARCH_LIST_REASON_CODE_NAME_SEARCH_LIST_ITEM ");

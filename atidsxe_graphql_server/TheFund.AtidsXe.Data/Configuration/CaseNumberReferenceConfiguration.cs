@@ -51,7 +51,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .IsFixedLength();
 
             builder.HasOne(d => d.GeographicLocale)
-                   .WithMany(p => p.CaseNumberReference)
+                   .WithMany(p => p.CaseNumberReferences)
                    .HasForeignKey(d => d.GeographicLocaleId)
                    .HasConstraintName("FK_GEO_LOCALE_CASE_NBR_REF");
 

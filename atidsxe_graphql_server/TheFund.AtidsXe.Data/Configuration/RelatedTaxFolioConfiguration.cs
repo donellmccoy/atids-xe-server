@@ -22,7 +22,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .HasColumnName("TAX_FOLIO_REFERENCE_ID");
 
             entity.HasOne(d => d.OfficialRecordDocument)
-                  .WithMany(p => p.RelatedTaxFolio)
+                  .WithMany(p => p.RelatedTaxFolios)
                   .HasForeignKey(d => d.OfficialRecordDocumentId)
                   .OnDelete(DeleteBehavior.ClientSetNull)
                   .HasConstraintName("FK_ORD_RELATED_TAX_FOLIO");

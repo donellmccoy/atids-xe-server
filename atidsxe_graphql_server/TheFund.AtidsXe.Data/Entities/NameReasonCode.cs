@@ -7,7 +7,7 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public NameReasonCode()
         {
-            NameSearchListReasonCode = new HashSet<NameSearchListReasonCode>();
+            NameSearchListReasonCodes = new HashSet<NameSearchListReasonCode>();
         }
 
         public int NameReasonCodeId { get; set; }
@@ -15,6 +15,6 @@ namespace TheFund.AtidsXe.Data.Entities
         [Trim]
         public string Description { get; set; }
 
-        public virtual ICollection<NameSearchListReasonCode> NameSearchListReasonCode { get; set; }
+        public virtual ICollection<NameSearchListReasonCode> NameSearchListReasonCodes { get; set; }
     }
 }

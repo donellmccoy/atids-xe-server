@@ -96,7 +96,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasConstraintName("FK_FILE_REFERENCE_SEARCH");
 
             builder.HasOne(d => d.GeographicCertRange)
-                   .WithMany(p => p.SearchGeographicCertRange)
+                   .WithMany(p => p.SearchGeographicCertRanges)
                    .HasForeignKey(d => d.GeographicCertRangeId)
                    .HasConstraintName("FK_SEARCH_CERTIFICATION_RANGE");
 
@@ -106,12 +106,12 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasConstraintName("FK_LOCATION_SEARCH");
 
             builder.HasOne(d => d.GiCertRange)
-                   .WithMany(p => p.SearchGiCertRange)
+                   .WithMany(p => p.SearchGiCertRanges)
                    .HasForeignKey(d => d.GiCertRangeId)
                    .HasConstraintName("FK_SEARCH_CERTIFICATION_RANGE1");
 
             builder.HasOne(d => d.GrantorCertRange)
-                   .WithMany(p => p.SearchGrantorCertRange)
+                   .WithMany(p => p.SearchGrantorCertRanges)
                    .HasForeignKey(d => d.GrantorCertRangeId)
                    .HasConstraintName("FK_GRANTOR_CERT_RANGE_SEARCH");
 

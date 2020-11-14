@@ -23,7 +23,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .IsUnicode(false)
                    .IsRequired();
 
-            builder.HasMany(p => p.UnplattedReference)
+            builder.HasMany(p => p.UnplattedReferences)
                    .WithOne(p => p.BreakdownCodeType)
                    .HasForeignKey(p => p.UnplattedReferenceId);
         }

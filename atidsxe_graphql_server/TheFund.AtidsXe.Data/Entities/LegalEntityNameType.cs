@@ -7,7 +7,7 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public LegalEntityNameType()
         {
-            LegalEntityName = new HashSet<LegalEntityName>();
+            LegalEntityNames = new HashSet<LegalEntityName>();
         }
 
         public int LegalEntityNameTypeId { get; set; }
@@ -15,6 +15,6 @@ namespace TheFund.AtidsXe.Data.Entities
         [Trim]
         public string Description { get; set; }
 
-        public virtual ICollection<LegalEntityName> LegalEntityName { get; set; }
+        public virtual ICollection<LegalEntityName> LegalEntityNames { get; set; }
     }
 }

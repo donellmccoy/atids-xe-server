@@ -35,7 +35,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasConstraintName("FK_POLICY_GOVT_LOT_LEGAL");
 
             builder.HasOne(d => d.GovernmentLotLegal)
-                   .WithMany(p => p.PolicyGovtLotLegalMql)
+                   .WithMany(p => p.PolicyGovtLotLegalMqls)
                    .HasForeignKey(d => new { d.UnplattedReferenceId, d.GovernmentLotId })
                    .OnDelete(DeleteBehavior.ClientSetNull)
                    .HasConstraintName("FK_GOVT_LOT_LEGAL_POLICY");

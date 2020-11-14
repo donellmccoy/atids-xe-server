@@ -8,8 +8,8 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public DeliveryOrderInfo()
         {
-            PolicyOrderTracking = new HashSet<PolicyOrderTracking>();
-            TitleEventOrderTracking = new HashSet<TitleEventOrderTracking>();
+            PolicyOrderTrackings = new HashSet<PolicyOrderTracking>();
+            TitleEventOrderTrackings = new HashSet<TitleEventOrderTracking>();
         }
 
         public int DeliveryOrderInfoId { get; set; }
@@ -25,8 +25,8 @@ namespace TheFund.AtidsXe.Data.Entities
         [Trim]
         public string Email { get; set; }
 
-        public virtual ICollection<PolicyOrderTracking> PolicyOrderTracking { get; set; }
+        public virtual ICollection<PolicyOrderTracking> PolicyOrderTrackings { get; set; }
 
-        public virtual ICollection<TitleEventOrderTracking> TitleEventOrderTracking { get; set; }
+        public virtual ICollection<TitleEventOrderTracking> TitleEventOrderTrackings { get; set; }
     }
 }

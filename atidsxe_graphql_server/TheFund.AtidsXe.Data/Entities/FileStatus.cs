@@ -7,7 +7,7 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public FileStatus()
         {
-            FileReference = new HashSet<FileReference>();
+            FileReferences = new HashSet<FileReference>();
         }
 
         public int FileStatusId { get; set; }
@@ -15,6 +15,6 @@ namespace TheFund.AtidsXe.Data.Entities
         [Trim]
         public string Description { get; set; }
 
-        public ICollection<FileReference> FileReference { get; set; }
+        public ICollection<FileReference> FileReferences { get; set; }
     }
 }

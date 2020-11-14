@@ -8,9 +8,9 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public PlattedLegal()
         {
-            PolicyPlattedLegalMql = new HashSet<PolicyPlattedLegalMql>();
-            SubdivisionPlattedLegal = new HashSet<SubdivisionPlattedLegal>();
-            TitleEventPlattedLegalMql = new HashSet<TitleEventPlattedLegalMql>();
+            PolicyPlattedLegalMqls = new HashSet<PolicyPlattedLegalMql>();
+            SubdivisionPlattedLegals = new HashSet<SubdivisionPlattedLegal>();
+            TitleEventPlattedLegalMqls = new HashSet<TitleEventPlattedLegalMql>();
         }
 
         public int PlatReferenceId { get; set; }
@@ -23,14 +23,14 @@ namespace TheFund.AtidsXe.Data.Entities
 
         [UseFiltering]
         [UseSorting]
-        public virtual ICollection<PolicyPlattedLegalMql> PolicyPlattedLegalMql { get; set; }
+        public virtual ICollection<PolicyPlattedLegalMql> PolicyPlattedLegalMqls { get; set; }
 
         [UseFiltering]
         [UseSorting]
-        public virtual ICollection<SubdivisionPlattedLegal> SubdivisionPlattedLegal { get; set; }
+        public virtual ICollection<SubdivisionPlattedLegal> SubdivisionPlattedLegals { get; set; }
 
         [UseFiltering]
         [UseSorting]
-        public virtual ICollection<TitleEventPlattedLegalMql> TitleEventPlattedLegalMql { get; set; }
+        public virtual ICollection<TitleEventPlattedLegalMql> TitleEventPlattedLegalMqls { get; set; }
     }
 }

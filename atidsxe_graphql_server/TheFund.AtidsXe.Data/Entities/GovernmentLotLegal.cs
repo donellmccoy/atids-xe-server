@@ -6,9 +6,9 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public GovernmentLotLegal()
         {
-            AcreageGovtLotLegal = new HashSet<AcreageGovtLotLegal>();
-            PolicyGovtLotLegalMql = new HashSet<PolicyGovtLotLegalMql>();
-            TitleEventGovtLotLegalMql = new HashSet<TitleEventGovtLotLegalMql>();
+            AcreageGovtLotLegals = new HashSet<AcreageGovtLotLegal>();
+            PolicyGovtLotLegalMqls = new HashSet<PolicyGovtLotLegalMql>();
+            TitleEventGovtLotLegalMqls = new HashSet<TitleEventGovtLotLegalMql>();
         }
 
         public int UnplattedReferenceId { get; set; }
@@ -19,10 +19,10 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public virtual UnplattedReference UnplattedReference { get; set; }
 
-        public virtual ICollection<AcreageGovtLotLegal> AcreageGovtLotLegal { get; set; }
+        public virtual ICollection<AcreageGovtLotLegal> AcreageGovtLotLegals { get; set; }
 
-        public virtual ICollection<PolicyGovtLotLegalMql> PolicyGovtLotLegalMql { get; set; }
+        public virtual ICollection<PolicyGovtLotLegalMql> PolicyGovtLotLegalMqls { get; set; }
 
-        public virtual ICollection<TitleEventGovtLotLegalMql> TitleEventGovtLotLegalMql { get; set; }
+        public virtual ICollection<TitleEventGovtLotLegalMql> TitleEventGovtLotLegalMqls { get; set; }
     }
 }

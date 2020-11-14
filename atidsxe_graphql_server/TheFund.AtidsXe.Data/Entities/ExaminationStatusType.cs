@@ -7,8 +7,8 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public ExaminationStatusType()
         {
-            TitleEventCurrentExamStatusType = new HashSet<TitleEvent>();
-            TitleEventOriginalExamStatusType = new HashSet<TitleEvent>();
+            TitleEventCurrentExamStatusTypes = new HashSet<TitleEvent>();
+            TitleEventOriginalExamStatusTypes = new HashSet<TitleEvent>();
         }
 
         public int ExaminationStatusTypeId { get; set; }
@@ -16,8 +16,8 @@ namespace TheFund.AtidsXe.Data.Entities
         [Trim]
         public string Description { get; set; }
 
-        public ICollection<TitleEvent> TitleEventCurrentExamStatusType { get; set; }
+        public ICollection<TitleEvent> TitleEventCurrentExamStatusTypes { get; set; }
 
-        public ICollection<TitleEvent> TitleEventOriginalExamStatusType { get; set; }
+        public ICollection<TitleEvent> TitleEventOriginalExamStatusTypes { get; set; }
     }
 }

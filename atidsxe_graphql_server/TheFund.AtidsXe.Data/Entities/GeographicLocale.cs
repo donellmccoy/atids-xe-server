@@ -7,7 +7,7 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public GeographicLocale()
         {
-            FileReference = new HashSet<FileReference>();
+            FileReferences = new HashSet<FileReference>();
         }
 
         public int GeographicLocaleId { get; set; }
@@ -26,18 +26,18 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public virtual GeographicLocale ParentGeographicLocale { get; set; }
 
-        public virtual ICollection<CaseNumberReference> CaseNumberReference { get; set; }
+        public virtual ICollection<CaseNumberReference> CaseNumberReferences { get; set; }
 
-        public virtual ICollection<FileReference> FileReference { get; set; }
+        public virtual ICollection<FileReference> FileReferences { get; set; }
 
         public virtual ICollection<GeographicLocale> InverseParentGeographicLocale { get; set; }
 
-        public virtual ICollection<OfficialRecordDocument> OfficialRecordDocument { get; set; }
+        public virtual ICollection<OfficialRecordDocument> OfficialRecordDocuments { get; set; }
 
-        public virtual ICollection<PolicyInsuredDocument> PolicyInsuredDocument { get; set; }
+        public virtual ICollection<PolicyInsuredDocument> PolicyInsuredDocuments { get; set; }
 
         public virtual ICollection<Search> Searches { get; set; }
 
-        public virtual ICollection<TaxFolioReference> TaxFolioReference { get; set; }
+        public virtual ICollection<TaxFolioReference> TaxFolioReferences { get; set; }
     }
 }

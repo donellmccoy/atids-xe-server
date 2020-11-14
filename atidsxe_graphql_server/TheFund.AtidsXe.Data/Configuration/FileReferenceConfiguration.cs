@@ -69,12 +69,12 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasConstraintName("FK_BRANCH_LOC_FILE_REFERENCE");
 
             builder.HasOne(d => d.DefaultGeographicLocale)
-                   .WithMany(p => p.FileReference)
+                   .WithMany(p => p.FileReferences)
                    .HasForeignKey(d => d.DefaultGeographicLocaleId)
                    .HasConstraintName("FK_LOCATION_FILE_REFERENCE");
 
             builder.HasOne(d => d.FileStatus)
-                   .WithMany(p => p.FileReference)
+                   .WithMany(p => p.FileReferences)
                    .HasForeignKey(d => d.FileStatusId)
                    .OnDelete(DeleteBehavior.ClientSetNull)
                    .HasConstraintName("FK_FILE_STATUS_FILE_REFERENCE");

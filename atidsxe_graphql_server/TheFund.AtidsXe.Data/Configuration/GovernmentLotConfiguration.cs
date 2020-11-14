@@ -26,7 +26,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .IsUnicode(false)
                    .IsRequired();
 
-            builder.HasMany(p => p.GovernmentLotLegal)
+            builder.HasMany(p => p.GovernmentLotLegals)
                    .WithOne(p => p.GovernmentLot)
                    .HasForeignKey(p => p.GovernmentLotId);
         }

@@ -32,7 +32,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .HasColumnName("GEOGRAPHIC_LOCALE_ID");
 
             entity.HasOne(d => d.GeographicLocale)
-                  .WithMany(p => p.TaxFolioReference)
+                  .WithMany(p => p.TaxFolioReferences)
                   .HasForeignKey(d => d.GeographicLocaleId)
                   .HasConstraintName("FK_GEO_LOCALE_TAX_FOLIO_REF");
         }

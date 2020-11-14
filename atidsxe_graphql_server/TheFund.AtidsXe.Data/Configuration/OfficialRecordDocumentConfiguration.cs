@@ -22,7 +22,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .HasColumnName("GEOGRAPHIC_LOCALE_ID");
 
             entity.HasOne(d => d.GeographicLocale)
-                  .WithMany(p => p.OfficialRecordDocument)
+                  .WithMany(p => p.OfficialRecordDocuments)
                   .HasForeignKey(d => d.GeographicLocaleId)
                   .HasConstraintName("FK_GEO_LOCALE_ORD");
         }

@@ -61,7 +61,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .HasColumnName("TOWNSHIP_DIRECTION_TYPE_ID");
 
             entity.HasOne(d => d.BreakdownCodeType)
-                  .WithMany(p => p.UnplattedReference)
+                  .WithMany(p => p.UnplattedReferences)
                   .HasForeignKey(d => d.BreakdownCodeTypeId)
                   .OnDelete(DeleteBehavior.ClientSetNull)
                   .HasConstraintName("FK_BRKDWN_CD_TYPE_UNPLAT_REF");

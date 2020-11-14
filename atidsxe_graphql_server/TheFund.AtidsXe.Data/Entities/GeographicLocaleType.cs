@@ -7,7 +7,7 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public GeographicLocaleType()
         {
-            GeographicLocale = new HashSet<GeographicLocale>();
+            GeographicLocales = new HashSet<GeographicLocale>();
         }
 
         public int GeographicLocaleTypeId { get; set; }
@@ -15,6 +15,6 @@ namespace TheFund.AtidsXe.Data.Entities
         [Trim]
         public string TypeName { get; set; }
 
-        public virtual ICollection<GeographicLocale> GeographicLocale { get; set; }
+        public virtual ICollection<GeographicLocale> GeographicLocales { get; set; }
     }
 }

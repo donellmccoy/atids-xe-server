@@ -22,7 +22,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasColumnName("SUBDIVISION_LEVEL_ID");
 
             builder.HasOne(d => d.PlatReference)
-                   .WithMany(p => p.PlattedLegal)
+                   .WithMany(p => p.PlattedLegals)
                    .HasForeignKey(d => d.PlatReferenceId)
                    .OnDelete(DeleteBehavior.ClientSetNull)
                    .HasConstraintName("FK_PLAT_REFERENCE_PLATTD_LEGAL");
@@ -33,15 +33,15 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .OnDelete(DeleteBehavior.ClientSetNull)
                    .HasConstraintName("FK_SUBDIV_LEVELS_PLATTED_LEGAL");
 
-            builder.HasMany(p => p.PolicyPlattedLegalMql)
+            builder.HasMany(p => p.PolicyPlattedLegalMqls)
                    .WithOne(p => p.PlattedLegal)
                    .HasForeignKey(p => new { p.PlatReferenceId, p.SubdivisionLevelId });
 
-            builder.HasMany(p => p.SubdivisionPlattedLegal)
+            builder.HasMany(p => p.SubdivisionPlattedLegals)
                    .WithOne(p => p.PlattedLegal)
                    .HasForeignKey(p => new { p.PlatReferenceId, p.SubdivisionLevelId });
 
-            builder.HasMany(p => p.TitleEventPlattedLegalMql)
+            builder.HasMany(p => p.TitleEventPlattedLegalMqls)
                    .WithOne(p => p.PlattedLegal)
                    .HasForeignKey(p => new { p.PlatReferenceId, p.SubdivisionLevelId });
         }
