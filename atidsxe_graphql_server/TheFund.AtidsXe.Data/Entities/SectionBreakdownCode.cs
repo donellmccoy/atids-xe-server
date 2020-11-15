@@ -6,15 +6,19 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public SectionBreakdownCode()
         {
-            SectionLegal = new HashSet<SectionLegal>();
+            SectionLegals = new HashSet<SectionLegal>();
         }
 
         public int SectionBreakdownCodeId { get; set; }
+
         public int SectionQuarter { get; set; }
+
         public int? Section16th { get; set; }
+
         public int? Section64th { get; set; }
+
         public int? Section256th { get; set; }
 
-        public virtual ICollection<SectionLegal> SectionLegal { get; set; }
+        public virtual ICollection<SectionLegal> SectionLegals { get; set; }
     }
 }

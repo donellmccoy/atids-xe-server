@@ -6,9 +6,9 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public SectionLegal()
         {
-            AcreageSectionLegal = new HashSet<AcreageSectionLegal>();
-            PolicySectionLegalMql = new HashSet<PolicySectionLegalMql>();
-            TitleEventSectionLegalMql = new HashSet<TitleEventSectionLegalMql>();
+            AcreageSectionLegals = new HashSet<AcreageSectionLegal>();
+            PolicySectionLegalMqls = new HashSet<PolicySectionLegalMql>();
+            TitleEventSectionLegalMqls = new HashSet<TitleEventSectionLegalMql>();
         }
 
         public int SectionBreakdownCodeId { get; set; }
@@ -19,10 +19,10 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public virtual UnplattedReference UnplattedReference { get; set; }
 
-        public virtual ICollection<AcreageSectionLegal> AcreageSectionLegal { get; set; }
+        public virtual ICollection<AcreageSectionLegal> AcreageSectionLegals { get; set; }
 
-        public virtual ICollection<PolicySectionLegalMql> PolicySectionLegalMql { get; set; }
+        public virtual ICollection<PolicySectionLegalMql> PolicySectionLegalMqls { get; set; }
 
-        public virtual ICollection<TitleEventSectionLegalMql> TitleEventSectionLegalMql { get; set; }
+        public virtual ICollection<TitleEventSectionLegalMql> TitleEventSectionLegalMqls { get; set; }
     }
 }

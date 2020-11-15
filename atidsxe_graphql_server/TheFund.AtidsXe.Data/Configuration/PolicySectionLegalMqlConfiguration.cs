@@ -35,7 +35,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .HasConstraintName("FK_POLICY_SECTION_LEGAL");
 
             entity.HasOne(d => d.SectionLegal)
-                  .WithMany(p => p.PolicySectionLegalMql)
+                  .WithMany(p => p.PolicySectionLegalMqls)
                   .HasForeignKey(d => new { d.SectionBreakdownCodeId, d.UnplattedReferenceId })
                   .OnDelete(DeleteBehavior.ClientSetNull)
                   .HasConstraintName("FK_SECT_LEGAL_POLICY_SECTLEGAL");

@@ -7,7 +7,7 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public TypeOfInstrument()
         {
-            OrDocumentInformation = new HashSet<OrDocumentInformation>();
+            OrDocumentInformations = new HashSet<OrDocumentInformation>();
         }
 
         public int TypeOfInstrumentId { get; set; }
@@ -18,6 +18,6 @@ namespace TheFund.AtidsXe.Data.Entities
         [Trim]
         public string Description { get; set; }
 
-        public virtual ICollection<OrDocumentInformation> OrDocumentInformation { get; set; }
+        public virtual ICollection<OrDocumentInformation> OrDocumentInformations { get; set; }
     }
 }

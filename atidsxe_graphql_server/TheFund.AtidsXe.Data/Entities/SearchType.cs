@@ -7,7 +7,7 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public SearchType()
         {
-            Search = new HashSet<Search>();
+            Searches = new HashSet<Search>();
         }
 
         public int SearchTypeId { get; set; }
@@ -16,6 +16,6 @@ namespace TheFund.AtidsXe.Data.Entities
 
         [UseFiltering]
         [UseSorting]
-        public virtual ICollection<Search> Search { get; set; }
+        public virtual ICollection<Search> Searches { get; set; }
     }
 }

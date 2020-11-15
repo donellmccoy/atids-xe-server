@@ -33,7 +33,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasConstraintName("FK_ACREAGE_SECT_LGL_SRCH");
 
             builder.HasOne(d => d.SectionLegal)
-                   .WithMany(p => p.AcreageSectionLegal)
+                   .WithMany(p => p.AcreageSectionLegals)
                    .HasForeignKey(d => new { d.SectionBreakdownCodeId, d.UnplattedReferenceId })
                    .OnDelete(DeleteBehavior.ClientSetNull)
                    .HasConstraintName("FK_SECT_LEGAL_ACREAGE_SEARCH");

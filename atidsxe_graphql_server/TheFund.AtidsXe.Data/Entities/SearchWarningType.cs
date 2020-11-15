@@ -7,7 +7,7 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public SearchWarningType()
         {
-            SearchWarning = new HashSet<SearchWarning>();
+            SearchWarnings = new HashSet<SearchWarning>();
         }
 
         public int SearchWarningTypeId { get; set; }
@@ -17,6 +17,6 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public virtual SearchWarningHelp SearchWarningHelp { get; set; }
 
-        public virtual ICollection<SearchWarning> SearchWarning { get; set; }
+        public virtual ICollection<SearchWarning> SearchWarnings { get; set; }
     }
 }

@@ -8,7 +8,7 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public TitleEventStatusAssignor()
         {
-            TitleEvent = new HashSet<TitleEvent>();
+            TitleEvents = new HashSet<TitleEvent>();
         }
 
         public int TitleEventStatusAssignorId { get; set; }
@@ -18,6 +18,6 @@ namespace TheFund.AtidsXe.Data.Entities
 
         [UseFiltering]
         [UseSorting]
-        public virtual ICollection<TitleEvent> TitleEvent { get; set; }
+        public virtual ICollection<TitleEvent> TitleEvents { get; set; }
     }
 }

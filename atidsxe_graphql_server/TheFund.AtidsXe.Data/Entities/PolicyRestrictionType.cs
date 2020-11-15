@@ -7,7 +7,7 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public PolicyRestrictionType()
         {
-            Policy = new HashSet<Policy>();
+            Policies = new HashSet<Policy>();
         }
 
         public int PolicyRestrictionTypeId { get; set; }
@@ -15,6 +15,6 @@ namespace TheFund.AtidsXe.Data.Entities
         [Trim]
         public string Description { get; set; }
 
-        public virtual ICollection<Policy> Policy { get; set; }
+        public virtual ICollection<Policy> Policies { get; set; }
     }
 }

@@ -42,7 +42,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .HasConstraintName("FK_SEARCH_SEARCH_WARNING");
 
             entity.HasOne(d => d.SearchWarningType)
-                  .WithMany(p => p.SearchWarning)
+                  .WithMany(p => p.SearchWarnings)
                   .HasForeignKey(d => d.SearchWarningTypeId)
                   .OnDelete(DeleteBehavior.ClientSetNull)
                   .HasConstraintName("FK_SRCH_WARN_TYPE_SRCH_WARNING");

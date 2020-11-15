@@ -22,13 +22,13 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .HasColumnName("UNPLATTED_REFERENCE_ID");
 
             entity.HasOne(d => d.SectionBreakdownCode)
-                  .WithMany(p => p.SectionLegal)
+                  .WithMany(p => p.SectionLegals)
                   .HasForeignKey(d => d.SectionBreakdownCodeId)
                   .OnDelete(DeleteBehavior.ClientSetNull)
                   .HasConstraintName("FK_SECT_BRKDWN_CD_SECT_LEGAL");
 
             entity.HasOne(d => d.UnplattedReference)
-                  .WithMany(p => p.SectionLegal)
+                  .WithMany(p => p.SectionLegals)
                   .HasForeignKey(d => d.UnplattedReferenceId)
                   .OnDelete(DeleteBehavior.ClientSetNull)
                   .HasConstraintName("FK_UNPLATTED_REF_SECT_LEGAL");

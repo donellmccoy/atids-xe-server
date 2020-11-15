@@ -7,8 +7,8 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public UnplattedReference()
         {
-            GovernmentLotLegal = new HashSet<GovernmentLotLegal>();
-            SectionLegal = new HashSet<SectionLegal>();
+            GovernmentLotLegals = new HashSet<GovernmentLotLegal>();
+            SectionLegals = new HashSet<SectionLegal>();
         }
 
         public int UnplattedReferenceId { get; set; }
@@ -37,8 +37,8 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public virtual TownshipDirectionType TownshipDirectionType { get; set; }
 
-        public virtual ICollection<GovernmentLotLegal> GovernmentLotLegal { get; set; }
+        public virtual ICollection<GovernmentLotLegal> GovernmentLotLegals { get; set; }
 
-        public virtual ICollection<SectionLegal> SectionLegal { get; set; }
+        public virtual ICollection<SectionLegal> SectionLegals { get; set; }
     }
 }
