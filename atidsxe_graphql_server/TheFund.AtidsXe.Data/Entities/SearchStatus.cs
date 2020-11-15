@@ -6,13 +6,13 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public SearchStatus()
         {
-            Search = new HashSet<Search>();
+            Searches = new HashSet<Search>();
         }
 
         public int SearchStatusId { get; set; }
 
         public string Description { get; set; }
 
-        public virtual ICollection<Search> Search { get; set; }
+        public virtual ICollection<Search> Searches { get; set; }
     }
 }

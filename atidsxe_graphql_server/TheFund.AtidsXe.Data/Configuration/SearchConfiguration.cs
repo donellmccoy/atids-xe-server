@@ -121,12 +121,12 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasConstraintName("FK_SEARCH_ID_PARENT_SEARCH_ID");
 
             builder.HasOne(d => d.SearchStatus)
-                   .WithMany(p => p.Search)
+                   .WithMany(p => p.Searches)
                    .HasForeignKey(d => d.SearchStatusId)
                    .HasConstraintName("FK_SEARCH_SEARCH_STATUS");
 
             builder.HasOne(d => d.SearchType)
-                   .WithMany(p => p.Search)
+                   .WithMany(p => p.Searches)
                    .HasForeignKey(d => d.SearchTypeId)
                    .OnDelete(DeleteBehavior.ClientSetNull)
                    .HasConstraintName("FK_SEARCH_TYPE_SEARCH");

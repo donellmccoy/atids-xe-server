@@ -22,7 +22,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .IsUnicode(false)
                    .IsRequired();
 
-            builder.HasMany(p => p.TitleEvent)
+            builder.HasMany(p => p.TitleEvents)
                    .WithOne(p => p.TitleEventStatusAssignor)
                    .HasForeignKey(p => p.TitleEventStatusAssignorId);
         }

@@ -21,7 +21,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .IsUnicode(false)
                    .IsRequired();
 
-            builder.HasMany(p => p.Search)
+            builder.HasMany(p => p.Searches)
                    .WithOne(p => p.SearchStatus)
                    .HasForeignKey(p => p.SearchStatusId);
         }

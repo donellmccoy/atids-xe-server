@@ -67,13 +67,13 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .HasConstraintName("FK_BRKDWN_CD_TYPE_UNPLAT_REF");
 
             entity.HasOne(d => d.RangeDirectionType)
-                  .WithMany(p => p.UnplattedReference)
+                  .WithMany(p => p.UnplattedReferences)
                   .HasForeignKey(d => d.RangeDirectionTypeId)
                   .OnDelete(DeleteBehavior.ClientSetNull)
                   .HasConstraintName("FK_RNG_DIR_TYPE_UNPLATTED_REF");
 
             entity.HasOne(d => d.TownshipDirectionType)
-                  .WithMany(p => p.UnplattedReference)
+                  .WithMany(p => p.UnplattedReferences)
                   .HasForeignKey(d => d.TownshipDirectionTypeId)
                   .OnDelete(DeleteBehavior.ClientSetNull)
                   .HasConstraintName("FK_TWNSHP_DIR_TYPE_UNPLAT_REF");

@@ -64,7 +64,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .HasColumnType("datetime");
 
             entity.HasOne(d => d.PolicyRestrictionType)
-                  .WithMany(p => p.Policy)
+                  .WithMany(p => p.Policies)
                   .HasForeignKey(d => d.PolicyRestrictionTypeId)
                   .OnDelete(DeleteBehavior.ClientSetNull)
                   .HasConstraintName("FK_POLICY_POLICY_RESTRICTION_TYPE");

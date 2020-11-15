@@ -82,7 +82,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .HasConstraintName("FK_ORD_ORD_INFORMATION");
 
             entity.HasOne(d => d.TypeOfInstrument)
-                  .WithMany(p => p.OrDocumentInformation)
+                  .WithMany(p => p.OrDocumentInformations)
                   .HasForeignKey(d => d.TypeOfInstrumentId)
                   .OnDelete(DeleteBehavior.ClientSetNull)
                   .HasConstraintName("FK_TYPE_OF_INSTRUMENT_ORD");

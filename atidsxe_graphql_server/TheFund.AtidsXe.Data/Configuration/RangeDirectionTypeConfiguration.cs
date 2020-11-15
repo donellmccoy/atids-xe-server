@@ -22,7 +22,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .HasMaxLength(16)
                   .IsUnicode(false);
 
-            entity.HasMany(p => p.UnplattedReference)
+            entity.HasMany(p => p.UnplattedReferences)
                   .WithOne(p => p.RangeDirectionType)
                   .HasForeignKey(p => p.RangeDirectionTypeId);
         }

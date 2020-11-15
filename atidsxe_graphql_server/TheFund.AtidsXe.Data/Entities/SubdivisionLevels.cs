@@ -6,14 +6,17 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public SubdivisionLevels()
         {
-            PlattedLegal = new HashSet<PlattedLegal>();
+            PlattedLegals = new HashSet<PlattedLegal>();
         }
 
         public int SubdivisionLevelId { get; set; }
+
         public string Level1 { get; set; }
+
         public string Level2 { get; set; }
+
         public string Level3 { get; set; }
 
-        public virtual ICollection<PlattedLegal> PlattedLegal { get; set; }
+        public virtual ICollection<PlattedLegal> PlattedLegals { get; set; }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using HotChocolate.Types;
-using HotChocolate.Types.Relay;
 using System.Collections.Generic;
 
 namespace TheFund.AtidsXe.Data.Entities

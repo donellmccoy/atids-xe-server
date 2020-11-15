@@ -31,7 +31,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasConstraintName("FK_GOVT_LOT_GOVT_LOT_LEGAL");
 
             builder.HasOne(d => d.UnplattedReference)
-                   .WithMany(p => p.GovernmentLotLegal)
+                   .WithMany(p => p.GovernmentLotLegals)
                    .HasForeignKey(d => d.UnplattedReferenceId)
                    .OnDelete(DeleteBehavior.ClientSetNull)
                    .HasConstraintName("FK_UNPLAT_REF_GOVT_LOT_LEGAL");

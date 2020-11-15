@@ -7,7 +7,7 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public TitleEventType()
         {
-            TitleEvent = new HashSet<TitleEvent>();
+            TitleEvents = new HashSet<TitleEvent>();
         }
 
         public int TitleEventTypeId { get; set; }
@@ -22,6 +22,6 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public virtual TitleEventTypeCategory EventCategory { get; set; }
 
-        public virtual ICollection<TitleEvent> TitleEvent { get; set; }
+        public virtual ICollection<TitleEvent> TitleEvents { get; set; }
     }
 }
