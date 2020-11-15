@@ -37,7 +37,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .HasConstraintName("FK_POLICY_POLICY_ORDER_TRACKING");
 
             entity.HasOne(d => d.PolicyOrder)
-                  .WithMany(p => p.PolicyOrderTracking)
+                  .WithMany(p => p.PolicyOrderTrackings)
                   .HasForeignKey(d => d.PolicyOrderId)
                   .OnDelete(DeleteBehavior.ClientSetNull)
                   .HasConstraintName("FK_POLICY_ORDER_POLICY_ORDER_TRACKING");
