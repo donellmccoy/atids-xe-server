@@ -38,8 +38,4 @@
     <ProjectReference Include="..\TheFund.AtidsXe.Common\TheFund.AtidsXe.Common.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Entities\Partials\" />
-  </ItemGroup>
-
 </Project>
