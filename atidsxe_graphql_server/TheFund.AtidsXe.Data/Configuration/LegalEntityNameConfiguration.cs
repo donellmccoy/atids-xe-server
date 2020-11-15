@@ -33,7 +33,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .IsUnicode(false);
 
             entity.HasOne(d => d.LegalEntityNameType)
-                  .WithMany(p => p.LegalEntityName)
+                  .WithMany(p => p.LegalEntityNames)
                   .HasForeignKey(d => d.LegalEntityNameTypeId)
                   .OnDelete(DeleteBehavior.ClientSetNull)
                   .HasConstraintName("FK_LGLENT_NMTYP_LGLENT_NAME");

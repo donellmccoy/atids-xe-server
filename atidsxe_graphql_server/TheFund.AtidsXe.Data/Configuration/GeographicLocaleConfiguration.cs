@@ -43,7 +43,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasColumnName("PARENT_GEOGRAPHIC_LOCALE_ID");
 
             builder.HasOne(d => d.GeographicLocaleType)
-                   .WithMany(p => p.GeographicLocale)
+                   .WithMany(p => p.GeographicLocales)
                    .HasForeignKey(d => d.GeographicLocaleTypeId)
                    .OnDelete(DeleteBehavior.ClientSetNull)
                    .HasConstraintName("FK_GEO_LOCALETYPE_GEO_LOCALE");

@@ -7,7 +7,7 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public BreakdownCodeType()
         {
-            UnplattedReference = new HashSet<UnplattedReference>();
+            UnplattedReferences = new HashSet<UnplattedReference>();
         }
 
         public int BreakdownCodeTypeId { get; set; }
@@ -15,6 +15,6 @@ namespace TheFund.AtidsXe.Data.Entities
         [Trim]
         public string Description { get; set; }
 
-        public virtual ICollection<UnplattedReference> UnplattedReference { get; set; }
+        public virtual ICollection<UnplattedReference> UnplattedReferences { get; set; }
     }
 }

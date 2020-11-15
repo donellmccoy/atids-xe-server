@@ -7,7 +7,7 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public GovernmentLot()
         {
-            GovernmentLotLegal = new HashSet<GovernmentLotLegal>();
+            GovernmentLotLegals = new HashSet<GovernmentLotLegal>();
         }
 
         public int GovernmentLotId { get; set; }
@@ -15,6 +15,6 @@ namespace TheFund.AtidsXe.Data.Entities
         [Trim]
         public string GovernmentLotNumber { get; set; }
 
-        public virtual ICollection<GovernmentLotLegal> GovernmentLotLegal { get; set; }
+        public virtual ICollection<GovernmentLotLegal> GovernmentLotLegals { get; set; }
     }
 }

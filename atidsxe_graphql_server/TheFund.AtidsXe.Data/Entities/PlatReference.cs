@@ -8,7 +8,7 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public PlatReference()
         {
-            PlattedLegal = new HashSet<PlattedLegal>();
+            PlattedLegals = new HashSet<PlattedLegal>();
         }
 
         public int PlatReferenceId { get; set; }
@@ -32,6 +32,6 @@ namespace TheFund.AtidsXe.Data.Entities
 
         [UseFiltering]
         [UseSorting]
-        public virtual ICollection<PlattedLegal> PlattedLegal { get; set; }
+        public virtual ICollection<PlattedLegal> PlattedLegals { get; set; }
     }
 }

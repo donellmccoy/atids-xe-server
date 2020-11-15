@@ -6,13 +6,13 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public OfficialRecordDocument()
         {
-            CertificationRangeFromOrDocument = new HashSet<CertificationRange>();
-            CertificationRangeToOrDocument = new HashSet<CertificationRange>();
-            RelatedCaseNumber = new HashSet<RelatedCaseNumber>();
-            RelatedOrDocumentRelatedOrDocumentNavigation = new HashSet<RelatedOrDocument>();
-            RelatedOrDocumentSearchedOrDocument = new HashSet<RelatedOrDocument>();
-            RelatedTaxFolio = new HashSet<RelatedTaxFolio>();
-            TitleEventDocument = new HashSet<TitleEventDocument>();
+            CertificationRangeFromOrDocuments = new HashSet<CertificationRange>();
+            CertificationRangeToOrDocuments = new HashSet<CertificationRange>();
+            RelatedCaseNumbers = new HashSet<RelatedCaseNumber>();
+            RelatedOrDocumentRelatedOrDocumentNavigations = new HashSet<RelatedOrDocument>();
+            RelatedOrDocumentSearchedOrDocuments = new HashSet<RelatedOrDocument>();
+            RelatedTaxFolios = new HashSet<RelatedTaxFolio>();
+            TitleEventDocuments = new HashSet<TitleEventDocument>();
         }
 
         public int OfficialRecordDocumentId { get; set; }
@@ -29,18 +29,18 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public virtual YearNumberReference YearNumberReference { get; set; }
 
-        public virtual ICollection<CertificationRange> CertificationRangeFromOrDocument { get; set; }
+        public virtual ICollection<CertificationRange> CertificationRangeFromOrDocuments { get; set; }
 
-        public virtual ICollection<CertificationRange> CertificationRangeToOrDocument { get; set; }
+        public virtual ICollection<CertificationRange> CertificationRangeToOrDocuments { get; set; }
 
-        public virtual ICollection<RelatedCaseNumber> RelatedCaseNumber { get; set; }
+        public virtual ICollection<RelatedCaseNumber> RelatedCaseNumbers { get; set; }
 
-        public virtual ICollection<RelatedOrDocument> RelatedOrDocumentRelatedOrDocumentNavigation { get; set; }
+        public virtual ICollection<RelatedOrDocument> RelatedOrDocumentRelatedOrDocumentNavigations { get; set; }
 
-        public virtual ICollection<RelatedOrDocument> RelatedOrDocumentSearchedOrDocument { get; set; }
+        public virtual ICollection<RelatedOrDocument> RelatedOrDocumentSearchedOrDocuments { get; set; }
 
-        public virtual ICollection<RelatedTaxFolio> RelatedTaxFolio { get; set; }
+        public virtual ICollection<RelatedTaxFolio> RelatedTaxFolios { get; set; }
 
-        public virtual ICollection<TitleEventDocument> TitleEventDocument { get; set; }
+        public virtual ICollection<TitleEventDocument> TitleEventDocuments { get; set; }
     }
 }

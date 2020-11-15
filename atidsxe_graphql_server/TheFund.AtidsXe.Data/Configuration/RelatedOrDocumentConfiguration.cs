@@ -22,13 +22,13 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .HasColumnName("RELATED_OR_DOCUMENT_ID");
 
             entity.HasOne(d => d.RelatedOrDocumentNavigation)
-                  .WithMany(p => p.RelatedOrDocumentRelatedOrDocumentNavigation)
+                  .WithMany(p => p.RelatedOrDocumentRelatedOrDocumentNavigations)
                   .HasForeignKey(d => d.RelatedOrDocumentId)
                   .OnDelete(DeleteBehavior.ClientSetNull)
                   .HasConstraintName("FK_ORD_ID_RELATED_ORD_ID");
 
             entity.HasOne(d => d.SearchedOrDocument)
-                  .WithMany(p => p.RelatedOrDocumentSearchedOrDocument)
+                  .WithMany(p => p.RelatedOrDocumentSearchedOrDocuments)
                   .HasForeignKey(d => d.SearchedOrDocumentId)
                   .OnDelete(DeleteBehavior.ClientSetNull)
                   .HasConstraintName("FK_ORD_RELATED_ORD_SEARCHED");

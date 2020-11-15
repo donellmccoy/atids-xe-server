@@ -26,7 +26,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .IsUnicode(false)
                    .IsRequired();
 
-            builder.HasMany(p => p.GeographicLocale)
+            builder.HasMany(p => p.GeographicLocales)
                    .WithOne(p => p.GeographicLocaleType)
                    .HasForeignKey(p => p.GeographicLocaleTypeId);
         }

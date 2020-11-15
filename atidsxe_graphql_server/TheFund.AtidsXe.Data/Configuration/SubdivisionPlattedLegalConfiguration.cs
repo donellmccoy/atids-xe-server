@@ -36,7 +36,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .HasConstraintName("FK_SUBD_PLATTED_LGL_SRCH");
 
             entity.HasOne(d => d.PlattedLegal)
-                  .WithMany(p => p.SubdivisionPlattedLegal)
+                  .WithMany(p => p.SubdivisionPlattedLegals)
                   .HasForeignKey(d => new { d.PlatReferenceId, d.SubdivisionLevelId })
                   .OnDelete(DeleteBehavior.ClientSetNull)
                   .HasConstraintName("FK_SBDV_PLT_LGL_PLT_LGL");

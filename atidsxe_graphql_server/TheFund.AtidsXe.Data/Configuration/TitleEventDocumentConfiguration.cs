@@ -26,7 +26,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasColumnName("OFFICIAL_RECORD_DOCUMENT_ID");
 
             builder.HasOne(d => d.OfficialRecordDocument)
-                   .WithMany(p => p.TitleEventDocument)
+                   .WithMany(p => p.TitleEventDocuments)
                    .HasForeignKey(d => d.OfficialRecordDocumentId)
                    .HasConstraintName("FK_ORD_TITLE_EVENT");
 

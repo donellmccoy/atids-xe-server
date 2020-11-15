@@ -10,6 +10,8 @@ namespace TheFund.AtidsXe.Data.Configuration
         {
             builder.ToTable("TITLE_EVENT_STATUS_ASSIGNOR");
 
+            builder.HasKey(p => p.TitleEventStatusAssignorId);
+
             builder.Property(e => e.TitleEventStatusAssignorId)
                    .HasColumnName("TITLE_EVENT_STATUS_ASSIGNOR_ID")
                    .ValueGeneratedNever();

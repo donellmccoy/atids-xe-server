@@ -28,7 +28,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .IsUnicode(false);
 
             entity.HasOne(d => d.PartyRoleType)
-                  .WithMany(p => p.Party)
+                  .WithMany(p => p.Parties)
                   .HasForeignKey(d => d.PartyRoleTypeId)
                   .HasConstraintName("FK_PARTY_ROLETYPE_PARTY");
         }

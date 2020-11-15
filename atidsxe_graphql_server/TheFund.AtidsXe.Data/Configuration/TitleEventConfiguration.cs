@@ -10,6 +10,8 @@ namespace TheFund.AtidsXe.Data.Configuration
         {
             entity.ToTable("TITLE_EVENT");
 
+            entity.HasKey(e => e.TitleEventId);
+
             entity.HasIndex(e => e.CurrentExamStatusTypeId)
                   .HasName("I_CURRENT_EXAM_STATUS_TYPE");
 

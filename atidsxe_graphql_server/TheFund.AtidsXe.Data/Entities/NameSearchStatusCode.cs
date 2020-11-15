@@ -7,7 +7,7 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public NameSearchStatusCode()
         {
-            NameSearchListItem = new HashSet<NameSearchListItem>();
+            NameSearchListItems = new HashSet<NameSearchListItem>();
         }
 
         public int NameSearchStatusCodeId { get; set; }
@@ -15,6 +15,6 @@ namespace TheFund.AtidsXe.Data.Entities
         [Trim]
         public string Description { get; set; }
 
-        public virtual ICollection<NameSearchListItem> NameSearchListItem { get; set; }
+        public virtual ICollection<NameSearchListItem> NameSearchListItems { get; set; }
     }
 }

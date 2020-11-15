@@ -23,11 +23,11 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasMaxLength(50)
                    .IsUnicode(false);
 
-            builder.HasMany(p => p.TitleEventCurrentExamStatusType)
+            builder.HasMany(p => p.TitleEventCurrentExamStatusTypes)
                    .WithOne(p => p.CurrentExamStatusType)
                    .HasForeignKey(p => p.CurrentExamStatusTypeId);
 
-            builder.HasMany(p => p.TitleEventOriginalExamStatusType)
+            builder.HasMany(p => p.TitleEventOriginalExamStatusTypes)
                    .WithOne(p => p.OriginalExamStatusType)
                    .HasForeignKey(p => p.OriginalExamStatusTypeId);
         }

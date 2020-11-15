@@ -8,7 +8,7 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public PolicyOrder()
         {
-            PolicyOrderTracking = new HashSet<PolicyOrderTracking>();
+            PolicyOrderTrackings = new HashSet<PolicyOrderTracking>();
         }
 
         public int PolicyOrderId { get; set; }
@@ -18,6 +18,6 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public DateTime OrderDate { get; set; }
 
-        public virtual ICollection<PolicyOrderTracking> PolicyOrderTracking { get; set; }
+        public virtual ICollection<PolicyOrderTracking> PolicyOrderTrackings { get; set; }
     }
 }

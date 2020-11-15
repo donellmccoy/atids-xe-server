@@ -34,7 +34,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .HasConstraintName("FK_TITLE_EVENT_GOVT_LOT_LEGAL");
 
             entity.HasOne(d => d.GovernmentLotLegal)
-                  .WithMany(p => p.TitleEventGovtLotLegalMql)
+                  .WithMany(p => p.TitleEventGovtLotLegalMqls)
                   .HasForeignKey(d => new { d.UnplattedReferenceId, d.GovernmentLotId })
                   .OnDelete(DeleteBehavior.ClientSetNull)
                   .HasConstraintName("FK_GOVT_LOT_LEGAL_TITLE_EVENT");

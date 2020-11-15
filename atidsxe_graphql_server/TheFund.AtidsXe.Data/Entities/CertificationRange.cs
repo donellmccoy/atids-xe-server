@@ -8,9 +8,9 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public CertificationRange()
         {
-            SearchGeographicCertRange = new HashSet<Search>();
-            SearchGiCertRange = new HashSet<Search>();
-            SearchGrantorCertRange = new HashSet<Search>();
+            SearchGeographicCertRanges = new HashSet<Search>();
+            SearchGiCertRanges = new HashSet<Search>();
+            SearchGrantorCertRanges = new HashSet<Search>();
         }
 
         public int CertificationRangeId { get; set; }
@@ -29,14 +29,14 @@ namespace TheFund.AtidsXe.Data.Entities
 
         [UseFiltering]
         [UseSorting]
-        public virtual ICollection<Search> SearchGeographicCertRange { get; set; }
+        public virtual ICollection<Search> SearchGeographicCertRanges { get; set; }
 
         [UseFiltering]
         [UseSorting]
-        public virtual ICollection<Search> SearchGiCertRange { get; set; }
+        public virtual ICollection<Search> SearchGiCertRanges { get; set; }
 
         [UseFiltering]
         [UseSorting]
-        public virtual ICollection<Search> SearchGrantorCertRange { get; set; }
+        public virtual ICollection<Search> SearchGrantorCertRanges { get; set; }
     }
 }

@@ -28,7 +28,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .IsRequired();
 
             builder.HasOne(d => d.GeographicLocale)
-                   .WithMany(p => p.PolicyInsuredDocument)
+                   .WithMany(p => p.PolicyInsuredDocuments)
                    .HasForeignKey(d => d.GeographicLocaleId)
                    .OnDelete(DeleteBehavior.ClientSetNull)
                    .HasConstraintName("FK_LOCATION_POLICY_INSURED_DOCUMENT");

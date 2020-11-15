@@ -33,26 +33,26 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.Property(e => e.ToOrDocumentId)
                    .HasColumnName("TO_OR_DOCUMENT_ID");
 
-            builder.HasMany(p => p.SearchGeographicCertRange)
+            builder.HasMany(p => p.SearchGeographicCertRanges)
                    .WithOne(p => p.GeographicCertRange)
                    .HasForeignKey(p => p.GeographicCertRangeId);
 
-            builder.HasMany(p => p.SearchGiCertRange)
+            builder.HasMany(p => p.SearchGiCertRanges)
                    .WithOne(p => p.GiCertRange)
                    .HasForeignKey(p => p.GiCertRangeId);
 
-            builder.HasMany(p => p.SearchGrantorCertRange)
+            builder.HasMany(p => p.SearchGrantorCertRanges)
                    .WithOne(p => p.GrantorCertRange)
                    .HasForeignKey(p => p.GrantorCertRangeId);
 
             builder.HasOne(d => d.FromOrDocument)
-                   .WithMany(p => p.CertificationRangeFromOrDocument)
+                   .WithMany(p => p.CertificationRangeFromOrDocuments)
                    .HasForeignKey(d => d.FromOrDocumentId)
                    .OnDelete(DeleteBehavior.ClientSetNull)
                    .HasConstraintName("FK_ORD_CERT_RANGE_FROM");
 
             builder.HasOne(d => d.ToOrDocument)
-                   .WithMany(p => p.CertificationRangeToOrDocument)
+                   .WithMany(p => p.CertificationRangeToOrDocuments)
                    .HasForeignKey(d => d.ToOrDocumentId)
                    .OnDelete(DeleteBehavior.ClientSetNull)
                    .HasConstraintName("FK_ORD_CERT_RANGE_TO");

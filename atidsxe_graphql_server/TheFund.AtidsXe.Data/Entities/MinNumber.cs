@@ -7,7 +7,7 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public MinNumber()
         {
-            MortgageTitleEvent = new HashSet<MortgageTitleEvent>();
+            MortgageTitleEvents = new HashSet<MortgageTitleEvent>();
         }
 
         public int MinNumberId { get; set; }
@@ -21,6 +21,6 @@ namespace TheFund.AtidsXe.Data.Entities
         [Trim]
         public string MinCheckDigit { get; set; }
 
-        public virtual ICollection<MortgageTitleEvent> MortgageTitleEvent { get; set; }
+        public virtual ICollection<MortgageTitleEvent> MortgageTitleEvents { get; set; }
     }
 }

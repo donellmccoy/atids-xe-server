@@ -7,7 +7,7 @@ namespace TheFund.AtidsXe.Data.Entities
     {
         public PartyRoleType()
         {
-            Party = new HashSet<Party>();
+            Parties = new HashSet<Party>();
         }
 
         public int PartyRoleTypeId { get; set; }
@@ -15,6 +15,6 @@ namespace TheFund.AtidsXe.Data.Entities
         [Trim]
         public string Description { get; set; }
 
-        public virtual ICollection<Party> Party { get; set; }
+        public virtual ICollection<Party> Parties { get; set; }
     }
 }
