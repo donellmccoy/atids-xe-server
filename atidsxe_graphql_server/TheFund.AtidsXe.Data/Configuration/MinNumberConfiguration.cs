@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class MinNumberConfiguration : IEntityTypeConfiguration<MinNumber>
+    public sealed class MinNumberConfiguration : IEntityTypeConfiguration<MinNumber>
     {
         public void Configure(EntityTypeBuilder<MinNumber> entity)
         {

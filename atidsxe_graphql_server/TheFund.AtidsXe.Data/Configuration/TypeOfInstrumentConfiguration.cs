@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class TypeOfInstrumentConfiguration : IEntityTypeConfiguration<TypeOfInstrument>
+    public sealed class TypeOfInstrumentConfiguration : IEntityTypeConfiguration<TypeOfInstrument>
     {
         public void Configure(EntityTypeBuilder<TypeOfInstrument> entity)
         {

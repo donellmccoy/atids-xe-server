@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class PartyRoleTypeConfiguration : IEntityTypeConfiguration<PartyRoleType>
+    public sealed class PartyRoleTypeConfiguration : IEntityTypeConfiguration<PartyRoleType>
     {
         public void Configure(EntityTypeBuilder<PartyRoleType> entity)
         {

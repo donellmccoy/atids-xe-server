@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class TaxFolioReferenceConfiguration : IEntityTypeConfiguration<TaxFolioReference>
+    public sealed class TaxFolioReferenceConfiguration : IEntityTypeConfiguration<TaxFolioReference>
     {
         public void Configure(EntityTypeBuilder<TaxFolioReference> entity)
         {

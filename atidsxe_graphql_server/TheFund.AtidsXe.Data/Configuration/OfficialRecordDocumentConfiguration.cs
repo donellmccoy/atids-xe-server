@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class OfficialRecordDocumentConfiguration : IEntityTypeConfiguration<OfficialRecordDocument>
+    public sealed class OfficialRecordDocumentConfiguration : IEntityTypeConfiguration<OfficialRecordDocument>
     {
         public void Configure(EntityTypeBuilder<OfficialRecordDocument> entity)
         {

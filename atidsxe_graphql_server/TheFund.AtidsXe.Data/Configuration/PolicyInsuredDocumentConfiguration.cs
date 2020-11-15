@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class PolicyInsuredDocumentConfiguration : IEntityTypeConfiguration<PolicyInsuredDocument>
+    public sealed class PolicyInsuredDocumentConfiguration : IEntityTypeConfiguration<PolicyInsuredDocument>
     {
         public void Configure(EntityTypeBuilder<PolicyInsuredDocument> builder)
         {

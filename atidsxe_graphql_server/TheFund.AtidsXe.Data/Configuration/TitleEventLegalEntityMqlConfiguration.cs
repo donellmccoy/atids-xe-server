@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class TitleEventLegalEntityMqlConfiguration : IEntityTypeConfiguration<TitleEventLegalEntityMql>
+    public sealed class TitleEventLegalEntityMqlConfiguration : IEntityTypeConfiguration<TitleEventLegalEntityMql>
     {
         public void Configure(EntityTypeBuilder<TitleEventLegalEntityMql> entity)
         {

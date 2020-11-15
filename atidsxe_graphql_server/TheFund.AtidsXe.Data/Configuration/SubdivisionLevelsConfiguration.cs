@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class SubdivisionLevelsConfiguration : IEntityTypeConfiguration<SubdivisionLevels>
+    public sealed class SubdivisionLevelsConfiguration : IEntityTypeConfiguration<SubdivisionLevels>
     {
         public void Configure(EntityTypeBuilder<SubdivisionLevels> entity)
         {

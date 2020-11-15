@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class TownshipDirectionTypeConfiguration : IEntityTypeConfiguration<TownshipDirectionType>
+    public sealed class TownshipDirectionTypeConfiguration : IEntityTypeConfiguration<TownshipDirectionType>
     {
         public void Configure(EntityTypeBuilder<TownshipDirectionType> entity)
         {

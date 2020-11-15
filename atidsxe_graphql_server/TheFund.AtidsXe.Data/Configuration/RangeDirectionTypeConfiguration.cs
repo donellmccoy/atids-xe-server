@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class RangeDirectionTypeConfiguration : IEntityTypeConfiguration<RangeDirectionType>
+    public sealed class RangeDirectionTypeConfiguration : IEntityTypeConfiguration<RangeDirectionType>
     {
         public void Configure(EntityTypeBuilder<RangeDirectionType> entity)
         {

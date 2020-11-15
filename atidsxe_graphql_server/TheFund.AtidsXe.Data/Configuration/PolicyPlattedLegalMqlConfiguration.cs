@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class PolicyPlattedLegalMqlConfiguration : IEntityTypeConfiguration<PolicyPlattedLegalMql>
+    public sealed class PolicyPlattedLegalMqlConfiguration : IEntityTypeConfiguration<PolicyPlattedLegalMql>
     {
         public void Configure(EntityTypeBuilder<PolicyPlattedLegalMql> entity)
         {

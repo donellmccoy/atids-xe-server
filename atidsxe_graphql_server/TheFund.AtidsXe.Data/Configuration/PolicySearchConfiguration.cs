@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class PolicySearchConfiguration : IEntityTypeConfiguration<PolicySearch>
+    public sealed class PolicySearchConfiguration : IEntityTypeConfiguration<PolicySearch>
     {
         public void Configure(EntityTypeBuilder<PolicySearch> entity)
         {
