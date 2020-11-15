@@ -1,4 +1,5 @@
 ﻿using System;
+using TheFund.AtidsXe.Common.Attributes;
 
 namespace TheFund.AtidsXe.Data.Entities
 {
@@ -10,6 +11,7 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public int SearchWarningTypeId { get; set; }
 
+        [Trim]
         public string UnparsedSearchWarning { get; set; }
 
         public DateTime? CreateDate { get; set; }

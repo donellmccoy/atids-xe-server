@@ -13,8 +13,10 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public int RecordingNumber { get; set; }
 
+        [Trim]
         public string Suffix { get; set; }
 
+        [Trim]
         public string SeriesCode { get; set; }
 
         public virtual OfficialRecordDocument OfficialRecordDocument { get; set; }
