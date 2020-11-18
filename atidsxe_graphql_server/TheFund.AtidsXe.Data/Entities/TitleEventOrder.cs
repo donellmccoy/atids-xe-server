@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TheFund.AtidsXe.Common.Attributes;
 
 namespace TheFund.AtidsXe.Data.Entities
 {
@@ -12,6 +13,7 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public int TitleEventOrderId { get; set; }
 
+        [Trim]
         public string TrackingIdentifier { get; set; }
 
         public DateTime OrderDate { get; set; }

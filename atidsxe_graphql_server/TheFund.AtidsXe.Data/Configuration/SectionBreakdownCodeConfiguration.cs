@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class SectionBreakdownCodeConfiguration : IEntityTypeConfiguration<SectionBreakdownCode>
+    public sealed class SectionBreakdownCodeConfiguration : IEntityTypeConfiguration<SectionBreakdownCode>
     {
         public void Configure(EntityTypeBuilder<SectionBreakdownCode> entity)
         {

@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class SubdivisionPlattedLegalConfiguration : IEntityTypeConfiguration<SubdivisionPlattedLegal>
+    public sealed class SubdivisionPlattedLegalConfiguration : IEntityTypeConfiguration<SubdivisionPlattedLegal>
     {
         public void Configure(EntityTypeBuilder<SubdivisionPlattedLegal> entity)
         {

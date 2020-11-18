@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class OwnerBuyerRelationshipConfiguration : IEntityTypeConfiguration<OwnerBuyerRelationship>
+    public sealed class OwnerBuyerRelationshipConfiguration : IEntityTypeConfiguration<OwnerBuyerRelationship>
     {
         public void Configure(EntityTypeBuilder<OwnerBuyerRelationship> entity)
         {

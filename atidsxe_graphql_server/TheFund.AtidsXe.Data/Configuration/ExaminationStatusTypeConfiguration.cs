@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class ExaminationStatusTypeConfiguration : IEntityTypeConfiguration<ExaminationStatusType>
+    public sealed class ExaminationStatusTypeConfiguration : IEntityTypeConfiguration<ExaminationStatusType>
     {
         public void Configure(EntityTypeBuilder<ExaminationStatusType> builder)
         {

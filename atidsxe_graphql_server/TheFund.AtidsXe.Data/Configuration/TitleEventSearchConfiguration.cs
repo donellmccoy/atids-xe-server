@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class TitleEventSearchConfiguration : IEntityTypeConfiguration<TitleEventSearch>
+    public sealed class TitleEventSearchConfiguration : IEntityTypeConfiguration<TitleEventSearch>
     {
         public void Configure(EntityTypeBuilder<TitleEventSearch> entity)
         {

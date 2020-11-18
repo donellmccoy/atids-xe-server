@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class PlatReferenceConfiguration : IEntityTypeConfiguration<PlatReference>
+    public sealed class PlatReferenceConfiguration : IEntityTypeConfiguration<PlatReference>
     {
         public void Configure(EntityTypeBuilder<PlatReference> entity)
         {

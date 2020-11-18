@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class PlatPropertiesConfiguration : IEntityTypeConfiguration<PlatProperties>
+    public sealed class PlatPropertiesConfiguration : IEntityTypeConfiguration<PlatProperties>
     {
         public void Configure(EntityTypeBuilder<PlatProperties> builder)
         {

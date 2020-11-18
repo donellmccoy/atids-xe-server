@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class MortgageTitleEventConfiguration : IEntityTypeConfiguration<MortgageTitleEvent>
+    public sealed class MortgageTitleEventConfiguration : IEntityTypeConfiguration<MortgageTitleEvent>
     {
         public void Configure(EntityTypeBuilder<MortgageTitleEvent> entity)
         {

@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class FileStatusConfiguration : IEntityTypeConfiguration<FileStatus>
+    public sealed class FileStatusConfiguration : IEntityTypeConfiguration<FileStatus>
     {
         public void Configure(EntityTypeBuilder<FileStatus> builder)
         {

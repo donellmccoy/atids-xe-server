@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class NameReasonCodeConfiguration : IEntityTypeConfiguration<NameReasonCode>
+    public sealed class NameReasonCodeConfiguration : IEntityTypeConfiguration<NameReasonCode>
     {
         public void Configure(EntityTypeBuilder<NameReasonCode> entity)
         {

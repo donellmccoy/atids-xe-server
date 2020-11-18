@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class TitleEventStatusAssignorConfiguration : IEntityTypeConfiguration<TitleEventStatusAssignor>
+    public sealed class TitleEventStatusAssignorConfiguration : IEntityTypeConfiguration<TitleEventStatusAssignor>
     {
         public void Configure(EntityTypeBuilder<TitleEventStatusAssignor> builder)
         {

@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class RelatedOrDocumentConfiguration : IEntityTypeConfiguration<RelatedOrDocument>
+    public sealed class RelatedOrDocumentConfiguration : IEntityTypeConfiguration<RelatedOrDocument>
     {
         public void Configure(EntityTypeBuilder<RelatedOrDocument> entity)
         {

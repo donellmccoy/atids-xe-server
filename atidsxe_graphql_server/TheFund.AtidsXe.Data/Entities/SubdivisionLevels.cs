@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TheFund.AtidsXe.Common.Attributes;
 
 namespace TheFund.AtidsXe.Data.Entities
 {
@@ -11,10 +12,13 @@ namespace TheFund.AtidsXe.Data.Entities
 
         public int SubdivisionLevelId { get; set; }
 
+        [Trim]
         public string Level1 { get; set; }
 
+        [Trim]
         public string Level2 { get; set; }
 
+        [Trim]
         public string Level3 { get; set; }
 
         public virtual ICollection<PlattedLegal> PlattedLegals { get; set; }

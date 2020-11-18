@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class PlattedLegalConfiguration : IEntityTypeConfiguration<PlattedLegal>
+    public sealed class PlattedLegalConfiguration : IEntityTypeConfiguration<PlattedLegal>
     {
         public void Configure(EntityTypeBuilder<PlattedLegal> builder)
         {

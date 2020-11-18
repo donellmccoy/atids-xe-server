@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class SearchNotesConfiguration : IEntityTypeConfiguration<SearchNotes>
+    public sealed class SearchNotesConfiguration : IEntityTypeConfiguration<SearchNotes>
     {
         public void Configure(EntityTypeBuilder<SearchNotes> builder)
         {

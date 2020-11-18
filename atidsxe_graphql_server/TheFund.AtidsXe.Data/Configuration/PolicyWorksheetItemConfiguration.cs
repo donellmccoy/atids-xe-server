@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class PolicyWorksheetItemConfiguration : IEntityTypeConfiguration<PolicyWorksheetItem>
+    public sealed class PolicyWorksheetItemConfiguration : IEntityTypeConfiguration<PolicyWorksheetItem>
     {
         public void Configure(EntityTypeBuilder<PolicyWorksheetItem> entity)
         {

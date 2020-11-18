@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class PolicyRestrictionTypeConfiguration : IEntityTypeConfiguration<PolicyRestrictionType>
+    public sealed class PolicyRestrictionTypeConfiguration : IEntityTypeConfiguration<PolicyRestrictionType>
     {
         public void Configure(EntityTypeBuilder<PolicyRestrictionType> entity)
         {

@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class TitleEventOrderConfiguration : IEntityTypeConfiguration<TitleEventOrder>
+    public sealed class TitleEventOrderConfiguration : IEntityTypeConfiguration<TitleEventOrder>
     {
         public void Configure(EntityTypeBuilder<TitleEventOrder> entity)
         {

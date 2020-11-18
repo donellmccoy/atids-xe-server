@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class UnplattedReferenceConfiguration : IEntityTypeConfiguration<UnplattedReference>
+    public sealed class UnplattedReferenceConfiguration : IEntityTypeConfiguration<UnplattedReference>
     {
         public void Configure(EntityTypeBuilder<UnplattedReference> entity)
         {

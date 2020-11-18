@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class PersonalLegalEntityNameConfiguration : IEntityTypeConfiguration<PersonalLegalEntityName>
+    public sealed class PersonalLegalEntityNameConfiguration : IEntityTypeConfiguration<PersonalLegalEntityName>
     {
         public void Configure(EntityTypeBuilder<PersonalLegalEntityName> builder)
         {

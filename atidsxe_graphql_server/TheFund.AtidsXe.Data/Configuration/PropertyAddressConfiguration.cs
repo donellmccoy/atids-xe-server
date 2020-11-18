@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class PropertyAddressConfiguration : IEntityTypeConfiguration<PropertyAddress>
+    public sealed class PropertyAddressConfiguration : IEntityTypeConfiguration<PropertyAddress>
     {
         public void Configure(EntityTypeBuilder<PropertyAddress> entity)
         {

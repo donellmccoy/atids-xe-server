@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class RelatedCaseNumberConfiguration : IEntityTypeConfiguration<RelatedCaseNumber>
+    public sealed class RelatedCaseNumberConfiguration : IEntityTypeConfiguration<RelatedCaseNumber>
     {
         public void Configure(EntityTypeBuilder<RelatedCaseNumber> entity)
         {

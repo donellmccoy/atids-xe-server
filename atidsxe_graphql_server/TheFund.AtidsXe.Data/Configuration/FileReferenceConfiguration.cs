@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class FileReferenceConfiguration : IEntityTypeConfiguration<FileReference>
+    public sealed class FileReferenceConfiguration : IEntityTypeConfiguration<FileReference>
     {
         public void Configure(EntityTypeBuilder<FileReference> builder)
         {

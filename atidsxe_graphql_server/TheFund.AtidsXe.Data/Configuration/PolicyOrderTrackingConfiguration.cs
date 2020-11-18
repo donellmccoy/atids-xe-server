@@ -4,7 +4,7 @@ using TheFund.AtidsXe.Data.Entities;
 
 namespace TheFund.AtidsXe.Data.Configuration
 {
-    public class PolicyOrderTrackingConfiguration : IEntityTypeConfiguration<PolicyOrderTracking>
+    public sealed class PolicyOrderTrackingConfiguration : IEntityTypeConfiguration<PolicyOrderTracking>
     {
         public void Configure(EntityTypeBuilder<PolicyOrderTracking> entity)
         {
