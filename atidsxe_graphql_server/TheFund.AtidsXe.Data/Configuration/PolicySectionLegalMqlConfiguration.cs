@@ -14,10 +14,10 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .HasName("PK_POLICY_SECTION_LEGAL");
 
             entity.HasIndex(e => e.SectionBreakdownCodeId)
-                  .HasName("I_FK_POLICY_SECTION_LEGAL_MQL_SECTION_BREAKDOWN_CODE_ID");
+                  .HasDatabaseName("I_FK_POLICY_SECTION_LEGAL_MQL_SECTION_BREAKDOWN_CODE_ID");
 
             entity.HasIndex(e => e.UnplattedReferenceId)
-                  .HasName("I_FK_POLICY_SECTION_LEGAL_MQL_UNPLATTED_REFERENCE_ID");
+                  .HasDatabaseName("I_FK_POLICY_SECTION_LEGAL_MQL_UNPLATTED_REFERENCE_ID");
 
             entity.Property(e => e.PolicyId)
                   .HasColumnName("POLICY_ID");

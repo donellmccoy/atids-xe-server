@@ -14,7 +14,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .HasName("PK_TITLE_EVENT_LEGAL_ENTITY");
 
             entity.HasIndex(e => e.LegalEntityNameId)
-                  .HasName("I_FK_TITLE_EVENT_LEGAL_ENTITY_MQL_LEGAL_ENTITY_NAME_ID");
+                  .HasDatabaseName("I_FK_TITLE_EVENT_LEGAL_ENTITY_MQL_LEGAL_ENTITY_NAME_ID");
 
             entity.Property(e => e.TitleEventId)
                   .HasColumnName("TITLE_EVENT_ID");

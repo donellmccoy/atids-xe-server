@@ -13,7 +13,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.HasKey(p => p.FileReferenceNotesId);
 
             builder.HasIndex(e => e.FileReferenceId)
-                   .HasName("I_FK_FILE_REFERENCE");
+                   .HasDatabaseName("I_FK_FILE_REFERENCE");
 
             builder.Property(p => p.FileReferenceNotesId)
                    .HasColumnName("FILE_REFERENCE_NOTES_ID");

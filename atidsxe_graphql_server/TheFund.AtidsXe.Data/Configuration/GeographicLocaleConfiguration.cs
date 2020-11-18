@@ -13,13 +13,13 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.HasKey(p => p.GeographicLocaleId);
 
             builder.HasIndex(e => e.GeographicLocaleTypeId)
-                   .HasName("I_FK_GEOGRAPHIC_LOCALE_TYPE");
+                   .HasDatabaseName("I_FK_GEOGRAPHIC_LOCALE_TYPE");
 
             builder.HasIndex(e => e.ParentGeographicLocaleId)
-                   .HasName("I_FK_PARENT_GEO_LOCALE_ID");
+                   .HasDatabaseName("I_FK_PARENT_GEO_LOCALE_ID");
 
             builder.HasIndex(e => new { e.LocaleName, e.GeographicLocaleTypeId, e.ParentGeographicLocaleId })
-                   .HasName("UK_GEOGRAPHIC_LOCALE")
+                   .HasDatabaseName("UK_GEOGRAPHIC_LOCALE")
                    .IsUnique();
 
             builder.Property(e => e.GeographicLocaleId)

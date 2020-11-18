@@ -11,7 +11,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.ToTable("EXAMINATION_STATUS_TYPE");
 
             builder.HasIndex(e => e.Description)
-                   .HasName("EXAMINATION_STATUS_TYPE_UC1")
+                   .HasDatabaseName("EXAMINATION_STATUS_TYPE_UC1")
                    .IsUnique();
 
             builder.Property(e => e.ExaminationStatusTypeId)

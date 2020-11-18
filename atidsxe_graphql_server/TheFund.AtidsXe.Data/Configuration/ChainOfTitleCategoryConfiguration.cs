@@ -13,7 +13,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.HasKey(p => p.ChainOfTitleCategoryId);
 
             builder.HasIndex(e => e.ChainOfTitleCategoryId)
-                   .HasName("COT_CATEGORY_DESCRIPTION_UC1")
+                   .HasDatabaseName("COT_CATEGORY_DESCRIPTION_UC1")
                    .IsUnique();
 
             builder.Property(e => e.ChainOfTitleCategoryId)

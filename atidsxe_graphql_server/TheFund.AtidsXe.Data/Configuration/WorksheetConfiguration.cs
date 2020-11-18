@@ -14,7 +14,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                    .HasName("PK_WORKSHEET");
 
             builder.HasIndex(e => e.FileReferenceId)
-                   .HasName("WORKSHEET_UC1")
+                   .HasDatabaseName("WORKSHEET_UC1")
                    .IsUnique();
 
             builder.Property(p => p.WorksheetId)

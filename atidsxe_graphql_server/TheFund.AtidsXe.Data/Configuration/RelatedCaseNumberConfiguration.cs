@@ -13,7 +13,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.HasKey(e => new { e.OfficialRecordDocumentId, e.CaseNumberReferenceId });
 
             entity.HasIndex(e => e.CaseNumberReferenceId)
-                  .HasName("I_FK_RELATED_CASE_NUMBER_CASE_NUMBER_REFERENCE_ID");
+                  .HasDatabaseName("I_FK_RELATED_CASE_NUMBER_CASE_NUMBER_REFERENCE_ID");
 
             entity.Property(e => e.OfficialRecordDocumentId)
                   .HasColumnName("OFFICIAL_RECORD_DOCUMENT_ID");

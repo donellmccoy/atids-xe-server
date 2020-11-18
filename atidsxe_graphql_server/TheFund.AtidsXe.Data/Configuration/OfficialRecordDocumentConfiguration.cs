@@ -13,7 +13,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.HasKey(p => p.OfficialRecordDocumentId);
 
             entity.HasIndex(e => e.GeographicLocaleId)
-                  .HasName("I_FK_GEOGRAPHIC_LOCALE_ID");
+                  .HasDatabaseName("I_FK_GEOGRAPHIC_LOCALE_ID");
 
             entity.Property(e => e.OfficialRecordDocumentId)
                   .HasColumnName("OFFICIAL_RECORD_DOCUMENT_ID");

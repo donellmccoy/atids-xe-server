@@ -13,7 +13,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.HasKey(p => p.NameReasonCodeId);
 
             entity.HasIndex(e => e.NameReasonCodeId)
-                  .HasName("NAME_REASON_CODE_DESCRIPTION_UC1")
+                  .HasDatabaseName("NAME_REASON_CODE_DESCRIPTION_UC1")
                   .IsUnique();
 
             entity.Property(e => e.NameReasonCodeId)

@@ -11,7 +11,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.ToTable("FILE_STATUS");
 
             builder.HasIndex(e => e.Description)
-                   .HasName("FILE_STATUS_UC1")
+                   .HasDatabaseName("FILE_STATUS_UC1")
                    .IsUnique();
 
             builder.Property(e => e.FileStatusId)

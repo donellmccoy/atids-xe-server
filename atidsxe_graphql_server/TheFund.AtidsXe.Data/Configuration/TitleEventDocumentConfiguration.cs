@@ -13,10 +13,10 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.HasKey(e => new { e.TitleEventId, e.OfficialRecordDocumentId });
 
             builder.HasIndex(e => e.OfficialRecordDocumentId)
-                   .HasName("I_TITLE_EVENT_DOCUMENT_OFF_REC_DOC_ID");
+                   .HasDatabaseName("I_TITLE_EVENT_DOCUMENT_OFF_REC_DOC_ID");
 
             builder.HasIndex(e => e.TitleEventId)
-                   .HasName("UC_TITLE_EVENT_DOCUMENT")
+                   .HasDatabaseName("UC_TITLE_EVENT_DOCUMENT")
                    .IsUnique();
 
             builder.Property(e => e.TitleEventId)

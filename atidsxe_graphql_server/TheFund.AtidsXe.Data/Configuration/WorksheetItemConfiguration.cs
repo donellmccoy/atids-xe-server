@@ -13,7 +13,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.HasKey(e => new { e.TitleEventId, e.WorksheetId });
 
             builder.HasIndex(e => e.WorksheetId)
-                   .HasName("I_FK_WORKSHEET_ITEM_WORKSHEET_ID");
+                   .HasDatabaseName("I_FK_WORKSHEET_ITEM_WORKSHEET_ID");
 
             builder.Property(p => p.TitleEventId)
                    .HasColumnName("TITLE_EVENT_ID");

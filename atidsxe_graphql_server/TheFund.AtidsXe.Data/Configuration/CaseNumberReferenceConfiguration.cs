@@ -13,10 +13,10 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.HasKey(p => p.CaseNumberReferenceId);
 
             builder.HasIndex(e => e.GeographicLocaleId)
-                   .HasName("I_FK_GEOGRAPHIC_LOCALE");
+                   .HasDatabaseName("I_FK_GEOGRAPHIC_LOCALE");
 
             builder.HasIndex(e => new { e.Source, e.RecordingYear, e.RecordingNumber, e.Suffix, e.SeriesCode, e.GeographicLocaleId })
-                   .HasName("CASE_NUMBER_REFERENCE_UC1")
+                   .HasDatabaseName("CASE_NUMBER_REFERENCE_UC1")
                    .IsUnique();
 
             builder.Property(e => e.CaseNumberReferenceId)

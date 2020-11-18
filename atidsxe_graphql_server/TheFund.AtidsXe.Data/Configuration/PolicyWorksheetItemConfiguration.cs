@@ -13,7 +13,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.HasKey(e => new { e.PolicyId, e.WorksheetId });
 
             entity.HasIndex(e => e.WorksheetId)
-                  .HasName("IX_FKPOLICY_WORKSHEET_ITEM_WORKSHEET_ID");
+                  .HasDatabaseName("IX_FKPOLICY_WORKSHEET_ITEM_WORKSHEET_ID");
 
             entity.Property(e => e.PolicyId)
                   .HasColumnName("POLICY_ID");

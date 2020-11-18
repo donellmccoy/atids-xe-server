@@ -13,13 +13,13 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.HasKey(p => p.ChainOfTitleItemId);
 
             builder.HasIndex(e => e.ChainOfTitleCategoryId)
-                   .HasName("I_FK_CHAIN_OF_TITLE_ITEM_CHAIN_OF_TITLE_CATEGORY_ID");
+                   .HasDatabaseName("I_FK_CHAIN_OF_TITLE_ITEM_CHAIN_OF_TITLE_CATEGORY_ID");
 
             builder.HasIndex(e => e.ChainOfTitleId)
-                   .HasName("I_FK_CHAIN_OF_TITLE_ITEM_CHAIN_OF_TITLE_ID");
+                   .HasDatabaseName("I_FK_CHAIN_OF_TITLE_ITEM_CHAIN_OF_TITLE_ID");
 
             builder.HasIndex(e => e.TitleEventId)
-                   .HasName("I_FK_CHAIN_OF_TITLE_ITEM_TITLE_EVENT_ID");
+                   .HasDatabaseName("I_FK_CHAIN_OF_TITLE_ITEM_TITLE_EVENT_ID");
 
             builder.Property(p => p.ChainOfTitleItemId)
                    .HasColumnName("CHAIN_OF_TITLE_ITEM_ID");

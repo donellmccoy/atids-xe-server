@@ -13,7 +13,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.HasKey(p => p.LegalEntityNameTypeId);
 
             entity.HasIndex(e => e.Description)
-                  .HasName("IX_LEGAL_ENTITY_NAME_DESC");
+                  .HasDatabaseName("IX_LEGAL_ENTITY_NAME_DESC");
 
             entity.Property(e => e.LegalEntityNameTypeId)
                   .HasColumnName("LEGAL_ENTITY_NAME_TYPE_ID")

@@ -13,7 +13,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.HasKey(e => e.SectionBreakdownCodeId);
 
             entity.HasIndex(e => new { e.SectionQuarter, e.Section16th, e.Section64th, e.Section256th, e.SectionBreakdownCodeId })
-                  .HasName("IX_SECTION_BREAKDOWN");
+                  .HasDatabaseName("IX_SECTION_BREAKDOWN");
 
             entity.Property(e => e.SectionBreakdownCodeId)
                   .HasColumnName("SECTION_BREAKDOWN_CODE_ID");

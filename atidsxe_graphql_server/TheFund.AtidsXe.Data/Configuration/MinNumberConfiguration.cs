@@ -13,7 +13,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.HasKey(p => p.MinNumberId);
 
             entity.HasIndex(e => new { e.MinLender, e.MinSerial, e.MinCheckDigit })
-                  .HasName("MIN_NUMBER_UC1")
+                  .HasDatabaseName("MIN_NUMBER_UC1")
                   .IsUnique();
 
             entity.Property(e => e.MinNumberId)

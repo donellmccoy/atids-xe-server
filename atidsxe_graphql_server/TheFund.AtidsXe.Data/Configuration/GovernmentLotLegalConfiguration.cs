@@ -13,10 +13,10 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.HasKey(e => new { e.UnplattedReferenceId, e.GovernmentLotId });
 
             builder.HasIndex(e => e.GovernmentLotId)
-                   .HasName("I_FK_GOVERNMENT_LOT_LEGAL_GOVERNMENT_LOT_ID");
+                   .HasDatabaseName("I_FK_GOVERNMENT_LOT_LEGAL_GOVERNMENT_LOT_ID");
 
             builder.HasIndex(e => e.UnplattedReferenceId)
-                   .HasName("I_FK_ACREAGE_SECTION_LEGAL_UNPLATTED_REFERENCE_ID");
+                   .HasDatabaseName("I_FK_ACREAGE_SECTION_LEGAL_UNPLATTED_REFERENCE_ID");
 
             builder.Property(e => e.UnplattedReferenceId)
                    .HasColumnName("UNPLATTED_REFERENCE_ID");

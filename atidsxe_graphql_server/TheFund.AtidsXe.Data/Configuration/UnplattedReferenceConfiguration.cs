@@ -13,16 +13,16 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.HasKey(e => e.UnplattedReferenceId);
 
             entity.HasIndex(e => e.BreakdownCodeTypeId)
-                  .HasName("I_FK_BRKDWN_CODE_TYPE");
+                  .HasDatabaseName("I_FK_BRKDWN_CODE_TYPE");
 
             entity.HasIndex(e => e.RangeDirectionTypeId)
-                  .HasName("I_FK_RANGE_DIRECTION_TYPE");
+                  .HasDatabaseName("I_FK_RANGE_DIRECTION_TYPE");
 
             entity.HasIndex(e => e.TownshipDirectionTypeId)
-                  .HasName("I_FK_TOWNSHIP_DIRECTION");
+                  .HasDatabaseName("I_FK_TOWNSHIP_DIRECTION");
 
             entity.HasIndex(e => new { e.Meridian, e.Range, e.RangeDirectionTypeId, e.Township, e.TownshipDirectionTypeId, e.Section, e.UnplattedReferenceId })
-                  .HasName("IX_UNPLATTED_REFERENCE_SMQ1");
+                  .HasDatabaseName("IX_UNPLATTED_REFERENCE_SMQ1");
 
             entity.Property(e => e.UnplattedReferenceId)
                   .HasColumnName("UNPLATTED_REFERENCE_ID");

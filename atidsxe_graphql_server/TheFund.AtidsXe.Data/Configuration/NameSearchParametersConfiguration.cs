@@ -13,10 +13,10 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.HasKey(p => p.SearchId);
 
             builder.HasIndex(e => e.LegalEntityNameId)
-                   .HasName("I_FK_LEGAL_ENTITY");
+                   .HasDatabaseName("I_FK_LEGAL_ENTITY");
 
             builder.HasIndex(e => e.OwnerBuyerRelationshipId)
-                   .HasName("I_FK_NAME_SEARCH_PARAMETERS_OWNER_BUYER_RELATIONSHIP_ID");
+                   .HasDatabaseName("I_FK_NAME_SEARCH_PARAMETERS_OWNER_BUYER_RELATIONSHIP_ID");
 
             builder.Property(e => e.SearchId)
                    .HasColumnName("SEARCH_ID")

@@ -13,7 +13,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.HasKey(e => new { e.TitleEventId, e.TitleEventOrderId, e.DeliveryOrderInfoId });
 
             entity.HasIndex(e => e.TitleEventOrderId)
-                  .HasName("IX_FKTITLE_EVENT_ORDER_TRACKING_TITLE_EVENT_ORDER_ID");
+                  .HasDatabaseName("IX_FKTITLE_EVENT_ORDER_TRACKING_TITLE_EVENT_ORDER_ID");
 
             entity.Property(e => e.TitleEventId)
                   .HasColumnName("TITLE_EVENT_ID");

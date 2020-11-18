@@ -16,7 +16,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.HasIndex(e => e.TitleEventId);
 
             entity.HasIndex(e => e.UnplattedReferenceId)
-                  .HasName("I_FK_TITLE_EVENT_SECTION_LEGAL_MQL_UNPLATTED_REFERENCE_ID");
+                  .HasDatabaseName("I_FK_TITLE_EVENT_SECTION_LEGAL_MQL_UNPLATTED_REFERENCE_ID");
 
             entity.Property(e => e.SectionBreakdownCodeId)
                   .HasColumnName("SECTION_BREAKDOWN_CODE_ID");

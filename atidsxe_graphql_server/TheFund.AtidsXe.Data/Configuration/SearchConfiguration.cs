@@ -11,28 +11,28 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.ToTable("SEARCH");
 
             builder.HasIndex(e => e.FileReferenceId)
-                   .HasName("I_FILE_REFERENCE_ID");
+                   .HasDatabaseName("I_FILE_REFERENCE_ID");
 
             builder.HasIndex(e => e.GeographicLocaleId)
-                   .HasName("I_FK_GEO_LOCALE");
+                   .HasDatabaseName("I_FK_GEO_LOCALE");
 
             builder.HasIndex(e => e.GiCertRangeId)
-                   .HasName("I_FK_SEARCH_GI_CERT_RANGE_ID");
+                   .HasDatabaseName("I_FK_SEARCH_GI_CERT_RANGE_ID");
 
             builder.HasIndex(e => e.GrantorCertRangeId)
-                   .HasName("I_FK_GRANTOR_CERT_RANGE");
+                   .HasDatabaseName("I_FK_GRANTOR_CERT_RANGE");
 
             builder.HasIndex(e => e.ParentSearchId)
-                   .HasName("IX_SEARCH_PARENTID");
+                   .HasDatabaseName("IX_SEARCH_PARENTID");
 
             builder.HasIndex(e => e.SearchStatusId)
-                   .HasName("I_FK_SEARCH_STATUS_ID");
+                   .HasDatabaseName("I_FK_SEARCH_STATUS_ID");
 
             builder.HasIndex(e => e.SearchTypeId)
-                   .HasName("I_FK_SEARCH_TYPE");
+                   .HasDatabaseName("I_FK_SEARCH_TYPE");
 
             builder.HasIndex(e => new { e.GeographicCertRangeId, e.GiCertRangeId })
-                   .HasName("I_FK_GI_CERT_RANGE_ID");
+                   .HasDatabaseName("I_FK_GI_CERT_RANGE_ID");
 
             builder.Property(e => e.SearchId)
                    .HasColumnName("SEARCH_ID");

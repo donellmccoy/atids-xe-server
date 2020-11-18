@@ -13,7 +13,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.HasKey(e => new { e.PolicyId, e.GeographicLocaleId });
 
             builder.HasIndex(e => e.GeographicLocaleId)
-                   .HasName("IX_FKPOLICY_INSURED_DOCUMENT_GEOGRAPHIC_LOCALE_ID");
+                   .HasDatabaseName("IX_FKPOLICY_INSURED_DOCUMENT_GEOGRAPHIC_LOCALE_ID");
 
             builder.Property(e => e.PolicyId)
                    .HasColumnName("POLICY_ID");

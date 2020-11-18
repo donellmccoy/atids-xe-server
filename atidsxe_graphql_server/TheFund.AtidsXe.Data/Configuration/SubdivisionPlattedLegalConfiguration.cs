@@ -13,13 +13,13 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.HasKey(e => new { e.SearchId, e.PlatReferenceId, e.SubdivisionLevelId });
 
             entity.HasIndex(e => e.PlatReferenceId)
-                  .HasName("IX_SBDV_PLT_LGL_PLT_REF_ID");
+                  .HasDatabaseName("IX_SBDV_PLT_LGL_PLT_REF_ID");
 
             entity.HasIndex(e => e.SearchId)
-                  .HasName("IX_SBDV_PLT_LGL_SBDV_SRCH_ID");
+                  .HasDatabaseName("IX_SBDV_PLT_LGL_SBDV_SRCH_ID");
 
             entity.HasIndex(e => e.SubdivisionLevelId)
-                  .HasName("IX_SBDV_PLT_LGL_SBDV_LVL_ID");
+                  .HasDatabaseName("IX_SBDV_PLT_LGL_SBDV_LVL_ID");
 
             entity.Property(e => e.SearchId)
                   .HasColumnName("SEARCH_ID");

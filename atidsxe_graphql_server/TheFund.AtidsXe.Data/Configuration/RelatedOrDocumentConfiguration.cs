@@ -13,7 +13,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.HasKey(e => new { e.SearchedOrDocumentId, e.RelatedOrDocumentId });
 
             entity.HasIndex(e => e.RelatedOrDocumentId)
-                  .HasName("I_FK_RELATED_OR_DOCUMENT_RELATED_OR_DOCUMENT_ID");
+                  .HasDatabaseName("I_FK_RELATED_OR_DOCUMENT_RELATED_OR_DOCUMENT_ID");
 
             entity.Property(e => e.SearchedOrDocumentId)
                   .HasColumnName("SEARCHED_OR_DOCUMENT_ID");

@@ -13,11 +13,11 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.HasKey(e => e.TitleSearchOriginationId);
 
             builder.HasIndex(e => e.FileReferenceId)
-                   .HasName("UX_TITLE_SEARCH_ORIGINATION")
+                   .HasDatabaseName("UX_TITLE_SEARCH_ORIGINATION")
                    .IsUnique();
 
             builder.HasIndex(e => e.TitleEventId)
-                   .HasName("FK_TITLE_SEARCH_ORIGINATION_TITLE_EVENT_ID");
+                   .HasDatabaseName("FK_TITLE_SEARCH_ORIGINATION_TITLE_EVENT_ID");
 
             builder.Property(p => p.TitleSearchOriginationId)
                    .HasColumnName("TITLE_SEARCH_ORIGINATION_ID");
