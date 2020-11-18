@@ -1,11 +1,10 @@
 ﻿using Ensure;
-using JetBrains.Annotations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Syncfusion.Blazor;
 using TheFund.AtidsXe.Blazor.Server.Data;
+using TheFund.AtidsXe.Blazor.Server.DataAdaptors;
 using TheFund.AtidsXe.Blazor.Server.Options;
-using TheFund.AtidsXe.Blazor.Server.Pages;
 using TheFund.AtidsXe.Blazor.Server.Services;
 using TheFund.AtidsXe.Blazor.Server.Utility;
 
@@ -13,7 +12,7 @@ namespace TheFund.AtidsXe.Blazor.Server.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection ConfigureBlazor([NotNull] this IServiceCollection services)
+        public static IServiceCollection ConfigureBlazor(this IServiceCollection services)
         {
             services.EnsureNotNull();
 
@@ -24,8 +23,7 @@ namespace TheFund.AtidsXe.Blazor.Server.Extensions
             return services;
         }
 
-
-        public static IServiceCollection ConfigureCaching([NotNull] this IServiceCollection services)
+        public static IServiceCollection ConfigureCaching(this IServiceCollection services)
         {
             services.EnsureNotNull();
 
@@ -35,16 +33,15 @@ namespace TheFund.AtidsXe.Blazor.Server.Extensions
             return services;
         }
 
-        public static IServiceCollection ConfigureGraphQL([NotNull] this IServiceCollection services, [NotNull] IConfiguration configuration)
+        public static IServiceCollection ConfigureGraphQL(this IServiceCollection services, IConfiguration configuration)
         {
             services.EnsureNotNull();
             configuration.EnsureNotNull();
 
-
             return services;
         }
 
-        public static IServiceCollection ConfigureServices([NotNull] this IServiceCollection services)
+        public static IServiceCollection ConfigureServices(this IServiceCollection services)
         {
             services.EnsureNotNull();
 
@@ -57,7 +54,7 @@ namespace TheFund.AtidsXe.Blazor.Server.Extensions
             return services;
         }
 
-        public static IServiceCollection ConfigureOptions([NotNull] this IServiceCollection services, [NotNull] IConfiguration configuration)
+        public static IServiceCollection ConfigureOptions(this IServiceCollection services, IConfiguration configuration)
         {
             services.EnsureNotNull();
             configuration.EnsureNotNull();

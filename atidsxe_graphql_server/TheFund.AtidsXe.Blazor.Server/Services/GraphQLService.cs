@@ -17,21 +17,18 @@ namespace TheFund.AtidsXe.Blazor.Server.Services
         public GraphQLService(IOptions<GraphQLServiceOptions> options)
         {
             options.EnsureNotNull();
-
             _client = GraphQLClientFactory.Create(options.Value);
         }
 
         public async Task<GraphQLResponse<TResponse>> SendQueryAsync<TResponse>(IRequest request, CancellationToken token = default)
         {
             request.EnsureNotNull();
-
             return await _client.SendQueryAsync<TResponse>(GraphQLRequestFactory.Create(request.Query, request.OperationName, request.Variables), token).ConfigureAwait(true);
         }
 
         public async Task<GraphQLResponse<TResponse>> SendMutationAsync<TResponse>(IRequest request, CancellationToken token = default)
         {
             request.EnsureNotNull();
-
             return await _client.SendMutationAsync<TResponse>(GraphQLRequestFactory.Create(request.Query, request.OperationName, request.Variables), token).ConfigureAwait(true);
         }
     }

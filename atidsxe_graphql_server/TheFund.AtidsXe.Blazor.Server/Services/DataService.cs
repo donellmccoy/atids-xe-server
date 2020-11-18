@@ -1,4 +1,5 @@
-﻿using Optional;
+﻿using JetBrains.Annotations;
+using Optional;
 using System;
 using System.Linq;
 using System.Threading;
@@ -20,7 +21,7 @@ namespace TheFund.AtidsXe.Blazor.Server.Services
 
         #region Constructors
 
-        public DataService(IGraphQLService graphQLService, ITaskCache cache)
+        public DataService([NotNull] IGraphQLService graphQLService, ITaskCache cache)
         {
             _graphQLService = graphQLService ?? throw new ArgumentNullException(nameof(graphQLService));
             _cache = cache ?? throw new ArgumentNullException(nameof(cache));
@@ -28,18 +29,44 @@ namespace TheFund.AtidsXe.Blazor.Server.Services
 
         #endregion
 
+        #region General
+
+        public async Task<Option<IResponse>> GetResponseAsync([NotNull] IRequest request, CancellationToken token = default)
+        {
+            if (request is null)
+            {
+                return Option.None<IResponse>();
+            }
+
+            var response = await _cache.GetOrCreateAsync(request.CacheKey, () =>
+            {
+                return _graphQLService.SendQueryAsync<IResponse>(request, token);
+            });
+
+            if (response.Errors?.Any() == true)
+            {
+                return Option.None<IResponse>();
+            }
+
+            return response.Data.SomeNotNull();
+        }
+
+        #endregion
+
         #region Search
 
-        public async Task<Option<SearchResponse>> GetSearchAsync(SearchRequest request, CancellationToken token = default)
+        public async Task<Option<SearchResponse>> GetSearchAsync([NotNull] SearchRequest request, CancellationToken token = default)
         {
             if (request is null)
             {
                 return Option.None<SearchResponse>();
             }
 
-            var response = await _cache.GetOrCreateAsync(request.CacheKey, () => _graphQLService.SendQueryAsync<SearchResponse>(request, token));
+            var response = await _cache.GetOrCreateAsync(request.CacheKey, () =>
+            {
+                return _graphQLService.SendQueryAsync<SearchResponse>(request, token);
+            });
 
-            //TODO: need to forward these errors somehow
             if(response.Errors?.Any() == true)
             {
                 return Option.None<SearchResponse>();
@@ -52,16 +79,19 @@ namespace TheFund.AtidsXe.Blazor.Server.Services
 
         #region FileReference
 
-        public async Task<Option<FileReferencesResponse>> GetFileReferenceAsync(FileReferencesRequest request, CancellationToken token = default)
+        public async Task<Option<FileReferencesResponse>> GetFileReferenceAsync([NotNull] FileReferencesRequest request, CancellationToken token = default)
         {
             if (request is null)
             {
                 return Option.None<FileReferencesResponse>();
             }
 
-            var response = await _cache.GetOrCreateAsync(request.CacheKey, () => _graphQLService.SendQueryAsync<FileReferencesResponse>(request, token));
+            var response = await _cache.GetOrCreateAsync(request.CacheKey, () =>
+            {
+                return _graphQLService.SendQueryAsync<FileReferencesResponse>(request, token);
+            });
 
-            if (response.Errors.Any())
+            if (response.Errors?.Any() == true)
             {
                 return Option.None<FileReferencesResponse>();
             }
@@ -73,14 +103,22 @@ namespace TheFund.AtidsXe.Blazor.Server.Services
 
         #region ChainOfTitle
 
-        public async Task<Option<ChainOfTitleResponse>> GetChainOfTitleAsync(ChainOfTitleRequest request, CancellationToken token = default)
+        public async Task<Option<ChainOfTitleResponse>> GetChainOfTitleAsync([NotNull] ChainOfTitleRequest request, CancellationToken token = default)
         {
             if (request is null)
             {
                 return Option.None<ChainOfTitleResponse>();
             }
 
-            var response = await _cache.GetOrCreateAsync(request.CacheKey, () => _graphQLService.SendQueryAsync<ChainOfTitleResponse>(request, token));
+            var response = await _cache.GetOrCreateAsync(request.CacheKey, () =>
+            {
+                return _graphQLService.SendQueryAsync<ChainOfTitleResponse>(request, token);
+            });
+
+            if (response.Errors?.Any() == true)
+            {
+                return Option.None<ChainOfTitleResponse>();
+            }
 
             return response.Data.SomeNotNull();
         }
@@ -89,14 +127,22 @@ namespace TheFund.AtidsXe.Blazor.Server.Services
 
         #region Worksheet
 
-        public async Task<Option<WorksheetResponse>> GetWorksheetAsync(WorksheetRequest request, CancellationToken token = default)
+        public async Task<Option<WorksheetResponse>> GetWorksheetAsync([NotNull] WorksheetRequest request, CancellationToken token = default)
         {
             if (request is null)
             {
                 return Option.None<WorksheetResponse>();
             }
 
-            var response = await _cache.GetOrCreateAsync(request.CacheKey, () => _graphQLService.SendQueryAsync<WorksheetResponse>(request, token));
+            var response = await _cache.GetOrCreateAsync(request.CacheKey, () =>
+            {
+                return _graphQLService.SendQueryAsync<WorksheetResponse>(request, token);
+            });
+
+            if (response.Errors?.Any() == true)
+            {
+                return Option.None<WorksheetResponse>();
+            }
 
             return response.Data.SomeNotNull();
         }
@@ -105,11 +151,31 @@ namespace TheFund.AtidsXe.Blazor.Server.Services
 
         #region Policy
 
+        public async Task<Option<WorksheetResponse>> GetPolicyAsync([NotNull] WorksheetRequest request, CancellationToken token = default)
+        {
+            if (request is null)
+            {
+                return Option.None<WorksheetResponse>();
+            }
+
+            var response = await _cache.GetOrCreateAsync(request.CacheKey, () =>
+            {
+                return _graphQLService.SendQueryAsync<WorksheetResponse>(request, token);
+            });
+
+            if (response.Errors?.Any() == true)
+            {
+                return Option.None<WorksheetResponse>();
+            }
+
+            return response.Data.SomeNotNull();
+        }
+
         #endregion
 
         #region Helpers
 
-        public object InvalidateCachedItem(object key)
+        public object InvalidateCachedItem([NotNull] object key)
         {
             if (key is null)
             {

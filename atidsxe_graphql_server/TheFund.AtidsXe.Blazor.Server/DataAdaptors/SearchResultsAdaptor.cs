@@ -43,5 +43,4 @@ namespace TheFund.AtidsXe.Blazor.Server.DataAdaptors
                 });
         }
     }
-
 }
