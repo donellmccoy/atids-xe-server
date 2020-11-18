@@ -13,10 +13,10 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.HasKey(e => e.TaxFolioReferenceId);
 
             entity.HasIndex(e => e.GeographicLocaleId)
-                  .HasName("I_FK_GEOGRAPHIC_LOCALE");
+                  .HasDatabaseName("I_FK_GEOGRAPHIC_LOCALE");
 
             entity.HasIndex(e => new { e.FolioNumber, e.GeographicLocaleId })
-                  .HasName("TAX_FOLIO_REFERENCE_UC1")
+                  .HasDatabaseName("TAX_FOLIO_REFERENCE_UC1")
                   .IsUnique();
 
             entity.Property(e => e.TaxFolioReferenceId)

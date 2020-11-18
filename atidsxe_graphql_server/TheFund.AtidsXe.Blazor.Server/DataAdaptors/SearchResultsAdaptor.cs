@@ -12,7 +12,6 @@ namespace TheFund.AtidsXe.Blazor.Server.DataAdaptors
     public class SearchResultsAdaptor : DataAdaptor
     {
         private readonly IDataService _dataService;
-        private string _endCursor = null;
 
         public SearchResultsAdaptor(IDataService dataService)
         {
@@ -21,14 +20,13 @@ namespace TheFund.AtidsXe.Blazor.Server.DataAdaptors
 
         public override async Task<object> ReadAsync(DataManagerRequest request, string key = null)
         {
-            var result = await _dataService.GetSearchAsync(SearchRequest.Create(fileReferenceId: 24196, searchId: 40101, request.Take, _endCursor));
+            var result = await _dataService.GetSearchAsync(SearchRequest.Create(fileReferenceId: 24196, searchId: 40101, request.Skip, request.Take));
 
             return result.Match
             (
                 p =>
                 {
                     var connection = p.Search.TitleEventSearchConnection;
-                    _endCursor = connection.PageInfo.EndCursor;
                     var titleEvents = connection.Nodes.Select(p => p.TitleEvent).ToList();
 
                     return request.RequiresCounts ? new DataResult

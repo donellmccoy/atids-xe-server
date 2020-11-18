@@ -14,7 +14,7 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .HasName("PK_TITLE_EVENT_PLATTED_LEGAL");
 
             entity.HasIndex(e => e.PlatReferenceId)
-                  .HasName("I_FK_TITLE_EVENT_PLATTED_LEGAL_MQL_PLAT_REFERENCE_ID");
+                  .HasDatabaseName("I_FK_TITLE_EVENT_PLATTED_LEGAL_MQL_PLAT_REFERENCE_ID");
 
             entity.HasIndex(e => e.TitleEventId);
 

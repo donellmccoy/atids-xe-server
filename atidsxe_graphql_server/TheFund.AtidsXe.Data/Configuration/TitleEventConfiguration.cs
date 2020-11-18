@@ -13,16 +13,16 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.HasKey(e => e.TitleEventId);
 
             entity.HasIndex(e => e.CurrentExamStatusTypeId)
-                  .HasName("I_CURRENT_EXAM_STATUS_TYPE");
+                  .HasDatabaseName("I_CURRENT_EXAM_STATUS_TYPE");
 
             entity.HasIndex(e => e.OriginalExamStatusTypeId)
-                  .HasName("I_ORIGINAL_EXAM_STATUS");
+                  .HasDatabaseName("I_ORIGINAL_EXAM_STATUS");
 
             entity.HasIndex(e => e.TitleEventStatusAssignorId)
-                  .HasName("I_TITLE_EVT_STAT_ASSIGNOR");
+                  .HasDatabaseName("I_TITLE_EVT_STAT_ASSIGNOR");
 
             entity.HasIndex(e => e.TitleEventTypeId)
-                  .HasName("I_EVENT_TYPE");
+                  .HasDatabaseName("I_EVENT_TYPE");
 
             entity.Property(e => e.TitleEventId)
                   .HasColumnName("TITLE_EVENT_ID");

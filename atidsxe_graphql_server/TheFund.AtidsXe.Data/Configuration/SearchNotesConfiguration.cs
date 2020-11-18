@@ -13,7 +13,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.HasKey(p => p.SearchNotesId);
 
             builder.HasIndex(e => e.SearchId)
-                   .HasName("I_FK_SEARCH");
+                   .HasDatabaseName("I_FK_SEARCH");
 
             builder.Property(p => p.SearchNotesId)
                    .HasColumnName("SEARCH_NOTES_ID");

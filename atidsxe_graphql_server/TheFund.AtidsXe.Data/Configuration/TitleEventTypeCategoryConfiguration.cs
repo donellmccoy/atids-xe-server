@@ -13,7 +13,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.HasKey(e => e.TitleEventCategoryId);
 
             entity.HasIndex(e => e.Description)
-                  .HasName("TITLE_EVENT_TYPE_CATEGORY_UC1")
+                  .HasDatabaseName("TITLE_EVENT_TYPE_CATEGORY_UC1")
                   .IsUnique();
 
             entity.Property(e => e.TitleEventCategoryId)

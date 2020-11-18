@@ -13,7 +13,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.HasKey(p => p.NameSearchStatusCodeId);
 
             entity.HasIndex(e => e.Description)
-                  .HasName("NAME_SEARCH_STATUS_CODE_DESCRIPTION_UC1")
+                  .HasDatabaseName("NAME_SEARCH_STATUS_CODE_DESCRIPTION_UC1")
                   .IsUnique();
 
             entity.Property(e => e.NameSearchStatusCodeId)

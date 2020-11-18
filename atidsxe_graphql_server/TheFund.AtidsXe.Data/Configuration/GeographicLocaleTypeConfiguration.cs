@@ -13,7 +13,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.HasKey(p => p.GeographicLocaleTypeId);
 
             builder.HasIndex(e => e.TypeName)
-                   .HasName("GEOGRAPHIC_LOCALE_TYPE_UC1")
+                   .HasDatabaseName("GEOGRAPHIC_LOCALE_TYPE_UC1")
                    .IsUnique();
 
             builder.Property(e => e.GeographicLocaleTypeId)

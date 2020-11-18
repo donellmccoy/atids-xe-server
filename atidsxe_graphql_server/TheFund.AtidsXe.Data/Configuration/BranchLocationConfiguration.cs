@@ -13,7 +13,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.HasKey(p => p.BranchLocationId);
 
             builder.HasIndex(e => e.AccountNumber)
-                   .HasName("IX_BRANCH_LOCATION_ACCOUNT")
+                   .HasDatabaseName("IX_BRANCH_LOCATION_ACCOUNT")
                    .IsUnique();
 
             builder.Property(e => e.BranchLocationId)

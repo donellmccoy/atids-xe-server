@@ -13,7 +13,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.HasKey(p => p.GovernmentLotId);
 
             builder.HasIndex(e => e.GovernmentLotNumber)
-                   .HasName("GOVERNMENT_LOT_UC1")
+                   .HasDatabaseName("GOVERNMENT_LOT_UC1")
                    .IsUnique();
 
             builder.Property(e => e.GovernmentLotId)

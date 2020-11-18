@@ -13,7 +13,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.HasKey(e => new { e.PlatReferenceId, e.SubdivisionLevelId });
 
             builder.HasIndex(e => e.SubdivisionLevelId)
-                   .HasName("I_FK_PLATTED_LEGAL_SUBDIVISION_LEVEL_ID");
+                   .HasDatabaseName("I_FK_PLATTED_LEGAL_SUBDIVISION_LEVEL_ID");
 
             builder.Property(e => e.PlatReferenceId)
                    .HasColumnName("PLAT_REFERENCE_ID");

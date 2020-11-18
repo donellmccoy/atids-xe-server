@@ -13,7 +13,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.HasKey(e => e.OfficialRecordDocumentId);
 
             entity.HasIndex(e => e.TypeOfInstrumentId)
-                  .HasName("I_FK_TYPE_OF_INSTRUMENT");
+                  .HasDatabaseName("I_FK_TYPE_OF_INSTRUMENT");
 
             entity.Property(e => e.OfficialRecordDocumentId)
                   .HasColumnName("OFFICIAL_RECORD_DOCUMENT_ID")

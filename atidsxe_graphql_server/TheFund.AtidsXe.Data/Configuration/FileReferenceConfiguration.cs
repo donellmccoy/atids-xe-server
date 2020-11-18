@@ -11,19 +11,19 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.ToTable("FILE_REFERENCE");
 
             builder.HasIndex(e => e.BranchLocationId)
-                   .HasName("I_FK_BRANCH_LOCATION")
+                   .HasDatabaseName("I_FK_BRANCH_LOCATION")
                    .IsCreatedOnline();
 
             builder.HasIndex(e => e.DefaultGeographicLocaleId)
-                   .HasName("I_FK_FILE_REFERENCE_DEFAULT_GEOGRAPHIC_LOCALE_ID")
+                   .HasDatabaseName("I_FK_FILE_REFERENCE_DEFAULT_GEOGRAPHIC_LOCALE_ID")
                    .IsCreatedOnline();
 
             builder.HasIndex(e => e.FileStatusId)
-                   .HasName("I_FK_STATUS")
+                   .HasDatabaseName("I_FK_STATUS")
                    .IsCreatedOnline();
 
             builder.HasIndex(e => new { e.Name, e.BranchLocationId })
-                   .HasName("I_FILE_REFERENCE")
+                   .HasDatabaseName("I_FILE_REFERENCE")
                    .IsUnique()
                    .IsCreatedOnline();
 

@@ -13,13 +13,13 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.HasKey(p => p.NameSearchListItemId);
 
             entity.HasIndex(e => e.NameSearchStatusCodeId)
-                  .HasName("I_FK_NAME_SEARCH_LIST_ITEM_NAME_SEARCH_STATUS_CODE_ID");
+                  .HasDatabaseName("I_FK_NAME_SEARCH_LIST_ITEM_NAME_SEARCH_STATUS_CODE_ID");
 
             entity.HasIndex(e => e.ReferenceTitleEventId)
-                  .HasName("IX_TITLE_EVNTNM_SRCH_LSTITM_REFTITLE");
+                  .HasDatabaseName("IX_TITLE_EVNTNM_SRCH_LSTITM_REFTITLE");
 
             entity.HasIndex(e => new { e.LegalEntityNameId, e.ChainOfTitleId, e.ReferenceTitleEventId })
-                  .HasName("I_NAME_SEARCH_LIST_ITEM_ID_LOOKUP");
+                  .HasDatabaseName("I_NAME_SEARCH_LIST_ITEM_ID_LOOKUP");
 
             entity.Property(e => e.NameSearchListItemId)
                   .HasColumnName("NAME_SEARCH_LIST_ITEM_ID");

@@ -13,7 +13,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.HasKey(p => p.ChainOfTitleId);
 
             builder.HasIndex(e => e.FileReferenceId)
-                   .HasName("I_FK_CHAIN_OF_TITLE_FILE_REFERENCE_ID");
+                   .HasDatabaseName("I_FK_CHAIN_OF_TITLE_FILE_REFERENCE_ID");
 
             builder.Property(p => p.ChainOfTitleId)
                    .HasColumnName("CHAIN_OF_TITLE_ID");

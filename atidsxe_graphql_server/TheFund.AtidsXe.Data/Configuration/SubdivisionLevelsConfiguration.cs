@@ -13,7 +13,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.HasKey(e => e.SubdivisionLevelId);
 
             entity.HasIndex(e => new { e.Level1, e.Level2, e.Level3 })
-                  .HasName("SUBDIVISION_LEVELS_UC1")
+                  .HasDatabaseName("SUBDIVISION_LEVELS_UC1")
                   .IsUnique();
 
             entity.Property(e => e.SubdivisionLevelId)

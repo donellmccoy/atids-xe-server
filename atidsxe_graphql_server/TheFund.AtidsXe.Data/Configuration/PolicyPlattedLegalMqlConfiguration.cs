@@ -14,10 +14,10 @@ namespace TheFund.AtidsXe.Data.Configuration
                   .HasName("PK_POLICY_PLATTED_LEGAL");
 
             entity.HasIndex(e => e.PlatReferenceId)
-                  .HasName("I_FK_POLICY_PLATTED_LEGAL_MQL_PLAT_REFERENCE_ID");
+                  .HasDatabaseName("I_FK_POLICY_PLATTED_LEGAL_MQL_PLAT_REFERENCE_ID");
 
             entity.HasIndex(e => e.SubdivisionLevelId)
-                  .HasName("I_FK_POLICY_PLATTED_LEGAL_MQL_SUBDIVISION_LEVEL_ID");
+                  .HasDatabaseName("I_FK_POLICY_PLATTED_LEGAL_MQL_SUBDIVISION_LEVEL_ID");
 
             entity.Property(e => e.PolicyId)
                   .HasColumnName("POLICY_ID");

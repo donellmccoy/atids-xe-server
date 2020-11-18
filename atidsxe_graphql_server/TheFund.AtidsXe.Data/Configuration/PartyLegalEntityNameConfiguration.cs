@@ -13,7 +13,7 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.HasKey(e => new { e.PartyId, e.LegalEntityNameId });
 
             builder.HasIndex(e => e.LegalEntityNameId)
-                   .HasName("I_FK_PARTY_LEGAL_ENTITY_NAME_LEGAL_ENTITY_NAME_ID");
+                   .HasDatabaseName("I_FK_PARTY_LEGAL_ENTITY_NAME_LEGAL_ENTITY_NAME_ID");
 
             builder.Property(e => e.PartyId)
                    .HasColumnName("PARTY_ID");

@@ -13,10 +13,10 @@ namespace TheFund.AtidsXe.Data.Configuration
             builder.HasKey(p => p.CertificationRangeId);
 
             builder.HasIndex(e => e.ToOrDocumentId)
-                   .HasName("I_FK_CERTIFICATION_RANGE_TO_OR_DOCUMENT_ID");
+                   .HasDatabaseName("I_FK_CERTIFICATION_RANGE_TO_OR_DOCUMENT_ID");
 
             builder.HasIndex(e => new { e.FromOrDocumentId, e.ToOrDocumentId })
-                   .HasName("I_FK_DOCUMENT");
+                   .HasDatabaseName("I_FK_DOCUMENT");
 
             builder.Property(e => e.CertificationRangeId)
                    .HasColumnName("CERTIFICATION_RANGE_ID");

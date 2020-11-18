@@ -11,10 +11,10 @@ namespace TheFund.AtidsXe.Data.Configuration
             entity.ToTable("SEARCH_WARNING");
 
             entity.HasIndex(e => e.SearchId)
-                  .HasName("I_FK_SEARCH");
+                  .HasDatabaseName("I_FK_SEARCH");
 
             entity.HasIndex(e => e.SearchWarningTypeId)
-                  .HasName("I_FK_SEARCH_WARNING_TYPE");
+                  .HasDatabaseName("I_FK_SEARCH_WARNING_TYPE");
 
             entity.Property(e => e.SearchWarningId)
                   .HasColumnName("SEARCH_WARNING_ID");
